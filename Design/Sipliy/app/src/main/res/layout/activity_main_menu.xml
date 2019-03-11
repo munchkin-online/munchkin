@@ -59,12 +59,12 @@
         app:layout_constraintTop_toBottomOf="@+id/search" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="168dp"
-        android:layout_height="270dp"
+        android:id="@+id/imageView"
+        android:layout_width="228dp"
+        android:layout_height="308dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_baba" />
+        app:srcCompat="@drawable/munchkin2" />
 
     <ImageView
         android:id="@+id/imageView10"

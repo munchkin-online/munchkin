@@ -2,6 +2,7 @@ package com.example.sipliy;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -63,7 +64,7 @@ public class MainMenuActivity extends AppCompatActivity {
                         finish();
                         break;
                     case R.id.button_settings:
-                        search.setText("settings");
+                        startActivity(new Intent(MainMenuActivity.this, Settings.class));
                         break;
                     case R.id.imageView_search_plus:
                         if (true)

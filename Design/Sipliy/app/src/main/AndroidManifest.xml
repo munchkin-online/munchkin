@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainMenuActivity"
+        <activity
+            android:name=".MainMenuActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Settings"
+            android:screenOrientation="sensorLandscape"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
