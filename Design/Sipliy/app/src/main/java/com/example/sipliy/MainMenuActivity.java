@@ -27,7 +27,8 @@ public class MainMenuActivity extends AppCompatActivity {
     private Button exit;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         try
         {
@@ -47,8 +48,46 @@ public class MainMenuActivity extends AppCompatActivity {
         settings = findViewById(R.id.button_settings);
         exit = findViewById(R.id.button_exit);
 
+        View.OnClickListener clickListener = new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                switch(v.getId())
+                {
+                    case R.id.button_play:
+                        search.setText("play");
+                        break;
+                    case R.id.button_exit:
+                        search.setText("exit");
+                        finish();
+                        break;
+                    case R.id.button_settings:
+                        search.setText("settings");
+                        break;
+                    case R.id.imageView_search_plus:
+                        if (true)
+                        {
+                            playersAdapter.addItem(String.valueOf(search.getText()));
+                            search.setText("");
+                        }
+                        else
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.BOTTOM, 0, 0);
+                            toast.show();
+                        }
+                        break;
+                }
+            }
+        };
 
-        plusSearch.setOnClickListener(new View.OnClickListener() {   //нажатие кнопки плюсика в строке поиска
+        plusSearch.setOnClickListener(clickListener);
+        play.setOnClickListener(clickListener);
+        exit.setOnClickListener(clickListener);
+        settings.setOnClickListener(clickListener);
+
+        /*plusSearch.setOnClickListener(new View.OnClickListener() {   //нажатие кнопки плюсика в строке поиска
             @Override
             public void onClick(View v) {
                                                                                   //ДЛЯ ФЕДИ И ВАНИ!!!!!! ДОБАВИТЬ ОТПРАВКУ ПРИГЛАШЕНИЯ ДРУГА
@@ -66,48 +105,24 @@ public class MainMenuActivity extends AppCompatActivity {
                     toast.show();
                 }
             }
-        });
+        });*/
 
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search.setText("play");
-            }
-        });
-
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search.setText("settings");
-            }
-        });
-
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                search.setText("exit");
-                finish();
-            }
-        });
 
         bildRecyclerView(); //cборка листа
 
-        playersAdapter.setOnItemClickListner(new PlayersAdapter.OnItemClickListner() {
+        playersAdapter.setOnItemClickListner(new PlayersAdapter.OnItemClickListner()
+        {
             @Override
-            public void onItemClick(int position) {
+            public void onItemClick(int position)
+            {
                 playersAdapter.isPlay(position);
             }
         });
 
-        //добавление игроков для тестирования функций
-//        playersAdapter.addItem("Sasha");
-//        playersAdapter.addItem("Masha");
-//        playersAdapter.addItem("Kolia");
-//        playersAdapter.addItem("Nikita");
-
     }
 
-    public void bildRecyclerView(){
+    public void bildRecyclerView()
+    {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         playersList.setLayoutManager(layoutManager);
         playersAdapter = new PlayersAdapter();
@@ -116,24 +131,28 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
 
-    public void invite(final String name){                                                //уведомлие приглашение в игру
+    public void invite(final String name)
+    {                                                //уведомлие приглашение в игру
         AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);
         builder.setTitle("Invite")
                 .setMessage("Join the game with player " + name + "?")
 //                .setIcon(R.drawable.ic_android_cat)
                 .setCancelable(false)
                 .setNegativeButton("No",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
                                 dialog.cancel();
                             }
                         })
                 .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener() {
+                        new DialogInterface.OnClickListener()
+                        {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                            public void onClick(DialogInterface dialog, int which)
+                            {
                                                                                           //ДЛЯ ФЕДИ И ВАНИ!!!!!! ДОБАВИТЬ ОТПРАВКУ ОТВЕТА ДРУГУ
-
                                 playersAdapter.toIvite(name);
                                 dialog.cancel();
                             }
