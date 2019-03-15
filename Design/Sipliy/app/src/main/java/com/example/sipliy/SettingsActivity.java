@@ -1,11 +1,12 @@
 package com.example.sipliy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class Settings extends AppCompatActivity
+public class SettingsActivity extends AppCompatActivity
 {
     private Button buttonExit; // кнопка выхода в меню
     private Button buttonQuestion; // кнопка "задать вопрос"
