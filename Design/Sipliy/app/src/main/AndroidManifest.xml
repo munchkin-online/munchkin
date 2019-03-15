@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity"></activity>
+
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".SplashActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +23,9 @@
         </activity>
         <activity
             android:name=".Settings"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".MainMenuActivity"
             android:screenOrientation="sensorLandscape" />
 
         <meta-data
