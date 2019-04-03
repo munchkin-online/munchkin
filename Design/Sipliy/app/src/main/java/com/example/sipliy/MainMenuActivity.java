@@ -55,7 +55,8 @@ public class MainMenuActivity extends AppCompatActivity {
                 switch(v.getId())
                 {
                     case R.id.button_play:
-                        search.setText("play");
+                        //search.setText("play");
+                        startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
