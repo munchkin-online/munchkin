@@ -1,8 +1,10 @@
 package com.example.sipliy;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -11,11 +13,12 @@ import android.widget.Switch;
 
 public class SettingsActivity extends AppCompatActivity
 {
-    private static int progress;
+    private int progress;
     private Button buttonExit; // кнопка выхода в меню
     private Button buttonQuestion; // кнопка "задать вопрос"
     private Switch aSwitch;
     private SeekBar seekBar;
+    private static final String TAG = "MyTag";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -24,9 +27,9 @@ public class SettingsActivity extends AppCompatActivity
 
         findView();
 
-        seekBarChangeListner listner = new seekBarChangeListner();
+        seekBarChangeListener listener = new seekBarChangeListener();
 
-        seekBar.setOnSeekBarChangeListener(listner);
+        seekBar.setOnSeekBarChangeListener(listener);
         View.OnClickListener clickListener = new View.OnClickListener()
         {
             @Override
@@ -50,16 +53,18 @@ public class SettingsActivity extends AppCompatActivity
     @Override
     protected void onSaveInstanceState(Bundle outState)
     {
+
         super.onSaveInstanceState(outState);
+        outState.putInt("seek", seekBar.getProgress());
     }
 
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
+        super.onRestoreInstanceState(savedInstanceState);
         int progress = savedInstanceState.getInt("seek progress");
         seekBar.setProgress(progress);
-        super.onRestoreInstanceState(savedInstanceState);
     }
 
     private void findView()
@@ -69,7 +74,7 @@ public class SettingsActivity extends AppCompatActivity
         buttonExit = (Button)findViewById(R.id.buttonExitFromSettings);
         buttonQuestion = (Button)findViewById(R.id.buttonQuestion);
     }
-    private class seekBarChangeListner implements OnSeekBarChangeListener
+    private class seekBarChangeListener implements OnSeekBarChangeListener
     {
 
         @Override
@@ -87,7 +92,8 @@ public class SettingsActivity extends AppCompatActivity
         @Override
         public void onStopTrackingTouch(SeekBar seekBar)
         {
-
+            Log.d(TAG, "onSaveInstanceState: " + seekBar.getProgress());
+            progress = seekBar.getProgress();
         }
     }
 }
