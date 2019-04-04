@@ -31,24 +31,23 @@ public class GameActivity extends AppCompatActivity {
         playersList = findViewById(R.id.recyclerViewGame);
         bildRecyclerView();
 
-//        View.OnClickListener clickListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switch (v.getId()) {
-//                    case R.id.player_icon:
-//                        //search.setText("play");
-//                        startActivity(new Intent(GameActivity.this, InventoryActivity.class));
-//                        break;
-//                }
-//            }
-//        };
-//
-//        player_icon.setOnClickListener(clickListener);
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.player_icon:
+                        //search.setText("play");
+                        startActivity(new Intent(GameActivity.this, InventoryActivity.class));
+                        break;
+                }
+            }
+        };
+
+        player_icon.setOnClickListener(clickListener);
 
         playersAdapter.addItem();
         playersAdapter.addItem();
 
-<<<<<<< HEAD
     }
 
     public void bildRecyclerView()
@@ -58,14 +57,12 @@ public class GameActivity extends AppCompatActivity {
         playersAdapter = new PlayersGameAdapter();
         playersList.setAdapter(playersAdapter);
         player_icon = findViewById(R.id.player_icon);
-=======
-        player_icon.setOnClickListener(clickListener);
+        //player_icon.setOnClickListener(clickListener);
     }
 
     @Override
     protected void onDestroy()
     {
         super.onDestroy();
->>>>>>> 4ac9652dd42bf911e766c6e9d798882144aaf463
     }
 }
