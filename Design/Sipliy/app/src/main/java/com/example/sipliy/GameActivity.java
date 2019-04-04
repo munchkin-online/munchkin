@@ -48,6 +48,7 @@ public class GameActivity extends AppCompatActivity {
         playersAdapter.addItem();
         playersAdapter.addItem();
 
+<<<<<<< HEAD
     }
 
     public void bildRecyclerView()
@@ -57,5 +58,14 @@ public class GameActivity extends AppCompatActivity {
         playersAdapter = new PlayersGameAdapter();
         playersList.setAdapter(playersAdapter);
         player_icon = findViewById(R.id.player_icon);
+=======
+        player_icon.setOnClickListener(clickListener);
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+>>>>>>> 4ac9652dd42bf911e766c6e9d798882144aaf463
     }
 }
