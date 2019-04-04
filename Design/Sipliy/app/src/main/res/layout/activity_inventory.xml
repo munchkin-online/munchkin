@@ -8,85 +8,196 @@
     tools:context=".InventoryActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="520dp"
+        android:id="@+id/char_hat"
+        android:layout_width="200sp"
+        android:layout_height="48sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="65sp"
+        android:layout_marginBottom="8sp"
         android:background="@drawable/character_hat"
         android:fontFamily="@font/segoesc"
-        android:paddingLeft="25dp"
-        android:paddingTop="8dp"
-        android:text="Можно надеть"
+        android:paddingLeft="30sp"
+        android:paddingTop="8sp"
+        android:paddingRight="30sp"
+        android:text="@string/char_hat"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView2"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView2"
+        app:layout_constraintBottom_toBottomOf="@+id/character"
+        app:layout_constraintEnd_toEndOf="@+id/character"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView2"
+        app:layout_constraintStart_toStartOf="@+id/character"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/list_hat"
+        android:layout_width="200sp"
+        android:layout_height="48sp"
+        android:layout_marginStart="510sp"
+        android:layout_marginTop="95sp"
+        android:background="@drawable/character_hat"
+        android:fontFamily="@font/segoesc"
+        android:paddingStart="25sp"
+        android:paddingTop="8sp"
+        android:paddingEnd="10sp"
+        android:text="@string/list_hat"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/list"
+        app:layout_constraintEnd_toEndOf="@+id/list"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/list"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView2"
-        android:layout_width="200dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="520dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/list"
+        android:layout_width="200sp"
+        android:layout_height="250sp"
+        android:layout_marginStart="510sp"
+        android:layout_marginTop="135sp"
+        android:layout_marginBottom="16sp"
         android:background="@drawable/list"
-        android:padding="15dp"
+        android:padding="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
-        app:layout_constraintStart_toEndOf="@+id/recyclerView3" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/character_hat"
-        android:fontFamily="@font/segoesc"
-        android:paddingLeft="30dp"
-        android:paddingTop="8dp"
-        android:text="Имя игрока"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView3"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintStart_toEndOf="@+id/character" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="77dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="650dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:id="@+id/exitFromInventory"
+        android:layout_width="77sp"
+        android:layout_height="69sp"
+        android:layout_marginStart="650sp"
+        android:layout_marginTop="8sp"
+        android:layout_marginEnd="8sp"
+        android:contentDescription="@string/exitFromInventory"
+        android:layout_marginBottom="8sp"
+        app:layout_constraintBottom_toTopOf="@+id/list_hat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.981"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/char_hat"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.666"
         app:srcCompat="@drawable/back_2" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView3"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/character"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/character"
+        android:layout_width="200sp"
+        android:layout_height="315sp"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="100sp"
+        android:layout_marginBottom="16sp"
+        app:srcCompat="@drawable/character" />
+
+    <TextView
+        android:id="@+id/tv_strength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="130sp"
+        android:fontFamily="@font/segoesc"
+        android:text="Сила"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="180sp"
+        android:text="Уровень"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_race"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="230sp"
+        android:text="Раса"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="280sp"
+        android:text="Класс"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="330sp"
+        android:text="Пол"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_strengthValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="150sp"
+        android:layout_marginTop="130sp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_levelValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="150sp"
+        android:layout_marginTop="180sp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_raceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="100sp"
+        android:layout_marginTop="230sp"
+        android:text="Человек"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_classType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="120sp"
+        android:layout_marginTop="280sp"
+        android:text="N/A"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sexType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="90sp"
+        android:layout_marginTop="330sp"
+        android:text="Мужчина"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 </RelativeLayout>
