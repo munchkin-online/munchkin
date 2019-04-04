@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayerViewHolder>{
+public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.PlayerViewHolder>{
 
     private OnItemClickListner listner;
 
@@ -120,7 +120,7 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayerVi
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.recycleview_item, viewGroup, false);
+        View view = inflater.inflate(R.layout.recycleview_item_players_menu, viewGroup, false);
         PlayerViewHolder viewHolder = new PlayerViewHolder(view, listner);
         return viewHolder;
 

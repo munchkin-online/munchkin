@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class MainMenuActivity extends AppCompatActivity {
 
     private RecyclerView playersList;        //лист с игрками
-    private PlayersAdapter playersAdapter;   //адаптер для листа
+    private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -110,7 +110,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         bildRecyclerView(); //cборка листа
 
-        playersAdapter.setOnItemClickListner(new PlayersAdapter.OnItemClickListner()
+        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListner()
         {
             @Override
             public void onItemClick(int position)
@@ -125,7 +125,7 @@ public class MainMenuActivity extends AppCompatActivity {
     {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         playersList.setLayoutManager(layoutManager);
-        playersAdapter = new PlayersAdapter();
+        playersAdapter = new PlayersMenuAdapter();
         playersList.setAdapter(playersAdapter);
     }
 
