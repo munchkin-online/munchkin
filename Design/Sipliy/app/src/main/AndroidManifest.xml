@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sipliy">
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,9 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity"></activity>
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".SplashActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".SettingsActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".GameActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".InventoryActivity"
             android:screenOrientation="sensorLandscape" />
 
         <meta-data

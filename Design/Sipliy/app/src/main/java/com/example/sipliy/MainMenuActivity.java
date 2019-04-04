@@ -1,9 +1,7 @@
 package com.example.sipliy;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +17,7 @@ import android.widget.Toast;
 public class MainMenuActivity extends AppCompatActivity {
 
     private RecyclerView playersList;        //лист с игрками
-    private PlayersAdapter playersAdapter;   //адаптер для листа
+    private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -57,14 +55,15 @@ public class MainMenuActivity extends AppCompatActivity {
                 switch(v.getId())
                 {
                     case R.id.button_play:
-                        search.setText("play");
+                        //search.setText("play");
+                        startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
                         finish();
                         break;
                     case R.id.button_settings:
-                        startActivity(new Intent(MainMenuActivity.this, Settings.class));
+                        startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
                     case R.id.imageView_search_plus:
                         if (true)
@@ -111,7 +110,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         bildRecyclerView(); //cборка листа
 
-        playersAdapter.setOnItemClickListner(new PlayersAdapter.OnItemClickListner()
+        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListner()
         {
             @Override
             public void onItemClick(int position)
@@ -126,7 +125,7 @@ public class MainMenuActivity extends AppCompatActivity {
     {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         playersList.setLayoutManager(layoutManager);
-        playersAdapter = new PlayersAdapter();
+        playersAdapter = new PlayersMenuAdapter();
         playersList.setAdapter(playersAdapter);
     }
 
@@ -160,5 +159,10 @@ public class MainMenuActivity extends AppCompatActivity {
                         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
     }
 }
