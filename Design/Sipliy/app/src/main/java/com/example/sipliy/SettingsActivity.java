@@ -7,13 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 
 public class SettingsActivity extends AppCompatActivity
 {
-    private int progress;
+    private static int seekProgress = 0; //проценты в seek bar
+    private static boolean switchProgress = false; //проверка на включение кнопки вибрации
+    
     private Button buttonExit; // кнопка выхода в меню
     private Button buttonQuestion; // кнопка "задать вопрос"
     private Switch aSwitch;
@@ -27,9 +31,38 @@ public class SettingsActivity extends AppCompatActivity
 
         findView();
 
-        seekBarChangeListener listener = new seekBarChangeListener();
+        seekBar.setProgress(seekProgress);
+        aSwitch.setChecked(switchProgress);
 
-        seekBar.setOnSeekBarChangeListener(listener);
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                switchProgress = aSwitch.isChecked();
+            }
+        });
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+        {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+            {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar)
+            {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar)
+            {
+                seekProgress = seekBar.getProgress();
+            }
+        });
+
         View.OnClickListener clickListener = new View.OnClickListener()
         {
             @Override
@@ -50,23 +83,6 @@ public class SettingsActivity extends AppCompatActivity
         buttonExit.setOnClickListener(clickListener);
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState)
-    {
-
-        super.onSaveInstanceState(outState);
-        outState.putInt("seek", seekBar.getProgress());
-    }
-
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState)
-    {
-        super.onRestoreInstanceState(savedInstanceState);
-        int progress = savedInstanceState.getInt("seek progress");
-        seekBar.setProgress(progress);
-    }
-
     private void findView()
     {
         aSwitch = (Switch)findViewById(R.id.switchVibration);
@@ -74,26 +90,10 @@ public class SettingsActivity extends AppCompatActivity
         buttonExit = (Button)findViewById(R.id.buttonExitFromSettings);
         buttonQuestion = (Button)findViewById(R.id.buttonQuestion);
     }
-    private class seekBarChangeListener implements OnSeekBarChangeListener
+
+    @Override
+    protected void onDestroy()
     {
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
-        {
-
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar)
-        {
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar)
-        {
-            Log.d(TAG, "onSaveInstanceState: " + seekBar.getProgress());
-            progress = seekBar.getProgress();
-        }
+        super.onDestroy();
     }
 }
