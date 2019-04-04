@@ -1,0 +1,191 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\75ef472ab09ccda3c73101043d3b1247\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\4e34e797d1d7b3d8534b2709507027de\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\45a3f9ccf721ffe2f21eb7d544d0d9ee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\8e7685385616e06f5ee52c6a86c4cc91\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\14d17a87bb2cd9828d0d67982a63007d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\77abcb39441dcc2ade413c125618eb88\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\619852259b4b4b37b6ccb004a55f575f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\35a286d956e5f2c9b95d19bbd8d3ce45\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\e5c9f3ec4ac3cd5903eb24570a1789a3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\ed48e97951177af01aa1382be2b3647a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\bf667e1cd2ea10b2f748f1b05213ca53\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5584bc32a2b6186b679b9ff2bf18262e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\6e94f5a9b7f2eef5d818b23d815f9330\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\3ad628653c2d65095470e63b184f1c23\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\8e473be4fd53195321fd967b85bb9018\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\f94c184f1bcf949e5ee50a615184d23d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\d5384db4a5022be8b7a42298ddfba0b2\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\df854414e3cf013502fe5f37c48d2209\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\f42b0693388b3f53718c4d6ab2ee6ab7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aedb96bc2d83d3cbc854e8729c63395a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\94add861933bb66118d2df847408efc8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\e5dbf8051495d6f616ca20edd10142c4\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\938914d12d84ab692e3f7dca20a592f9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\5b46cfc24158698ecd2fba565307065b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ea040f8c1dc3287c3a4fd36bbc5b924e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\78519781fb79f860c2da06060061e35e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\093c22cde56b552ccc0609af06c438be\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+	package
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:1-39:12
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:6:5-37:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\4e34e797d1d7b3d8534b2709507027de\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\4e34e797d1d7b3d8534b2709507027de\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\d5384db4a5022be8b7a42298ddfba0b2\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\d5384db4a5022be8b7a42298ddfba0b2\AndroidManifest.xml:22:5-23:19
+	android:screenOrientation
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:10:9-50
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:8:9-41
+	tools:ignore
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:13:9-48
+	android:roundIcon
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:12:9-40
+activity#com.example.sipliy.GameActivity
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:14:9-50
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:14:19-47
+activity#com.example.sipliy.SplashActivity
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:15:9-23:20
+	android:screenOrientation
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:17:13-56
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:16:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:18:13-22:29
+action#android.intent.action.MAIN
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:21:27-74
+activity#com.example.sipliy.SettingsActivity
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:24:9-26:59
+	android:screenOrientation
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:26:13-56
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:25:13-45
+activity#com.example.sipliy.MainMenuActivity
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:27:9-29:59
+	android:screenOrientation
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:29:13-56
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:28:13-45
+activity#com.example.sipliy.InventoryActivity
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:30:9-32:59
+	android:screenOrientation
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:32:13-56
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:31:13-46
+meta-data#preloaded_fonts
+ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:34:9-36:57
+	android:resource
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:36:13-54
+	android:name
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:35:13-43
+uses-sdk
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\75ef472ab09ccda3c73101043d3b1247\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\75ef472ab09ccda3c73101043d3b1247\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\4e34e797d1d7b3d8534b2709507027de\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\4e34e797d1d7b3d8534b2709507027de\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\45a3f9ccf721ffe2f21eb7d544d0d9ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\45a3f9ccf721ffe2f21eb7d544d0d9ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\8e7685385616e06f5ee52c6a86c4cc91\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\8e7685385616e06f5ee52c6a86c4cc91\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\14d17a87bb2cd9828d0d67982a63007d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\14d17a87bb2cd9828d0d67982a63007d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\77abcb39441dcc2ade413c125618eb88\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\77abcb39441dcc2ade413c125618eb88\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\619852259b4b4b37b6ccb004a55f575f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\619852259b4b4b37b6ccb004a55f575f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\35a286d956e5f2c9b95d19bbd8d3ce45\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\35a286d956e5f2c9b95d19bbd8d3ce45\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\e5c9f3ec4ac3cd5903eb24570a1789a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\e5c9f3ec4ac3cd5903eb24570a1789a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\ed48e97951177af01aa1382be2b3647a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\ed48e97951177af01aa1382be2b3647a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\bf667e1cd2ea10b2f748f1b05213ca53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\bf667e1cd2ea10b2f748f1b05213ca53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5584bc32a2b6186b679b9ff2bf18262e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\5584bc32a2b6186b679b9ff2bf18262e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\6e94f5a9b7f2eef5d818b23d815f9330\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\6e94f5a9b7f2eef5d818b23d815f9330\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\3ad628653c2d65095470e63b184f1c23\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\3ad628653c2d65095470e63b184f1c23\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\8e473be4fd53195321fd967b85bb9018\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\8e473be4fd53195321fd967b85bb9018\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\f94c184f1bcf949e5ee50a615184d23d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\f94c184f1bcf949e5ee50a615184d23d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cc8175f02acfa8805448feb050f31202\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\d5384db4a5022be8b7a42298ddfba0b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\d5384db4a5022be8b7a42298ddfba0b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\df854414e3cf013502fe5f37c48d2209\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\df854414e3cf013502fe5f37c48d2209\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\f42b0693388b3f53718c4d6ab2ee6ab7\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\f42b0693388b3f53718c4d6ab2ee6ab7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aedb96bc2d83d3cbc854e8729c63395a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aedb96bc2d83d3cbc854e8729c63395a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\94add861933bb66118d2df847408efc8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\94add861933bb66118d2df847408efc8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\e5dbf8051495d6f616ca20edd10142c4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\e5dbf8051495d6f616ca20edd10142c4\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\938914d12d84ab692e3f7dca20a592f9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\938914d12d84ab692e3f7dca20a592f9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\5b46cfc24158698ecd2fba565307065b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\5b46cfc24158698ecd2fba565307065b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ea040f8c1dc3287c3a4fd36bbc5b924e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ea040f8c1dc3287c3a4fd36bbc5b924e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\78519781fb79f860c2da06060061e35e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\78519781fb79f860c2da06060061e35e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\093c22cde56b552ccc0609af06c438be\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Ilya\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\093c22cde56b552ccc0609af06c438be\AndroidManifest.xml:20:5-44
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		ADDED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
+		INJECTED from C:\MyProgram\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml
