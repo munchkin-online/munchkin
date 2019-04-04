@@ -30,6 +30,11 @@ public class GameActivity extends AppCompatActivity {
         };
 
         player_icon.setOnClickListener(clickListener);
+    }
 
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
     }
 }
