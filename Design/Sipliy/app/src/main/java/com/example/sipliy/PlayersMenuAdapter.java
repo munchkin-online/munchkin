@@ -85,6 +85,21 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         return f;
     }
 
+    public int getSize(){
+        int count = 0;
+        for (int i = 0; i < plaersList.size(); i++) {
+            if(plaersList.get(i).isBoolStatus()) count++;
+        }
+        return count;
+    }
+
+    public String getName(int i){
+        if (plaersList.get(i).isBoolStatus()){
+            return plaersList.get(i).getName();
+        }
+        else return "";
+    }
+
     public void Sort(){
         int startIndex = 0;
         int endIndex = plaersList.size() - 1;

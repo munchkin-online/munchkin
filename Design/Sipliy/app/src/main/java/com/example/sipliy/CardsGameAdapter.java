@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>{
+public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.PlayerViewHolder>{
 
     private OnItemClickListner listner;
 
@@ -29,7 +29,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     private List<MenuPlayer> plaersList = new ArrayList<>();
 
-//    public void setItems(Collection<MenuPlayer> plaers){
+    //    public void setItems(Collection<MenuPlayer> plaers){
 //        plaersList.addAll(plaers);
 //        notifyDataSetChanged();
 //    }
@@ -39,9 +39,9 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 //        notifyDataSetChanged();
 //    }
 //
-    public void addItem(String str){
+    public void addItem(){
 
-        plaersList.add(new MenuPlayer(str));
+        plaersList.add(new MenuPlayer(""));
         notifyDataSetChanged();
     }
 //
@@ -118,7 +118,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.recycleview_item_players_game, viewGroup, false);
+        View view = inflater.inflate(R.layout.recycleview_item_cards_game, viewGroup, false);
         return new PlayerViewHolder(view, listner);
 
     }
@@ -135,40 +135,30 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     class PlayerViewHolder extends RecyclerView.ViewHolder{
 
-        //ImageView plus;
-
-        TextView name;
-        TextView level;
-        TextView strength;
+        ImageView plus;
 
         public PlayerViewHolder(View itemView, final OnItemClickListner listner) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.Name);
-            level = itemView.findViewById(R.id.Level);
-            strength = itemView.findViewById(R.id.Strength);
-            //plus = (ImageView)itemView.findViewById(R.id.imageViewCard);
 
+            plus = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
+            plus.setImageResource(R.drawable.dama);
 
-            level.setText("1");
-            strength.setText("1");
-            //plus.setImageResource(R.drawable.dama);
-
-//            plus.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (listner != null){
-//                        int position = getAdapterPosition();
-//                        if (position != RecyclerView.NO_POSITION){
-//                            listner.onItemClick(position);
-//                        }
-//                    }
-//                }
-//            });
+            plus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listner != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listner.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
 
         void bind(MenuPlayer plaer){
-            name.setText(plaer.getName());
+//            listNames.setText(plaer.getName());
 //            if (plaer.isBoolStatus()){
 //                listStatus.setText("play");
 //                listStatus.setTextColor(Color.GREEN);
