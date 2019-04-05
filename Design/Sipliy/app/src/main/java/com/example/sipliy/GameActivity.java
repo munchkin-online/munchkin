@@ -39,19 +39,19 @@ public class GameActivity extends AppCompatActivity {
         cardsList = findViewById(R.id.recyclerViewGameCards);
         bildRecyclerView();
 
-//        View.OnClickListener clickListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switch (v.getId()) {
-//                    case R.id.player_icon:
-//                        //search.setText("play");
-//                        startActivity(new Intent(GameActivity.this, InventoryActivity.class));
-//                        break;
-//                }
-//            }
-//        };
-//
-//        player_icon.setOnClickListener(clickListener);
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.player_icon:
+                        //search.setText("play");
+                        startActivity(new Intent(GameActivity.this, InventoryActivity.class));
+                        break;
+                }
+            }
+        };
+
+        player_icon.setOnClickListener(clickListener);
 
         for (int i = 0; i < SizePlayres; i++) {
             playersAdapter.addItem(Players[i]);
