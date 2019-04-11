@@ -1,15 +1,12 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Size;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +14,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.R;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     private RecyclerView playersList;        //лист с игрками
     private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
-    static String[] Players = new String[3];
-    static int SizePlayres;
+    public static String[] Players = new String[3];
+    public static int SizePlayres;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска

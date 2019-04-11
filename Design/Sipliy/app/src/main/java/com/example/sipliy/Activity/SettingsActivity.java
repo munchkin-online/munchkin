@@ -1,4 +1,4 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
 
 
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
+
+import com.example.sipliy.R;
 
 public class SettingsActivity extends AppCompatActivity
 {

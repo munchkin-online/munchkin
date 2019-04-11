@@ -1,4 +1,4 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.example.sipliy.R;
 
 public class InventoryActivity extends AppCompatActivity {
 

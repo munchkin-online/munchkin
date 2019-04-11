@@ -1,21 +1,24 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
-import android.util.Size;
 import android.view.View;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import static com.example.sipliy.MainMenuActivity.Players;
-import static com.example.sipliy.MainMenuActivity.SizePlayres;
+import com.example.sipliy.Adapter.CardsGameAdapter;
+import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.R;
+
+import static com.example.sipliy.Activity.MainMenuActivity.Players;
+import static com.example.sipliy.Activity.MainMenuActivity.SizePlayres;
 
 public class GameActivity extends AppCompatActivity {
 
-    private RecyclerView playersList;        //лист с игрками
+    private RecyclerView playersList;        //лист с игроками
     private PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
     private CardsGameAdapter cardsAdapter;
@@ -29,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
         {
             this.getSupportActionBar().hide();
         }
-        catch (NullPointerException e)
+        catch(NullPointerException e)
         {
 
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/inventory_background"
-    tools:context=".InventoryActivity">
+    tools:context=".Activity.InventoryActivity">
 
     <TextView
         android:id="@+id/char_hat"

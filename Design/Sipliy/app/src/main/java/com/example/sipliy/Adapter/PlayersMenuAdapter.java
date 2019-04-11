@@ -1,4 +1,4 @@
-package com.example.sipliy;
+package com.example.sipliy.Adapter;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.sipliy.MenuPlayer;
+import com.example.sipliy.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
