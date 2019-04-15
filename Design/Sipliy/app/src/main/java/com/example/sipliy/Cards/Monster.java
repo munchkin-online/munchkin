@@ -37,7 +37,7 @@ public class Monster implements Cards
         return ID;
     }
 
-    public boolean getUndead()
+    public boolean IsItUndead()
     {
         return undead;
     }
