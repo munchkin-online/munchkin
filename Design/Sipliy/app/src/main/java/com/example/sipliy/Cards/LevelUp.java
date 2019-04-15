@@ -4,18 +4,10 @@ public class LevelUp implements Cards
 {
 
     private String name;    //имя карты
-    private String helpText;    //доп. информация о карте
 
-    public LevelUp(String name, String helpText)
+    public LevelUp(String name)
     {
         this.name = name;
-        this.helpText = helpText;
-    }
-
-    @Override
-    public String getHelpText()
-    {
-        return helpText;
     }
 
     @Override

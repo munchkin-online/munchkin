@@ -8,14 +8,15 @@ public class Monster implements Cards
     private int level;  //уровень монстра
     private int treasures;  //количество сокровищ, дающихся за его убийство
     private int given_treasures;    //количество уровней, дающихся за его убийство
-    private int pursuit;    //не преследует никого, чей уровень x или ниже
+    private int not_beating_with;   //1 - рассовый признак, 2 - классовый признак, 3 - половой признак, 4 - уровневый признак
+    private int not_beating_index;   //1 - человек, 2 - эльф ..., либо 1 - вони, 2 - вор..., либо 1 - мужчина, 2 - женщина..., либо значение уровня
     private int debuff_race;    // расса, против которой мостр дает дебафф
     private int debuff_class;   //класс, против которой монстр дает дебафф
     private int debuff_value;   //сам дебафф
     private int vanish;     //бафф или дебафф к смывке(положительное или отрицательное число соотвественно)
 
     public Monster(int ID, String name, boolean undead,
-                   int level, int treasures, int given_treasures, int pursuit, int debuff_race,
+                   int level, int treasures, int given_treasures, int not_beating_with, int not_beating_index, int debuff_race,
                    int debuff_class, int debuff_value, int vanish)
     {
         this.ID = ID;
@@ -24,8 +25,9 @@ public class Monster implements Cards
         this.level = level;
         this.treasures = treasures;
         this.given_treasures = given_treasures;
-        this.pursuit = pursuit;
-        this.debuff_class = debuff_race;
+        this.not_beating_with = not_beating_with;
+        this.not_beating_index = not_beating_index;
+        this.debuff_race = debuff_race;
         this.debuff_class = debuff_class;
         this.debuff_value = debuff_value;
         this.vanish = vanish;
@@ -67,9 +69,14 @@ public class Monster implements Cards
         return given_treasures;
     }
 
-    public int getPursuit()
+    public int getNot_beating_with()
     {
-        return pursuit;
+        return not_beating_with;
+    }
+
+    public int getNot_beating_index()
+    {
+        return not_beating_index;
     }
 
     public int getTreasures()
