@@ -1,4 +1,4 @@
-package com.example.sipliy;
+package com.example.sipliy.Adapter;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.sipliy.MenuPlayer;
+import com.example.sipliy.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -83,6 +86,21 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         }
 
         return f;
+    }
+
+    public int getSize(){
+        int count = 0;
+        for (int i = 0; i < plaersList.size(); i++) {
+            if(plaersList.get(i).isBoolStatus()) count++;
+        }
+        return count;
+    }
+
+    public String getName(int i){
+        if (plaersList.get(i).isBoolStatus()){
+            return plaersList.get(i).getName();
+        }
+        else return "";
     }
 
     public void Sort(){

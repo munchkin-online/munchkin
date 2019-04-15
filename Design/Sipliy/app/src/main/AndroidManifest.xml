@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activity.SplashActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,18 +22,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Activity.SettingsActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".GameActivity"
+            android:name=".Activity.GameActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".Activity.MainMenuActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".InventoryActivity"
+            android:name=".Activity.InventoryActivity"
             android:screenOrientation="sensorLandscape" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

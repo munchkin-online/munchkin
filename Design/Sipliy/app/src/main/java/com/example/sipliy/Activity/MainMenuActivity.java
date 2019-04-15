@@ -1,4 +1,4 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,10 +14,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.R;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     private RecyclerView playersList;        //лист с игрками
     private PlayersMenuAdapter playersAdapter;   //адаптер для листа
+
+    public static String[] Players = new String[3];
+    public static int SizePlayres;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -40,6 +46,7 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
 
+
         search = findViewById(R.id.search);
         plusSearch = findViewById(R.id.imageView_search_plus);
         playersList = findViewById(R.id.recyclerView);
@@ -56,6 +63,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 {
                     case R.id.button_play:
                         //search.setText("play");
+                        transfer();
                         startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
                         break;
                     case R.id.button_exit:
@@ -164,5 +172,14 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onDestroy()
     {
         super.onDestroy();
+    }
+
+    public void transfer(){
+        SizePlayres = playersAdapter.getSize();
+        for (int i = 0; i < SizePlayres; i++) {
+            if (playersAdapter.getName(i) != ""){
+                Players[i] = playersAdapter.getName(i);
+            }
+        }
     }
 }

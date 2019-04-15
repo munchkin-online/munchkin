@@ -1,25 +1,26 @@
-package com.example.sipliy;
+package com.example.sipliy.Activity;
+
 
 import android.content.Intent;
-import android.nfc.Tag;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 
+import com.example.sipliy.R;
+
 public class SettingsActivity extends AppCompatActivity
 {
-    private static int seekProgress = 0; //проценты в seek bar
+    private static int seekProgress = 100; //проценты в seek bar
     private static boolean switchProgress = false; //проверка на включение кнопки вибрации
-    
+
     private Button buttonExit; // кнопка выхода в меню
-    private Button buttonQuestion; // кнопка "задать вопрос"
+    private Button browseButton; // кнопка открыть правила в интернете
     private Switch aSwitch;
     private SeekBar seekBar;
     private static final String TAG = "MyTag";
@@ -73,13 +74,16 @@ public class SettingsActivity extends AppCompatActivity
                     case R.id.buttonExitFromSettings:
                         finish();
                         break;
-                    case R.id.buttonQuestion:
+                    case R.id.browseButton:
+                        String url = "https://munchkin-game.fandom.com/ru/wiki/Правила_игры_Манчкин";
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url)); startActivity(i);
                         break;
                 }
             }
         };
 
-        buttonQuestion.setOnClickListener(clickListener);
+        browseButton.setOnClickListener(clickListener);
         buttonExit.setOnClickListener(clickListener);
     }
 
@@ -88,7 +92,7 @@ public class SettingsActivity extends AppCompatActivity
         aSwitch = (Switch)findViewById(R.id.switchVibration);
         seekBar = (SeekBar)findViewById(R.id.scrollSound);
         buttonExit = (Button)findViewById(R.id.buttonExitFromSettings);
-        buttonQuestion = (Button)findViewById(R.id.buttonQuestion);
+        browseButton = (Button)findViewById(R.id.browseButton);
     }
 
     @Override

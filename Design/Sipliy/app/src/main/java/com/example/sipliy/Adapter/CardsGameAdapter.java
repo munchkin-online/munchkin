@@ -1,20 +1,20 @@
-package com.example.sipliy;
+package com.example.sipliy.Adapter;
 
 
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.example.sipliy.MenuPlayer;
+import com.example.sipliy.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>{
+public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.PlayerViewHolder>{
 
     private OnItemClickListner listner;
 
@@ -31,7 +31,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     private List<MenuPlayer> plaersList = new ArrayList<>();
 
-//    public void setItems(Collection<MenuPlayer> plaers){
+    //    public void setItems(Collection<MenuPlayer> plaers){
 //        plaersList.addAll(plaers);
 //        notifyDataSetChanged();
 //    }
@@ -120,7 +120,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.recycleview_item_players_game, viewGroup, false);
+        View view = inflater.inflate(R.layout.recycleview_item_cards_game, viewGroup, false);
         return new PlayerViewHolder(view, listner);
 
     }
@@ -137,16 +137,13 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     class PlayerViewHolder extends RecyclerView.ViewHolder{
 
-//        TextView listNames;
-//        TextView listStatus;
         ImageView plus;
 
         public PlayerViewHolder(View itemView, final OnItemClickListner listner) {
             super(itemView);
 
-//            listNames = itemView.findViewById(R.id.tv_name);
-//            listStatus = itemView.findViewById(R.id.tv_status);
-            plus = (ImageView)itemView.findViewById(R.id.imageViewCard);
+
+            plus = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
             plus.setImageResource(R.drawable.dama);
 
             plus.setOnClickListener(new View.OnClickListener() {
