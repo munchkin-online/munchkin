@@ -1,6 +1,6 @@
 package com.example.sipliy.Cards;
 
-public class BuffOfDebuff implements BuffDebuffCards, Cards
+public class BuffOrDebuff implements BuffDebuffCards, Cards
 {
     private String name;    //имя карты
     private String helpText;    //доп. информация
@@ -8,7 +8,7 @@ public class BuffOfDebuff implements BuffDebuffCards, Cards
     private boolean isBuff; //бафф это или дебафф
     private boolean isItForHero;    //для героя или для монстра
     private int cost;   //стоимость карты
-    public BuffOfDebuff(String name, String helpText, int value, boolean isBuff, boolean isItForHero, int cost)
+    public BuffOrDebuff(String name, String helpText, int value, boolean isBuff, boolean isItForHero, int cost)
     {
         this.name = name;
         this.helpText = helpText;
