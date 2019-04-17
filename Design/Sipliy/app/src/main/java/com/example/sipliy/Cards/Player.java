@@ -2,18 +2,19 @@ package com.example.sipliy.Cards;
 
 import java.util.ArrayList;
 
-public class Player {
-    private String name;
-    private int level;
-    private int strength;
-    private int strengthClothes;
-    private Items shoes;
-    private Items armor;
-    private Items helmet;
-    private Items leftHand;
-    private Items rightHand;
-    private ArrayList<Items> otherClothes;
-    private ArrayList<BuffOrDebuff> onetimeClothes;
+public class Player
+{
+    private String name;    //Имя игрока
+    private int level;  //Левел игрока
+    private int strength;   //Сила игрока
+    private int strengthClothes;    //Суммарная сила всех шмоток игрока
+    private Items shoes;    //Обувка игрока
+    private Items armor;    //Броник игрока
+    private Items helmet;   //Головняк игрока
+    private Items leftHand;     //Левая рука игрока
+    private Items rightHand;    //Правая рука игока
+    private ArrayList<Items> otherClothes;  //Прочие шмотки игрока
+    private ArrayList<BuffOrDebuff> onetimeClothes;     //Разовые шмотки игока
 
     public Player(String name, boolean boolStatus, int level, int strength, int strengthClothes, Items shoes, Items armor, Items helmet, Items leftHand, Items rightHand)
     {
@@ -30,7 +31,8 @@ public class Player {
         otherClothes = new ArrayList<>();
     }
 
-    public Player(String name) {
+    public Player(String name)
+    {
         this.name = name;
         this.level = 1;
         this.strength = 1;
@@ -44,51 +46,63 @@ public class Player {
         otherClothes = new ArrayList<>();
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public int getLevel() {
+    public int getLevel()
+    {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(int level)
+    {
         this.level = level;
     }
 
-    public int getStrength() {
+    public int getStrength()
+    {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(int strength)
+    {
         this.strength = strength;
     }
 
-    public int getStrengthClothes() {
+    public int getStrengthClothes()
+    {
         return strengthClothes;
     }
 
-    public void setStrengthClothes(int strengthClothes) {
+    public void setStrengthClothes(int strengthClothes)
+    {
         this.strengthClothes = strengthClothes;
     }
 
-    public Items getShoes() {
+    public Items getShoes()
+    {
         return shoes;
     }
 
-    public void setShoes(Items shoes) {
+    public void setShoes(Items shoes)
+    {
         this.shoes = shoes;
     }
 
-    public Items getArmor() {
+    public Items getArmor()
+    {
         return armor;
     }
 
-    public void setArmor(Items armor) {
+    public void setArmor(Items armor)
+    {
         this.armor = armor;
     }
 
@@ -96,23 +110,28 @@ public class Player {
         return helmet;
     }
 
-    public void setHelmet(Items helmet) {
+    public void setHelmet(Items helmet)
+    {
         this.helmet = helmet;
     }
 
-    public Items getLeftHand() {
+    public Items getLeftHand()
+    {
         return leftHand;
     }
 
-    public void setLeftHand(Items leftHand) {
+    public void setLeftHand(Items leftHand)
+    {
         this.leftHand = leftHand;
     }
 
-    public Items getRightHand() {
+    public Items getRightHand()
+    {
         return rightHand;
     }
 
-    public void setRightHand(Items rightHand) {
+    public void setRightHand(Items rightHand)
+    {
         this.rightHand = rightHand;
     }
 }
