@@ -19,8 +19,8 @@ public class Player
     private Items helmet;   //Головняк игрока
     private Items leftHand;     //Левая рука игрока
     private Items rightHand;    //Правая рука игока
-    private ArrayList<Items> otherClothes;  //Прочие шмотки игрока
-    private ArrayList<BuffOrDebuff> onetimeClothes;     //Разовые шмотки игока
+    private ArrayList<Object> otherClothes;  //Прочие шмотки игрока
+    private ArrayList<Object> onetimeClothes;     //Разовые шмотки игока
 
     public Player(String name, int level, int strength, int strengthClothes, int carrierRace, int carrierRaceSecond, boolean isSuperManichkin, int carrierClass, int carrierClassSecond, boolean isHalfBlood, Items shoes, Items armor, Items helmet, Items leftHand, Items rightHand) {
         this.name = name;
