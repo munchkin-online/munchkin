@@ -2,15 +2,15 @@ package com.example.sipliy.Cards;
 
 import java.util.ArrayList;
 
-public class PlayerDecks
+public class PlayerDecks    //колода игрока
 {
     private ArrayList<Items> items; //колода шмоток
-    private ArrayList<BuffOrDebuff> buffOrDebuff;  //колода баффов и дебаффов
+    private ArrayList<Buff> buff;  //колода баффов и дебаффов
 
     public PlayerDecks()
     {
         items = new ArrayList<>();
-        buffOrDebuff = new ArrayList<>();
+        buff = new ArrayList<>();
     }
 
     public void addCard(Items card) //добавление карт шмоток в колоду
@@ -18,9 +18,9 @@ public class PlayerDecks
         items.add(card);
     }
 
-    public void addCard(BuffOrDebuff card)  //добавление карт баффов и дебаффов в колоду
+    public void addCard(Buff card)  //добавление карт баффов и дебаффов в колоду
     {
-        buffOrDebuff.add(card);
+        buff.add(card);
     }
 
     public Items getItemCard(int i)
@@ -28,16 +28,16 @@ public class PlayerDecks
         return items.get(i);
     }
 
-    public BuffOrDebuff getBuffOrDebuffCard(int i)
+    public Buff getBuffOrDebuffCard(int i)
     {
-        return buffOrDebuff.get(i);
+        return buff.get(i);
     }
 
     public void reset()
     {
-        DiscardDecks.addCard(items);
-        DiscardDecks.addCard(buffOrDebuff);
+        DiscardDecks.addCardsItems(items);
+        DiscardDecks.addCardsBuffDebuff(buff);
         this.items.clear();
-        this.buffOrDebuff.clear();
+        this.buff.clear();
     }
 }

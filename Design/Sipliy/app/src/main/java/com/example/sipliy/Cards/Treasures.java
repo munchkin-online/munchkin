@@ -2,7 +2,8 @@ package com.example.sipliy.Cards;
 
 import java.util.ArrayList;
 
-public class Treasures
+
+public class Treasures //класс карт сокровищ (общая колода с картами сокровищ)
 {
     private static ArrayList<Items> items; //колода сокровищ
 
@@ -12,7 +13,7 @@ public class Treasures
         fill();
     }
 
-    public static Items getItemCard()
+    public static Items getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
         return items.remove(items.size() - 1);
     }

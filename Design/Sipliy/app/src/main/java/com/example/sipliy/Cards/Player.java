@@ -228,12 +228,12 @@ public class Player
         isHalfBlood = halfBlood;
     }
 
-    public void increaseLVL(int increase)
+    public void increaseLVL(int increase)   //увеличение уровня
     {
         this.level += increase;
     }
 
-    public void resetItems()
+    public void resetItems()    //удаление карт из руки игрока после смерти
     {
         DiscardDecks.addCard(shoes);
         DiscardDecks.addCard(armor);
@@ -248,7 +248,7 @@ public class Player
         this.decks.reset();
     }
 
-    public void addTreasures(int numbers)
+    public void addTreasures(int numbers)   //добавить сокровища в руку игрока
     {
         for(int i = 0; i < numbers; i++)
         {

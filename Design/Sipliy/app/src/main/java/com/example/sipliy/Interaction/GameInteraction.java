@@ -5,7 +5,7 @@ import com.example.sipliy.Cards.Player;
 
 public class GameInteraction
 {
-    public void battle(Player player, Monster monster)
+    public void battle(Player player, Monster monster)  //сражение с монстром и последующее решение
     {
         if(battleWithMonster(player, monster))
         {
