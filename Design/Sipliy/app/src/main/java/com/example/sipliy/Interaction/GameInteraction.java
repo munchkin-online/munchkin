@@ -9,8 +9,12 @@ public class GameInteraction
     {
         if(battleWithMonster(player, monster))
         {
-            player.increaseLVL();
-            player.
+            player.increaseLVL(monster.getGiven_treasures());
+            player.addTreasures(monster.getTreasures());
+        }
+        else
+        {
+            player.resetItems();
         }
     }
     public boolean battleWithMonster(Player player, Monster monster)  //сражение с монстром, в случае победы true.

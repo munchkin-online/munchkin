@@ -19,7 +19,7 @@ public class Player
     private Items helmet;   //Головняк игрока
     private Items leftHand;     //Левая рука игрока
     private Items rightHand;    //Правая рука игока
-    private Decks decks = new Decks();
+    private PlayerDecks decks = new PlayerDecks();  //колода карт игрока
 
     public Player(String name,
                   int level,
@@ -228,17 +228,31 @@ public class Player
         isHalfBlood = halfBlood;
     }
 
-    public void increaseLVL()
+    public void increaseLVL(int increase)
     {
-        this.level++;
+        this.level += increase;
     }
 
     public void resetItems()
     {
+        DiscardDecks.addCard(shoes);
+        DiscardDecks.addCard(armor);
+        DiscardDecks.addCard(helmet);
+        DiscardDecks.addCard(rightHand);
+        DiscardDecks.addCard(leftHand);
         this.shoes = null;
         this.armor = null;
         this.helmet = null;
         this.rightHand = null;
         this.leftHand = null;
+        this.decks.reset();
+    }
+
+    public void addTreasures(int numbers)
+    {
+        for(int i = 0; i < numbers; i++)
+        {
+            decks.addCard(Treasures.getItemCard());
+        }
     }
 }
