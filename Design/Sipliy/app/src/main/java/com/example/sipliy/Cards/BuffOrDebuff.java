@@ -2,6 +2,7 @@ package com.example.sipliy.Cards;
 
 public class BuffOrDebuff implements BuffDebuffCards, Cards
 {
+    private int ID; //id карты
     private String name;    //имя карты
     private int value;  //значение баффа или дебаффа
     private boolean isBuff; //бафф это или дебафф
@@ -17,6 +18,10 @@ public class BuffOrDebuff implements BuffDebuffCards, Cards
         this.cost = cost;
     }
 
+    public int getID()
+    {
+        return ID;
+    }
     public boolean isItBuff()
     {
         return isBuff;
