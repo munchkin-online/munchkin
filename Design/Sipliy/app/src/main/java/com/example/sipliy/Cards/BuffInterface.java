@@ -1,6 +1,8 @@
 package com.example.sipliy.Cards;
 
-public interface BuffDebuffCards
+//TODO МАКСИМ ПИДОР
+//BuffOrDebuff rip
+public interface BuffInterface
 {
     int getValue();
     int getCost();
