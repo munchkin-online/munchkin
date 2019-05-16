@@ -264,4 +264,8 @@ public class Player
     {
         decks.addCard(item);
     }
+
+    public PlayerDecks getDecks() {
+        return decks;
+    }
 }

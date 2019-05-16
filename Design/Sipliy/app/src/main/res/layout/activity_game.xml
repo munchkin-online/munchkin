@@ -6,49 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/manchkin_background">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="138dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewGameCards"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/nameView"
-            android:layout_width="114dp"
-            android:layout_height="28dp"
-            android:fontFamily="@font/segoesc"
-            android:text="TextView"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="513dp"
-            tools:layout_editor_absoluteY="17dp" />
-
-        <TextView
-            android:id="@+id/powerView"
-            android:layout_width="114dp"
-            android:layout_height="28dp"
-            android:fontFamily="@font/segoesc"
-            android:text="TextView"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="513dp"
-            tools:layout_editor_absoluteY="73dp" />
-
-        <TextView
-            android:id="@+id/lvlView"
-            android:layout_width="114dp"
-            android:layout_height="28dp"
-            android:fontFamily="@font/segoesc"
-            android:text="TextView"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="513dp"
-            tools:layout_editor_absoluteY="45dp" />
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/player_icon"
@@ -64,7 +21,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewGameCards"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="144dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
@@ -72,8 +29,7 @@
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintStart_toStartOf="parent">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -81,15 +37,14 @@
         android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="237dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="8dp"
         android:addStatesFromChildren="false"
         android:alwaysDrawnWithCache="false"
         android:background="@color/munchkin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.655"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -161,31 +116,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.439"
         app:srcCompat="@drawable/cardbacktreasures" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left"
-        tools:layout_editor_absoluteX="731dp" />
-
 
 </android.support.constraint.ConstraintLayout>

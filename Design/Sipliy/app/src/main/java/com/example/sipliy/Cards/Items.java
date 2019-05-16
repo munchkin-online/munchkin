@@ -1,6 +1,6 @@
 package com.example.sipliy.Cards;
 
-public class Items implements Cards
+public class Items implements Cards, Shmotki
 {
     private int ID;
     private String name;    //имя карты
@@ -69,9 +69,9 @@ public class Items implements Cards
         return carrierSex;
     }
 
-    public int getCost()
-    {
-        return cost;
+    @Override
+    public int getCost() {
+        return 0;
     }
 
     @Override

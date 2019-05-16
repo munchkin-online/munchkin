@@ -1,6 +1,6 @@
 package com.example.sipliy.Cards;
 
-public class Buff implements BuffInterface, Cards
+public class Buff implements BuffInterface, Cards, Shmotki
 {
     private int ID; //id карты
     private String name;    //имя карты
