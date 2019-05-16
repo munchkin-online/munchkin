@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/list_hat"
-        android:layout_width="200dp"
+        android:layout_width="210dp"
         android:layout_height="48dp"
         android:layout_marginStart="510dp"
         android:layout_marginTop="95dp"
@@ -52,7 +52,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cbw_list"
-        android:layout_width="200dp"
+        android:layout_width="210dp"
         android:layout_height="250dp"
         android:layout_marginStart="510dp"
         android:layout_marginTop="135dp"
