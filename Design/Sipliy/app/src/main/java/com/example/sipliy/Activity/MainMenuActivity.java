@@ -64,7 +64,10 @@ public class MainMenuActivity extends AppCompatActivity {
                     case R.id.button_play:
                         //search.setText("play");
                         transfer();
-                        startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
+                        PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity();
+                        playerDialogActivity.show(getSupportFragmentManager(), "NoticeData");
+
+                        //startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
@@ -74,7 +77,7 @@ public class MainMenuActivity extends AppCompatActivity {
                         startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
                     case R.id.imageView_search_plus:
-                        if (true)
+                        if(true)
                         {
                             playersAdapter.addItem(String.valueOf(search.getText()));
                             search.setText("");
@@ -174,7 +177,8 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void transfer(){
+    public void transfer()
+    {
         SizePlayres = playersAdapter.getSize();
         for (int i = 0; i < SizePlayres; i++) {
             if (playersAdapter.getName(i) != ""){
@@ -182,4 +186,6 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

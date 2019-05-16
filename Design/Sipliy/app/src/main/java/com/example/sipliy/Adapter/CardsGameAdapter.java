@@ -144,7 +144,7 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
 
 
             plus = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
-            plus.setImageResource(R.drawable.dama);
+            plus.setImageResource(R.drawable.cardbackdoors);
 
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,4 +1,9 @@
-package com.example.sipliy.Cards;
+package com.example.sipliy.Player;
+
+import com.example.sipliy.Cards.DiscardDecks;
+import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.PlayerDecks;
+import com.example.sipliy.Cards.Treasures;
 
 import java.util.ArrayList;
 

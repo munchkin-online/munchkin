@@ -89,4 +89,30 @@
         </android.support.v7.widget.RecyclerView>
     </android.support.constraint.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/imageViewDoors"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09"
+        app:srcCompat="@drawable/cardbackdoors" />
+
+    <ImageView
+        android:id="@+id/imageViewTreasures"
+        android:layout_width="137dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439"
+        app:srcCompat="@drawable/cardbacktreasures" />
+
 </android.support.constraint.ConstraintLayout>

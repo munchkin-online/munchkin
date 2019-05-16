@@ -1,7 +1,7 @@
 package com.example.sipliy.Interaction;
 
 import com.example.sipliy.Cards.Monster;
-import com.example.sipliy.Cards.Player;
+import com.example.sipliy.Player.Player;
 
 public class GameInteraction
 {
@@ -9,7 +9,7 @@ public class GameInteraction
     {
         if(battleWithMonster(player, monster))
         {
-            player.increaseLVL(monster.getGiven_treasures());
+            player.increaseLVL(monster.getGiven_levels());
             player.addTreasures(monster.getTreasures());
         }
         else
