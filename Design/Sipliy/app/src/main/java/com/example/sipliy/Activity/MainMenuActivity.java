@@ -15,15 +15,18 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity
+{
 
     private RecyclerView playersList;        //лист с игрками
     private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
     public static String[] Players = new String[3];
-    public static int SizePlayres;
+    public static int SizePlayers;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -64,7 +67,11 @@ public class MainMenuActivity extends AppCompatActivity {
                     case R.id.button_play:
                         //search.setText("play");
                         transfer();
-                        PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity();
+                        for(int i = 0; i < SizePlayers; i++)    //добавление игроков в класс PlayerInstances
+                        {
+                            PlayerInstances.addPlayer(new Player(Players[i]));
+                        }
+                        PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
                         playerDialogActivity.show(getSupportFragmentManager(), "NoticeData");
 
                         //startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
@@ -179,9 +186,11 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void transfer()
     {
-        SizePlayres = playersAdapter.getSize();
-        for (int i = 0; i < SizePlayres; i++) {
-            if (playersAdapter.getName(i) != ""){
+        SizePlayers = playersAdapter.getSize();
+        for (int i = 0; i < SizePlayers; i++)
+        {
+            if (playersAdapter.getName(i) != "")
+            {
                 Players[i] = playersAdapter.getName(i);
             }
         }

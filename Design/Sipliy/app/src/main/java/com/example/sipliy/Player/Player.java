@@ -260,4 +260,8 @@ public class Player
             decks.addCard(Treasures.getItemCard());
         }
     }
+    public void addTreasures(Items item)    //добавление сокровища в руку
+    {
+        decks.addCard(item);
+    }
 }

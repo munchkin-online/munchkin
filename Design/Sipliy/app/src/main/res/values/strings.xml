@@ -15,4 +15,9 @@
     <string name="textRadioButton2">Узнали?</string>
     <string name="dialogMenuSettingText">Settings</string>
     <string name="dialogMenuExitText">Exit</string>
+    <string name="battleDialogText">На вас напали!!!</string>
+    <string name="name_of_monster">Name of Monster</string>
+    <string name="lvl_of_monster">lvl of monster</string>
+    <string name="escape">Убежать</string>
+    <string name="battle">Атаковать</string>
 </resources>

@@ -18,57 +18,57 @@ import java.util.List;
 
 public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.PlayerViewHolder>{
 
-    private OnItemClickListner listner;
+    private OnItemClickListener listener;
 
-    public interface OnItemClickListner{
+    public interface OnItemClickListener{
         void onItemClick(int position);
     }
 
 
 
-    public void setOnItemClickListner(OnItemClickListner listner){
-        this.listner = listner;
+    public void setOnItemClickListner(OnItemClickListener listner){
+        this.listener = listener;
     }
 
 
-    private List<MenuPlayer> plaersList = new ArrayList<>();
+    private List<MenuPlayer> playersList = new ArrayList<>();
 
     public void setItems(Collection<MenuPlayer> plaers){
-        plaersList.addAll(plaers);
+        playersList.addAll(plaers);
         notifyDataSetChanged();
     }
 
     public void clearItems(){
-        plaersList.clear();
+        playersList.clear();
         notifyDataSetChanged();
     }
 
     public void addItem(String str){
         if(!thereIs(str)){
-            plaersList.add(new MenuPlayer(str));
+            playersList.add(new MenuPlayer(str));
             notifyDataSetChanged();
         }
     }
 
     public void addItemPlay(String str){
         if (!thereIs(str)){
-            plaersList.add(new MenuPlayer(str, true));
+            playersList.add(new MenuPlayer(str, true));
             Sort();
             notifyDataSetChanged();
         }
     }
 
     public void isPlay(int i){
-        plaersList.get(i).setBoolStatus(true);
+        playersList.get(i).setBoolStatus(true);
         Sort();
         notifyDataSetChanged();
     }
 
     public void toIvite(String name){
         boolean f = false;
-        for (MenuPlayer item : plaersList){
+        for (MenuPlayer item : playersList){
             if (item.getName().equals(name)){
-                isPlay(plaersList.indexOf(item));
+                isPlay(playersList.indexOf(item));
                 f = true;
             }
         }
@@ -79,7 +79,7 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
 
     public boolean thereIs(String name){
         boolean f = false;
-        for(MenuPlayer item : plaersList){
+        for(MenuPlayer item : playersList){
             if (item.getName().equals(name)){
                 f = true;
             }
@@ -90,22 +90,22 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
 
     public int getSize(){
         int count = 0;
-        for (int i = 0; i < plaersList.size(); i++) {
-            if(plaersList.get(i).isBoolStatus()) count++;
+        for (int i = 0; i < playersList.size(); i++) {
+            if(playersList.get(i).isBoolStatus()) count++;
         }
         return count;
     }
 
     public String getName(int i){
-        if (plaersList.get(i).isBoolStatus()){
-            return plaersList.get(i).getName();
+        if (playersList.get(i).isBoolStatus()){
+            return playersList.get(i).getName();
         }
         else return "";
     }
 
     public void Sort(){
         int startIndex = 0;
-        int endIndex = plaersList.size() - 1;
+        int endIndex = playersList.size() - 1;
         doSort(startIndex, endIndex);
     }
     public void doSort(int start, int end) {
@@ -114,16 +114,16 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         int i = start, j = end;
         int cur = i - (i - j) / 2;
         while (i < j) {
-            while (i < cur && (Boolean.compare(plaersList.get(i).isBoolStatus(), false) >= Boolean.compare(plaersList.get(cur).isBoolStatus(), false))) {
+            while (i < cur && (Boolean.compare(playersList.get(i).isBoolStatus(), false) >= Boolean.compare(playersList.get(cur).isBoolStatus(), false))) {
                 i++;
             }
-            while (j > cur && (Boolean.compare(plaersList.get(cur).isBoolStatus() ,false) >= Boolean.compare(plaersList.get(j).isBoolStatus(), false))) {
+            while (j > cur && (Boolean.compare(playersList.get(cur).isBoolStatus() ,false) >= Boolean.compare(playersList.get(j).isBoolStatus(), false))) {
                 j--;
             }
             if (i < j) {
-                MenuPlayer temp = plaersList.get(i);
-                plaersList.set(i,plaersList.get(j));
-                plaersList.set(j,temp);
+                MenuPlayer temp = playersList.get(i);
+                playersList.set(i,playersList.get(j));
+                playersList.set(j,temp);
                 if (i == cur)
                     cur = j;
                 else if (j == cur)
@@ -139,19 +139,19 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.recycleview_item_players_menu, viewGroup, false);
-        PlayerViewHolder viewHolder = new PlayerViewHolder(view, listner);
+        PlayerViewHolder viewHolder = new PlayerViewHolder(view, listener);
         return viewHolder;
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i) {
-        playerViewHolder.bind(plaersList.get(i));
+        playerViewHolder.bind(playersList.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return plaersList.size();
+        return playersList.size();
     }
 
     class PlayerViewHolder extends RecyclerView.ViewHolder{
@@ -160,7 +160,7 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         TextView listStatus;
         ImageView plus;
 
-        public PlayerViewHolder(View itemView, final OnItemClickListner listner) {
+        public PlayerViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             listNames = itemView.findViewById(R.id.tv_name);
@@ -170,10 +170,10 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (listner != null){
+                    if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
-                            listner.onItemClick(position);
+                            listener.onItemClick(position);
                         }
                     }
                 }

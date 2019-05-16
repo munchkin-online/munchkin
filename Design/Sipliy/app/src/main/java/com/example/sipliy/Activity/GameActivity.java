@@ -13,13 +13,16 @@ import android.widget.Toast;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.Cards.Treasures;
+import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.Objects;
 
 import static com.example.sipliy.Activity.MainMenuActivity.Players;
-import static com.example.sipliy.Activity.MainMenuActivity.SizePlayres;
+import static com.example.sipliy.Activity.MainMenuActivity.SizePlayers;
 
 public class GameActivity extends AppCompatActivity
 {
@@ -29,9 +32,9 @@ public class GameActivity extends AppCompatActivity
     private RecyclerView cardsList;
     private CardsGameAdapter cardsAdapter;
 
-    private ImageView player_icon;
-    private ImageView doorsView;
-    private ImageView treasuresView;
+    private ImageView player_icon;  //иконка игрока
+    private ImageView doorsView;    //иконка с дверьми
+    private ImageView treasuresView;    //иконка с сокровищами
 
     private GameInteraction gameInteraction;
 
@@ -50,7 +53,7 @@ public class GameActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_game);
 
-        gameInteraction = new GameInteraction();
+        gameInteraction = new GameInteraction();    //создание управление игрой
 
         findViewById();
 
@@ -66,10 +69,9 @@ public class GameActivity extends AppCompatActivity
                         startActivity(new Intent(GameActivity.this, InventoryActivity.class));
                         break;
                     case R.id.imageViewTreasures:
-
+                        PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
                         break;
                     case R.id.imageViewDoors:
-
                         break;
                 }
             }
@@ -77,7 +79,7 @@ public class GameActivity extends AppCompatActivity
 
         player_icon.setOnClickListener(clickListener);
 
-        for (int i = 0; i < SizePlayres; i++) {
+        for (int i = 0; i < SizePlayers; i++) {
             playersAdapter.addItem(Players[i]);
         }
 
@@ -98,7 +100,6 @@ public class GameActivity extends AppCompatActivity
         cardsList.setLayoutManager(layoutManagerCards);
         cardsAdapter = new CardsGameAdapter();
         cardsList.setAdapter(cardsAdapter);
-        //player_icon.setOnClickListener(clickListener);
     }
     private void findViewById()
     {
@@ -114,10 +115,10 @@ public class GameActivity extends AppCompatActivity
         super.onDestroy();
     }
 
-    /*@Override
-    public void onBackPressed()
+    @Override
+    public void onBackPressed() //добавление взаимодействия с меню
     {
         MenuDialogActivity menuDialog = new MenuDialogActivity();
         menuDialog.show(getSupportFragmentManager(), "Menu");
-    }*/
+    }
 }

@@ -14,22 +14,19 @@ import com.example.sipliy.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.PlayerViewHolder>{
+public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.PlayerViewHolder>
+{
 
-    private OnItemClickListner listner;
+    private OnItemClickListener listener;
+    private List<MenuPlayer> playersList = new ArrayList<>();
 
-    public interface OnItemClickListner{
+    public interface OnItemClickListener
+    {
         void onItemClick(int position);
     }
-
-
-
-    public void setOnItemClickListner(OnItemClickListner listner){
-        this.listner = listner;
+    public void setOnItemClickListner(OnItemClickListener listener){
+        this.listener = listener;
     }
-
-
-    private List<MenuPlayer> plaersList = new ArrayList<>();
 
     //    public void setItems(Collection<MenuPlayer> plaers){
 //        plaersList.addAll(plaers);
@@ -41,9 +38,10 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
 //        notifyDataSetChanged();
 //    }
 //
-    public void addItem(){
+    public void addItem()
+    {
 
-        plaersList.add(new MenuPlayer(""));
+        playersList.add(new MenuPlayer(""));
         notifyDataSetChanged();
     }
 //
@@ -118,48 +116,56 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
 
     @NonNull
     @Override
-    public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.recycleview_item_cards_game, viewGroup, false);
-        return new PlayerViewHolder(view, listner);
+        return new PlayerViewHolder(view, listener);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i) {
-        playerViewHolder.bind(plaersList.get(i));
+    public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i)
+    {
+        playerViewHolder.bind(playersList.get(i));
     }
 
     @Override
-    public int getItemCount() {
-        return plaersList.size();
+    public int getItemCount()
+    {
+        return playersList.size();
     }
 
-    class PlayerViewHolder extends RecyclerView.ViewHolder{
+    class PlayerViewHolder extends RecyclerView.ViewHolder
+    {
 
         ImageView plus;
 
-        public PlayerViewHolder(View itemView, final OnItemClickListner listner) {
+        public PlayerViewHolder(View itemView, final OnItemClickListener listener)
+        {
             super(itemView);
-
 
             plus = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
             plus.setImageResource(R.drawable.cardbackdoors);
-
-            plus.setOnClickListener(new View.OnClickListener() {
+            plus.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View v) {
-                    if (listner != null){
+                public void onClick(View v)
+                {
+                    if (listener != null)
+                    {
                         int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
-                            listner.onItemClick(position);
+                        if (position != RecyclerView.NO_POSITION)
+                        {
+                            listener.onItemClick(position);
                         }
                     }
                 }
             });
         }
 
-        void bind(MenuPlayer plaer){
+        void bind(MenuPlayer player)
+        {
 //            listNames.setText(plaer.getName());
 //            if (plaer.isBoolStatus()){
 //                listStatus.setText("play");
