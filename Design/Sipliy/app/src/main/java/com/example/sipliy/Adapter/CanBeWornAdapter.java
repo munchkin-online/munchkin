@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -81,7 +80,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
        void bind(Items item)
        {
            name.setText(item.getName());
-           bonus.setText(item.getName());
+           bonus.setText(String.valueOf(item.getBonus()));
        }
    }
 }
