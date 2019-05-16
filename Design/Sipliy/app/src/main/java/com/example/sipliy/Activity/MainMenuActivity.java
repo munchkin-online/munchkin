@@ -128,7 +128,7 @@ public class MainMenuActivity extends AppCompatActivity
 
         bildRecyclerView(); //cборка листа
 
-        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListner()
+        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListener()
         {
             @Override
             public void onItemClick(int position)
