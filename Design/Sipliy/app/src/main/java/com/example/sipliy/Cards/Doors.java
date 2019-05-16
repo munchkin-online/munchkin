@@ -29,6 +29,12 @@ public class Doors
         doors.add(new Monster(20008, "Наскипидаренные улитки", false, 4, 2, 1, 0, 0, 3, 0, 6, -2));
         doors.add(new Monster(20009, "Невыразимо Жуткий Неописуемый Ужас", false, 14, 4, 1, 0, 0, 0, 4, 4, 0));
         doors.add(new Monster(20010, "Король Тут", true, 16, 4, 2, 4, 3, 0, 0, 0, 0));
+        doors.add(new Races(24002, "Дварф"));
+        doors.add(new Races(24003, "Эльф"));
+        doors.add(new Races(24004, "Хафлинг"));
+        doors.add(new Classes(25004, "Воин"));
+        doors.add(new Classes(25002, "Клирик"));//У клирика пассивная способность +3 против андедов
+        doors.add(new Classes(25005, "Вор"));//имеет шанс 50% получить дополнительное сокровище за убийство монстра
     }
 
     public static void reset()
