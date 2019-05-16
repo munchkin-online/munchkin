@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
@@ -26,7 +28,6 @@ import static com.example.sipliy.Activity.MainMenuActivity.SizePlayers;
 
 public class GameActivity extends AppCompatActivity
 {
-
     private RecyclerView playersList;        //лист с игроками
     private PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
@@ -35,6 +36,9 @@ public class GameActivity extends AppCompatActivity
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
     private ImageView treasuresView;    //иконка с сокровищами
+    private TextView nameView;
+    private TextView lvlView;
+    private TextView powerView;
 
     private GameInteraction gameInteraction;
 
@@ -107,6 +111,14 @@ public class GameActivity extends AppCompatActivity
         treasuresView = findViewById(R.id.imageViewTreasures);
         playersList = findViewById(R.id.recyclerViewGamePlayers);
         cardsList = findViewById(R.id.recyclerViewGameCards);
+        nameView = findViewById(R.id.nameView);
+        lvlView = findViewById(R.id.lvlView);
+        powerView = findViewById(R.id.powerView);
+        nameView.setText(PlayerInstances.getPlayer().getName());
+        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
+        lvlView.setText(lvl);
+        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
+        powerView.setText(pwr);
     }
 
     @Override

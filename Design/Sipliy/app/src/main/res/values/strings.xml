@@ -11,8 +11,8 @@
     <string name="rules">for more detailed information about the rules visit the website</string>
     <string name="ButtonWeb">WebSite</string>
     <string name="username">Username</string>
-    <string name="textRadioButton1">Согласны?</string>
-    <string name="textRadioButton2">Узнали?</string>
+    <string name="textRadioButton1">Герой</string>
+    <string name="textRadioButton2">Героиня</string>
     <string name="dialogMenuSettingText">Settings</string>
     <string name="dialogMenuExitText">Exit</string>
     <string name="battleDialogText">На вас напали!!!</string>

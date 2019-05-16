@@ -85,6 +85,7 @@ public class PlayerInstances    //класс хранящий данные иг�
     {
         return player;
     }
+    public static void setPlayerName(String name){ player.setName(name);}
     public static Player getOpponent_1()
     {
         return opponent_1;
