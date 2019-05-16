@@ -55,7 +55,7 @@ public class PlayerInstances    //класс хранящий данные иг�
         }
         else if(opponent_1 == null)
         {
-            opponent_2 = newPlayer;
+            opponent_1 = newPlayer;
             return true;
         }
         else if(opponent_2 == null)

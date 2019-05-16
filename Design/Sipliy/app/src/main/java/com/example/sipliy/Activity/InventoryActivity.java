@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.sipliy.Adapter.CanBeWornAdapter;
 import com.example.sipliy.Cards.Items;
@@ -21,6 +22,10 @@ public class InventoryActivity extends AppCompatActivity {
     private ImageView exitFromInventory;
     private RecyclerView canBeWornList;        //лист со шмотками
     private CanBeWornAdapter canBeWornAdapter;
+
+    private TextView name_hat = findViewById(R.id.char_hat);
+    private TextView strView = findViewById(R.id.tv_strengthValue);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
