@@ -15,15 +15,18 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends AppCompatActivity
+{
 
     private RecyclerView playersList;        //лист с игрками
     private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
     public static String[] Players = new String[3];
-    public static int SizePlayres;
+    public static int SizePlayers;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -64,7 +67,14 @@ public class MainMenuActivity extends AppCompatActivity {
                     case R.id.button_play:
                         //search.setText("play");
                         transfer();
-                        startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
+                        for(int i = 0; i < SizePlayers; i++)    //добавление игроков в класс PlayerInstances
+                        {
+                            PlayerInstances.addPlayer(new Player(Players[i]));
+                        }
+                        PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
+                        playerDialogActivity.show(getSupportFragmentManager(), "NoticeData");
+
+                        //startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
@@ -74,7 +84,7 @@ public class MainMenuActivity extends AppCompatActivity {
                         startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
                     case R.id.imageView_search_plus:
-                        if (true)
+                        if(true)
                         {
                             playersAdapter.addItem(String.valueOf(search.getText()));
                             search.setText("");
@@ -118,7 +128,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         bildRecyclerView(); //cборка листа
 
-        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListner()
+        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListener()
         {
             @Override
             public void onItemClick(int position)
@@ -174,12 +184,17 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void transfer(){
-        SizePlayres = playersAdapter.getSize();
-        for (int i = 0; i < SizePlayres; i++) {
-            if (playersAdapter.getName(i) != ""){
+    public void transfer()
+    {
+        SizePlayers = playersAdapter.getSize();
+        for (int i = 0; i < SizePlayers; i++)
+        {
+            if (playersAdapter.getName(i) != "")
+            {
                 Players[i] = playersAdapter.getName(i);
             }
         }
     }
+
+
 }

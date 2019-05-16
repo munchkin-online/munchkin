@@ -1,4 +1,9 @@
-package com.example.sipliy.Cards;
+package com.example.sipliy.Player;
+
+import com.example.sipliy.Cards.DiscardDecks;
+import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.PlayerDecks;
+import com.example.sipliy.Cards.Treasures;
 
 import java.util.ArrayList;
 
@@ -19,10 +24,24 @@ public class Player
     private Items helmet;   //Головняк игрока
     private Items leftHand;     //Левая рука игрока
     private Items rightHand;    //Правая рука игока
-    private ArrayList<Object> otherClothes;  //Прочие шмотки игрока
-    private ArrayList<Object> onetimeClothes;     //Разовые шмотки игока
+    private PlayerDecks decks = new PlayerDecks();  //колода карт игрока
 
-    public Player(String name, int level, int strength, int strengthClothes, int carrierRace, int carrierRaceSecond, boolean isSuperManichkin, int carrierClass, int carrierClassSecond, boolean isHalfBlood, Items shoes, Items armor, Items helmet, Items leftHand, Items rightHand) {
+    public Player(String name,
+                  int level,
+                  int strength,
+                  int strengthClothes,
+                  int carrierRace,
+                  int carrierRaceSecond,
+                  boolean isSuperManichkin,
+                  int carrierClass,
+                  int carrierClassSecond,
+                  boolean isHalfBlood,
+                  Items shoes,
+                  Items armor,
+                  Items helmet,
+                  Items leftHand,
+                  Items rightHand)
+    {
         this.name = name;
         this.level = level;
         this.strength = strength;
@@ -38,8 +57,6 @@ public class Player
         this.helmet = helmet;
         this.leftHand = leftHand;
         this.rightHand = rightHand;
-        this.otherClothes = new ArrayList<>();
-        this.onetimeClothes = new ArrayList<>();
     }
 
     public Player(String name)
@@ -59,8 +76,6 @@ public class Player
         this.helmet = null;
         this.leftHand = null;
         this.rightHand = null;
-        onetimeClothes = new ArrayList<>();
-        otherClothes = new ArrayList<>();
     }
 
     public String getName()
@@ -143,7 +158,8 @@ public class Player
         this.armor = armor;
     }
 
-    public Items getHelmet() {
+    public Items getHelmet()
+    {
         return helmet;
     }
 
@@ -177,35 +193,75 @@ public class Player
         this.strength = this.level + this.strengthClothes;
     }
 
-    public int getCarrierRaceSecond() {
+    public int getCarrierRaceSecond()
+    {
         return carrierRaceSecond;
     }
 
-    public void setCarrierRaceSecond(int carrierRaceSecond) {
+    public void setCarrierRaceSecond(int carrierRaceSecond)
+    {
         this.carrierRaceSecond = carrierRaceSecond;
     }
 
-    public boolean isSuperManichkin() {
+    public boolean isSuperManichkin()
+    {
         return isSuperManichkin;
     }
 
-    public void setSuperManichkin(boolean superManichkin) {
+    public void setSuperManichkin(boolean superManichkin)
+    {
         isSuperManichkin = superManichkin;
     }
 
-    public int getCarrierClassSecond() {
+    public int getCarrierClassSecond()
+    {
         return carrierClassSecond;
     }
 
-    public void setCarrierClassSecond(int carrierClassSecond) {
+    public void setCarrierClassSecond(int carrierClassSecond)
+    {
         this.carrierClassSecond = carrierClassSecond;
     }
 
-    public boolean isHalfBlood() {
+    public boolean isHalfBlood()
+    {
         return isHalfBlood;
     }
 
-    public void setHalfBlood(boolean halfBlood) {
+    public void setHalfBlood(boolean halfBlood)
+    {
         isHalfBlood = halfBlood;
+    }
+
+    public void increaseLVL(int increase)   //увеличение уровня
+    {
+        this.level += increase;
+    }
+
+    public void resetItems()    //удаление карт из руки игрока после смерти
+    {
+        DiscardDecks.addCard(shoes);
+        DiscardDecks.addCard(armor);
+        DiscardDecks.addCard(helmet);
+        DiscardDecks.addCard(rightHand);
+        DiscardDecks.addCard(leftHand);
+        this.shoes = null;
+        this.armor = null;
+        this.helmet = null;
+        this.rightHand = null;
+        this.leftHand = null;
+        this.decks.reset();
+    }
+
+    public void addTreasures(int numbers)   //добавить сокровища в руку игрока
+    {
+        for(int i = 0; i < numbers; i++)
+        {
+            decks.addCard(Treasures.getItemCard());
+        }
+    }
+    public void addTreasures(Items item)    //добавление сокровища в руку
+    {
+        decks.addCard(item);
     }
 }

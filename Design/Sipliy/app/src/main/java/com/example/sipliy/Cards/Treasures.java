@@ -2,36 +2,20 @@ package com.example.sipliy.Cards;
 
 import java.util.ArrayList;
 
-public class Decks
-{
-    private ArrayList<Items> items; //колода шмоток
-    private ArrayList<BuffOrDebuff> buffOrDebuff;  //колода баффов и дебаффов
 
-    public Decks()
+public class Treasures //класс карт сокровищ (общая колода с картами сокровищ)
+{
+    private static ArrayList<Items> items; //колода сокровищ
+
+    public Treasures()
     {
         items = new ArrayList<>();
-        buffOrDebuff = new ArrayList<>();
         fill();
     }
 
-    public void addCard(Items card) //добавление карт шмоток в колоду
+    public static Items getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
-        items.add(card);
-    }
-
-    public void addCard(BuffOrDebuff card)  //добавление карт баффов и дебаффов в колоду
-    {
-        buffOrDebuff.add(card);
-    }
-
-    public Items getItemCard(int i)
-    {
-        return items.get(i);
-    }
-
-    public BuffOrDebuff getBuffOrDebuffCard(int i)
-    {
-        return buffOrDebuff.get(i);
+        return items.remove(items.size() - 1);
     }
 
     public void fill()
@@ -46,6 +30,11 @@ public class Decks
         items.add(new Items(11008, "Терка Умиротворения",3,  4, 1, 2, 1, 400));
         items.add(new Items(11009, "Кинжал Изменты",3,  4, 1, 5, 1, 400));
         items.add(new Items(11010, "Башмаки Могучего Пендаля",2,  1, 1, 1, 1, 400));
+    }
+
+    public static void reset()
+    {
+        items.clear();
     }
 
 }

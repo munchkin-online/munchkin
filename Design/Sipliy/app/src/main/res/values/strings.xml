@@ -10,4 +10,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rules">for more detailed information about the rules visit the website</string>
     <string name="ButtonWeb">WebSite</string>
+    <string name="username">Username</string>
+    <string name="textRadioButton1">Согласны?</string>
+    <string name="textRadioButton2">Узнали?</string>
+    <string name="dialogMenuSettingText">Settings</string>
+    <string name="dialogMenuExitText">Exit</string>
+    <string name="battleDialogText">На вас напали!!!</string>
+    <string name="name_of_monster">Name of Monster</string>
+    <string name="lvl_of_monster">lvl of monster</string>
+    <string name="escape">Убежать</string>
+    <string name="battle">Атаковать</string>
 </resources>

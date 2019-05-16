@@ -16,16 +16,17 @@ import java.util.List;
 
 public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>{
 
-    private OnItemClickListner listner;
+    private OnItemClickListener listener;
 
-    public interface OnItemClickListner{
+    public interface OnItemClickListener
+    {
         void onItemClick(int position);
     }
 
 
 
-    public void setOnItemClickListner(OnItemClickListner listner){
-        this.listner = listner;
+    public void setOnItemClickListner(OnItemClickListener listner){
+        this.listener = listener;
     }
 
 
@@ -121,7 +122,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.recycleview_item_players_game, viewGroup, false);
-        return new PlayerViewHolder(view, listner);
+        return new PlayerViewHolder(view, listener);
 
     }
 
@@ -143,7 +144,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         TextView level;
         TextView strength;
 
-        public PlayerViewHolder(View itemView, final OnItemClickListner listner) {
+        public PlayerViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             name = itemView.findViewById(R.id.Name);

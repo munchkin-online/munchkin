@@ -12,6 +12,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Switch;
 
+import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.R;
 
 public class SettingsActivity extends AppCompatActivity
@@ -23,7 +24,6 @@ public class SettingsActivity extends AppCompatActivity
     private Button browseButton; // кнопка открыть правила в интернете
     private Switch aSwitch;
     private SeekBar seekBar;
-    private static final String TAG = "MyTag";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
