@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.example.sipliy.Adapter.CanBeWornAdapter;
 import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class InventoryActivity extends AppCompatActivity {
             }
         };
 
-        list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
+        //list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
+        while (Treasures.getItemCard().getName() != " ")
+        {
+            list_cwb.add(Treasures.getItemCard());
+        }
 
         exitFromInventory.setOnClickListener(clickListener);
 

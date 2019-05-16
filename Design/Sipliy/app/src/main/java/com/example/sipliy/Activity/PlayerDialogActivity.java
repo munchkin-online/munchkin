@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
@@ -39,6 +41,13 @@ public class PlayerDialogActivity extends DialogFragment
                     {
                         EditText un = (EditText)view.findViewById(R.id.username);
                         PlayerInstances.addPlayer(new Player(un.getText().toString()));
+                        RadioButton rbM = (RadioButton) view.findViewById(R.id.radioButtonMale);
+                        RadioButton rbF = (RadioButton) view.findViewById(R.id.radioButtonFemale);
+                        if(rbM.isChecked()) PlayerInstances.setPlayerSex(1);
+                        else PlayerInstances.setPlayerSex(2);
+                        PlayerInstances.addPlayer(new Player("Леха"));
+                        PlayerInstances.addPlayer(new Player("Лешенька"));
+                        PlayerInstances.addPlayer(new Player("Алеша"));
                         startActivity(new Intent(getActivity(), GameActivity.class));
                     }
                 })
