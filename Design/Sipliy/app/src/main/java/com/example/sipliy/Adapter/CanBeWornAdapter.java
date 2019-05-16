@@ -52,7 +52,6 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
     public void onBindViewHolder(@NonNull CBWViewHolder cbwViewHolder, int i)
     {
        cbwViewHolder.bind(list_cwb.get(i));
-       // list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
     }
 
     @Override
@@ -80,7 +79,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
        void bind(Items item)
        {
            name.setText(item.getName());
-           bonus.setText(String.valueOf(item.getBonus()));
+           bonus.setText("+" + String.valueOf(item.getBonus()));
        }
    }
 }

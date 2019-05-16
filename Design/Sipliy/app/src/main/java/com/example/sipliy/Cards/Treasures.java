@@ -15,7 +15,11 @@ public class Treasures //класс карт сокровищ (общая кол
 
     public static Items getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
-        return items.remove(items.size() - 1);
+        if(!items.isEmpty())
+        {
+            return items.remove(items.size() - 1);
+        }
+        return new Items(0, " ", 0, 0, 0, 0 ,0 ,0 ,0);
     }
 
     public void fill()
