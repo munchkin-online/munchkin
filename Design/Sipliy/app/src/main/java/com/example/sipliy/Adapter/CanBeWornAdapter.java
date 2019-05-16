@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.R;
@@ -23,12 +22,23 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListner(OnItemClickListener listner)
+//    public void setOnItemClickListner(OnItemClickListener listner)
+//    {
+//        this.listener = listener;
+//    }
+
+    //private ArrayList<Items> list_cwb = new ArrayList<>();
+    private ArrayList<Items> list_cwb;
+
+    public CanBeWornAdapter()
     {
-        this.listener = listener;
+        this.list_cwb = new ArrayList<>();
     }
 
-    private List<Items> cbw_list = new ArrayList<>();
+    public void addItem(ArrayList<Items> list_cwb){
+
+        this.list_cwb = list_cwb;
+    }
 
     @NonNull
     @Override
@@ -42,13 +52,14 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
     @Override
     public void onBindViewHolder(@NonNull CBWViewHolder cbwViewHolder, int i)
     {
-        cbwViewHolder.bind(Treasures.getItemCard());
+       cbwViewHolder.bind(list_cwb.get(i));
+       // list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
     }
 
     @Override
     public int getItemCount()
     {
-        return cbw_list.size();
+        return list_cwb.size();
     }
 
     class CBWViewHolder extends RecyclerView.ViewHolder
@@ -70,7 +81,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
        void bind(Items item)
        {
            name.setText(item.getName());
-           bonus.setText(item.getBonus());
+           bonus.setText(item.getName());
        }
    }
 }
