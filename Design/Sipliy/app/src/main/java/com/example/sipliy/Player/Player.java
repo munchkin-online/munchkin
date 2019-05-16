@@ -16,6 +16,7 @@ public class Player
     private int Race;    //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
     private int RaceSecond;    //дополнительная раса для полукровки (1-human, 2-dwarf, 3-elf, 4-hufling)
     private boolean isSuperManichkin;    //суперманичкин или обычный
+    private int sex;
     private int Clas;   //класс носителя (2-cleric, 3-wizard, 4-warrior, 5-thief)
     private int ClasSecond;   //дополнительный класс для суперманичкина (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
     private boolean isHalfBlood;    //полукровка или обычный
@@ -33,6 +34,7 @@ public class Player
                   int Race,
                   int RaceSecond,
                   boolean isSuperManichkin,
+                  int sex,
                   int Class,
                   int ClassSecond,
                   boolean isHalfBlood,
@@ -49,6 +51,7 @@ public class Player
         this.Race = Race;
         this.RaceSecond = RaceSecond;
         this.isSuperManichkin = isSuperManichkin;
+        this.sex = sex;
         this.Clas = Clas;
         this.ClasSecond = ClasSecond;
         this.isHalfBlood = isHalfBlood;
@@ -68,6 +71,7 @@ public class Player
         this.Race = 0;
         this.RaceSecond = 0;
         this.isSuperManichkin = false;
+        this.sex = 1;
         this.Clas = 0;
         this.ClasSecond = 0;
         this.isHalfBlood = false;
@@ -107,6 +111,10 @@ public class Player
     {
         this.strength = strength;
     }
+
+    public int getSex() {return sex;}
+
+    public void setSex(int sex) {this.sex = sex;}
 
     public int getStrengthClothes()
     {
