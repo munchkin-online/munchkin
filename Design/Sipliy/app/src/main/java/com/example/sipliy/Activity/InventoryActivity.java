@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.sipliy.Adapter.CanBeWornAdapter;
 import com.example.sipliy.R;
 
 public class InventoryActivity extends AppCompatActivity {
 
     private ImageView exitFromInventory;
+    private RecyclerView canBeWornList;        //лист со шмотками
+    private CanBeWornAdapter canBeWornAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class InventoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inventory);
 
         exitFromInventory = findViewById(R.id.exitFromInventory);
+        canBeWornList = findViewById(R.id.cbw_list);
 
         View.OnClickListener clickListener = new View.OnClickListener()
         {
@@ -36,6 +40,11 @@ public class InventoryActivity extends AppCompatActivity {
         };
 
         exitFromInventory.setOnClickListener(clickListener);
+
+        LinearLayoutManager layoutManagerCBW = new LinearLayoutManager(this);
+        canBeWornList.setLayoutManager(layoutManagerCBW);
+        canBeWornAdapter = new CanBeWornAdapter();
+        canBeWornList.setAdapter(canBeWornAdapter);
     }
     @Override
     protected void onDestroy()

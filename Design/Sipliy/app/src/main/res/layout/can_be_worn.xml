@@ -11,20 +11,25 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/cbw_item"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars[11]" />
+        <TextView
+            android:id="@+id/cbw_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="+1"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/cbw_text"
-            android:layout_marginTop="20dp"
+            android:id="@+id/cbw_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView"
-            android:textSize="36sp" />
+            android:paddingLeft="10dp"
+            android:text="Название шмотки"
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>
