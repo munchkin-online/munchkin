@@ -9,7 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.sipliy.Adapter.CanBeWornAdapter;
+import com.example.sipliy.Cards.Items;
 import com.example.sipliy.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class InventoryActivity extends AppCompatActivity {
 
         exitFromInventory = findViewById(R.id.exitFromInventory);
         canBeWornList = findViewById(R.id.cbw_list);
+        ArrayList<Items> list_cwb = new ArrayList<>();
 
         View.OnClickListener clickListener = new View.OnClickListener()
         {
@@ -39,11 +44,14 @@ public class InventoryActivity extends AppCompatActivity {
             }
         };
 
+        list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
+
         exitFromInventory.setOnClickListener(clickListener);
 
         LinearLayoutManager layoutManagerCBW = new LinearLayoutManager(this);
         canBeWornList.setLayoutManager(layoutManagerCBW);
         canBeWornAdapter = new CanBeWornAdapter();
+        canBeWornAdapter.addItem(list_cwb);
         canBeWornList.setAdapter(canBeWornAdapter);
     }
     @Override
