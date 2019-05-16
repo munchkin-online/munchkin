@@ -13,11 +13,11 @@ public class Player
     private int level;  //Левел игрока
     private int strength;   //Сила игрока
     private int strengthClothes;    //Суммарная сила всех шмоток игрока
-    private int carrierRace;    //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
-    private int carrierRaceSecond;    //дополнительная раса носителя для полукровки (1-human, 2-dwarf, 3-elf, 4-hufling)
+    private int Race;    //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
+    private int RaceSecond;    //дополнительная раса для полукровки (1-human, 2-dwarf, 3-elf, 4-hufling)
     private boolean isSuperManichkin;    //суперманичкин или обычный
-    private int carrierClass;   //класс носителя (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
-    private int carrierClassSecond;   //дополнительный класс носителя для суперманичкина (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
+    private int Clas;   //класс носителя (2-cleric, 3-wizard, 4-warrior, 5-thief)
+    private int ClasSecond;   //дополнительный класс для суперманичкина (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
     private boolean isHalfBlood;    //полукровка или обычный
     private Items shoes;    //Обувка игрока
     private Items armor;    //Броник игрока
@@ -30,11 +30,11 @@ public class Player
                   int level,
                   int strength,
                   int strengthClothes,
-                  int carrierRace,
-                  int carrierRaceSecond,
+                  int Race,
+                  int RaceSecond,
                   boolean isSuperManichkin,
-                  int carrierClass,
-                  int carrierClassSecond,
+                  int Class,
+                  int ClassSecond,
                   boolean isHalfBlood,
                   Items shoes,
                   Items armor,
@@ -46,11 +46,11 @@ public class Player
         this.level = level;
         this.strength = strength;
         this.strengthClothes = strengthClothes;
-        this.carrierRace = carrierRace;
-        this.carrierRaceSecond = carrierRaceSecond;
+        this.Race = Race;
+        this.RaceSecond = RaceSecond;
         this.isSuperManichkin = isSuperManichkin;
-        this.carrierClass = carrierClass;
-        this.carrierClassSecond = carrierClassSecond;
+        this.Clas = Clas;
+        this.ClasSecond = ClasSecond;
         this.isHalfBlood = isHalfBlood;
         this.shoes = shoes;
         this.armor = armor;
@@ -65,11 +65,11 @@ public class Player
         this.level = 1;
         this.strength = 1;
         this.strengthClothes = 0;
-        this.carrierRace = 0;
-        this.carrierRaceSecond = 0;
+        this.Race = 0;
+        this.RaceSecond = 0;
         this.isSuperManichkin = false;
-        this.carrierClass = 0;
-        this.carrierClassSecond = 0;
+        this.Clas = 0;
+        this.ClasSecond = 0;
         this.isHalfBlood = false;
         this.shoes = null;
         this.armor = null;
@@ -118,24 +118,24 @@ public class Player
         this.strengthClothes = strengthClothes;
     }
 
-    public int getCarrierRace()
+    public int getRace()
     {
-        return carrierRace;
+        return Race;
     }
 
-    public void setCarrierRace(int carrierRace)
+    public void setRace(int carrierRace)
     {
-        this.carrierRace = carrierRace;
+        this.Race = carrierRace;
     }
 
-    public int getCarrierClass()
+    public int getClas()
     {
-        return carrierClass;
+        return Clas;
     }
 
-    public void setCarrierClass(int carrierClass)
+    public void setClass(int Clas)
     {
-        this.carrierClass = carrierClass;
+        this.Clas = Clas;
     }
 
     public Items getShoes()
@@ -193,14 +193,14 @@ public class Player
         this.strength = this.level + this.strengthClothes;
     }
 
-    public int getCarrierRaceSecond()
+    public int getRaceSecond()
     {
-        return carrierRaceSecond;
+        return RaceSecond;
     }
 
-    public void setCarrierRaceSecond(int carrierRaceSecond)
+    public void setRaceSecond(int RaceSecond)
     {
-        this.carrierRaceSecond = carrierRaceSecond;
+        this.RaceSecond = RaceSecond;
     }
 
     public boolean isSuperManichkin()
@@ -213,14 +213,14 @@ public class Player
         isSuperManichkin = superManichkin;
     }
 
-    public int getCarrierClassSecond()
+    public int getClassSecond()
     {
-        return carrierClassSecond;
+        return ClasSecond;
     }
 
-    public void setCarrierClassSecond(int carrierClassSecond)
+    public void setClassSecond(int ClasSecond)
     {
-        this.carrierClassSecond = carrierClassSecond;
+        this.ClasSecond = ClasSecond;
     }
 
     public boolean isHalfBlood()
