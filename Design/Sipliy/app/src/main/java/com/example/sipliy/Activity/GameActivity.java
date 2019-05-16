@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
     private ImageView treasuresView;    //иконка с сокровищами
+    private ImageView sale;
 
     private GameInteraction gameInteraction;
 
@@ -73,15 +74,19 @@ public class GameActivity extends AppCompatActivity
                         break;
                     case R.id.imageViewDoors:
                         break;
+                    case R.id.sale:
+                        sale();
+                        break;
                 }
             }
         };
 
         player_icon.setOnClickListener(clickListener);
+        sale.setOnClickListener(clickListener);
 
-        for (int i = 0; i < SizePlayers; i++) {
-            playersAdapter.addItem(Players[i]);
-        }
+//        for (int i = 0; i < SizePlayers; i++) {
+//            playersAdapter.addItem(Players[i]);
+//        }
 
     }
 
@@ -100,6 +105,9 @@ public class GameActivity extends AppCompatActivity
         cardsList.setLayoutManager(layoutManagerCards);
         cardsAdapter = new CardsGameAdapter();
         cardsList.setAdapter(cardsAdapter);
+        playersAdapter.addPlayer(PlayerInstances.getOpponent_1());
+        playersAdapter.addPlayer(PlayerInstances.getOpponent_2());
+        playersAdapter.addPlayer(PlayerInstances.getOpponent_3());
     }
     private void findViewById()
     {
@@ -107,6 +115,7 @@ public class GameActivity extends AppCompatActivity
         treasuresView = findViewById(R.id.imageViewTreasures);
         playersList = findViewById(R.id.recyclerViewGamePlayers);
         cardsList = findViewById(R.id.recyclerViewGameCards);
+        sale = findViewById(R.id.sale);
     }
 
     @Override
@@ -120,5 +129,10 @@ public class GameActivity extends AppCompatActivity
     {
         MenuDialogActivity menuDialog = new MenuDialogActivity();
         menuDialog.show(getSupportFragmentManager(), "Menu");
+    }
+
+    public void sale(){
+        SaleDialogActivity saleDialog = new SaleDialogActivity();
+        saleDialog.show(getSupportFragmentManager(), "Sale");
     }
 }

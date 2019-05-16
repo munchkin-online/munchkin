@@ -117,4 +117,14 @@
         app:layout_constraintVertical_bias="0.439"
         app:srcCompat="@drawable/cardbacktreasures" />
 
+    <ImageView
+        android:id="@+id/sale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewGameCards"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
 </android.support.constraint.ConstraintLayout>
