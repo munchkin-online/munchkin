@@ -1,5 +1,7 @@
 package com.example.sipliy.Cards;
 
+import com.example.sipliy.Player.Player;
+
 import java.util.ArrayList;
 
 
@@ -15,11 +17,7 @@ public class Treasures //класс карт сокровищ (общая кол
 
     public static Items getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
-        if(!items.isEmpty())
-        {
-            return items.remove(items.size() - 1);
-        }
-        return new Items(0, " ", 0, 0, 0, 0 ,0 ,0 ,0);
+        return items.remove(items.size() - 1);
     }
 
     public void fill()
@@ -39,6 +37,11 @@ public class Treasures //класс карт сокровищ (общая кол
     public static void reset()
     {
         items.clear();
+    }
+
+    public static int getSize()
+    {
+        return items.size();
     }
 
 }
