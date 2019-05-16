@@ -23,7 +23,8 @@ public class InventoryActivity extends AppCompatActivity {
     private CanBeWornAdapter canBeWornAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
@@ -45,8 +46,8 @@ public class InventoryActivity extends AppCompatActivity {
             }
         };
 
-        //list_cwb.add(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
-        while (Treasures.getItemCard().getName() != " ")
+        int tmp_size = Treasures.getSize();
+        for(int i = 0; i < tmp_size; i++)
         {
             list_cwb.add(Treasures.getItemCard());
         }
