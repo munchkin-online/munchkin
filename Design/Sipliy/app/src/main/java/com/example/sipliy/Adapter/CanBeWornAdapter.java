@@ -80,7 +80,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
        void bind(Items item)
        {
            name.setText(item.getName());
-           bonus.setText(String.valueOf(item.getBonus()));
+           bonus.setText("+" + String.valueOf(item.getBonus()));
        }
    }
 }
