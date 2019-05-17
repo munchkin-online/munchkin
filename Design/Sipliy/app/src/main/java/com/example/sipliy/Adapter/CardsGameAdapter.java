@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.sipliy.Cards.Buff;
+import com.example.sipliy.Cards.Doors;
+import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.MenuPlayer;
 import com.example.sipliy.R;
 
@@ -18,7 +22,7 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
 {
 
     private OnItemClickListener listener;
-    private List<MenuPlayer> playersList = new ArrayList<>();
+    private static List<Object> cardsList = new ArrayList<>();
 
     public interface OnItemClickListener
     {
@@ -38,11 +42,21 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
 //        notifyDataSetChanged();
 //    }
 //
-    public void addItem()
+    public void addItem(Object o)
     {
-
-        playersList.add(new MenuPlayer(""));
+        cardsList.add(o);
         notifyDataSetChanged();
+    }
+
+    public static void delete(int id){
+        for (int i = 0; i < cardsList.size(); i++)
+        {
+            if (((Items)cardsList.get(i)).getID() == id || ((Buff)cardsList.get(i)).getID() == id)
+            {
+                cardsList.remove(i);
+            }
+        }
+        //notifyDataSetChanged();
     }
 //
 //    public void addItemPlay(String str){
@@ -127,27 +141,27 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i)
     {
-        playerViewHolder.bind(playersList.get(i));
+        playerViewHolder.bind(PlayerInstances.getPlayer().getDecks().getAll().get(i));
     }
 
     @Override
     public int getItemCount()
     {
-        return playersList.size();
+        return PlayerInstances.getPlayer().getDecks().getAll().size();
     }
 
     class PlayerViewHolder extends RecyclerView.ViewHolder
     {
 
-        ImageView plus;
+        ImageView icon;
 
         public PlayerViewHolder(View itemView, final OnItemClickListener listener)
         {
             super(itemView);
 
-            plus = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
-            plus.setImageResource(R.drawable.cardbackdoors);
-            plus.setOnClickListener(new View.OnClickListener()
+            icon = (ImageView)itemView.findViewById(R.id.imageViewGameCard);
+//            plus.setImageResource(R.drawable.cardbackdoors);
+            icon.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
@@ -164,13 +178,17 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
             });
         }
 
-        void bind(MenuPlayer player)
+        void bind(Object o)
         {
-//            listNames.setText(plaer.getName());
-//            if (plaer.isBoolStatus()){
-//                listStatus.setText("play");
-//                listStatus.setTextColor(Color.GREEN);
-//            }
+            if(o instanceof Doors){
+                icon.setImageResource(R.drawable.cardbackdoors);
+            }
+            if(o instanceof Items){
+                icon.setImageResource(R.drawable.cardbacktreasures);
+            }
+            if(o instanceof Buff){
+                icon.setImageResource(R.drawable.cardbacktreasures);
+            }
         }
     }
 }

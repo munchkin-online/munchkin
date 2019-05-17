@@ -1,5 +1,7 @@
 package com.example.sipliy.Activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +16,10 @@ import android.widget.Toast;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
@@ -35,7 +39,6 @@ public class GameActivity extends AppCompatActivity
     private PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
     private CardsGameAdapter cardsAdapter;
-    private PlayerDecks playerDecks;
 
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
@@ -59,15 +62,7 @@ public class GameActivity extends AppCompatActivity
         {
 
         }
-        playerDecks = new PlayerDecks();
-        playerDecks.addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 600));
-        playerDecks.addCard(new Items(11001, "Шлем", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "Шлем бесстрашия2", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "Шлем2", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
-//        playerDecks.addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
+
 
 
         setContentView(R.layout.activity_game);
@@ -95,6 +90,11 @@ public class GameActivity extends AppCompatActivity
                         break;
                     case R.id.sale:
                         sale();
+//                        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
+//                        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
+//                        lvlView.setText(lvl);
+//                        pwrView.setText(pwr);
+                        //Toast.makeText(this, Integer.toString(PlayerInstances.getPlayer().getLevel()), Toast.LENGTH_LONG).show();
                         break;
                 }
             }
@@ -124,6 +124,28 @@ public class GameActivity extends AppCompatActivity
         cardsList.setLayoutManager(layoutManagerCards);
         cardsAdapter = new CardsGameAdapter();
         cardsList.setAdapter(cardsAdapter);
+        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
+        PlayerInstances.getPlayer().getDecks().addCard(new Items(11002, "Кожаный прикид",1,  2, 1, 1, 1, 500));
+        PlayerInstances.getPlayer().getDecks().addCard(new Items(11004, "Посох Напалма",5,  4, 1, 3, 1, 800));
+        PlayerInstances.getPlayer().getDecks().addCard(new Items(11007, "Шлем-Рогач",1,  1, 3, 1, 1, 600, 3));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем бесстрашия2", 1, 1, 1, 1, 1, 600));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем2", 1, 1, 1, 1, 1, 600));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
+//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
+        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
+        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
+        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
+//        for (Object o : PlayerInstances.getPlayer().getDecks().getItems()){
+//            cardsAdapter.addItem(o);
+//        }
+//        for (Object o : PlayerInstances.getPlayer().getDecks().getBuff()){
+//            cardsAdapter.addItem(o);
+//        }
+//        for (Object o : PlayerInstances.getPlayer().getDecks().getDoors()){
+//            cardsAdapter.addItem(o);
+//        }
         playersAdapter.addPlayer(PlayerInstances.getOpponent_1());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_2());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_3());
@@ -158,18 +180,21 @@ public class GameActivity extends AppCompatActivity
         menuDialog.show(getSupportFragmentManager(), "Menu");
     }
 
-    public void sale(){
+    public void sale()
+    {
         SaleDialogActivity saleDialog = new SaleDialogActivity();
-        saleDialog.setPlayerDecks(playerDecks);
+        saleDialog.setPlayerDecks(PlayerInstances.getPlayer().getDecks());
         saleDialog.show(getSupportFragmentManager(), "Sale");
+        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
+        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
+        lvlView.setText(lvl);
+        pwrView.setText(pwr);
     }
 
-    public void remove(){
-        SaleDialogActivity saleDialog = new SaleDialogActivity();
-        saleDialog.setPlayerDecks(playerDecks);
-        saleDialog.show(getSupportFragmentManager(), "Sale");
+    public void remove()
+    {
         RemoveCardsDialogActivity removeCardsDialogActivity = new RemoveCardsDialogActivity();
-        removeCardsDialogActivity.setPlayerDecks(playerDecks);
+        removeCardsDialogActivity.setPlayerDecks(PlayerInstances.getPlayer().getDecks());
         removeCardsDialogActivity.show(getSupportFragmentManager(), "Remove");
     }
 }

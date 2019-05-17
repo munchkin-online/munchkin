@@ -11,7 +11,12 @@ public class Items implements Cards, Shmotki
     private int bonus;
     private int cost;   //стоимость карты
 
-    public Items(int ID ,String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost)
+    public Items(String name)
+    {
+        this.name = name;
+    }
+
+    public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost)
     {
         this.ID = ID;
         this.name = name;

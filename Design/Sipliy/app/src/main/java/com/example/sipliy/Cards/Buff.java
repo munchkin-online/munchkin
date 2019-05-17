@@ -7,6 +7,11 @@ public class Buff implements BuffInterface, Cards, Shmotki
     private int value;  //значение баффа
     private int cost;   //стоимость карты
 
+    public Buff(String name)
+    {
+        this.name = name;
+    }
+
     public Buff(String name, int value, boolean isItForHero, int cost)
     {
         this.name = name;

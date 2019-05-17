@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Cards;
 import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Shmotki;
+import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
@@ -36,13 +38,20 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
     {
         final int[] cost = {0};
         final ArrayList<Shmotki> cards = new ArrayList();
-        for(Shmotki card : playerDecks.getItems())
+//        for(Shmotki card : playerDecks.getItems())
+//        {
+//            cards.add(card);
+//        }
+//        for(Shmotki card : playerDecks.getBuff())
+//        {
+//            cards.add(card);
+//        }
+
+        for(Object card : playerDecks.getAll())
         {
-            cards.add(card);
-        }
-        for(Shmotki card : playerDecks.getBuff())
-        {
-            cards.add(card);
+            if(card instanceof Shmotki){
+                cards.add((Shmotki) card);
+            }
         }
 
         // Use the Builder class for convenient dialog construction
@@ -58,7 +67,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
         String[] cardsName = new String[cards.size()];
         for (int i = 0; i < cards.size(); i++)
         {
-            cardsName[i] = cards.get(i).getName();
+            cardsName[i] = cards.get(i).getName() + " - " + Integer.toString(cards.get(i).getCost());
         }
 
         final Button buttonSale = (Button)view.findViewById(R.id.oksale);
@@ -80,6 +89,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                 {
                     cost[0] -= cards.get(which).getCost();
                 }
+                Toast.makeText(getContext(), Integer.toString(cost[0]), Toast.LENGTH_LONG).show();
                 if (cost[0] < 1000){
                     buttonSale.setEnabled(false);
                 }
@@ -112,6 +122,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                         }
                     }
                 }
+                PlayerInstances.getPlayer().plusLVL();
                 SaleDialogActivity.this.getDialog().cancel();
             }
         });
