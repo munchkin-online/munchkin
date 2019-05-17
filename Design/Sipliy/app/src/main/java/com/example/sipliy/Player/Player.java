@@ -26,7 +26,7 @@ public class Player
     private Items helmet;   //Головняк игрока
     private Items leftHand;     //Левая рука игрока
     private Items rightHand;    //Правая рука игока
-    private PlayerDecks decks = new PlayerDecks();  //колода карт игрока
+    private PlayerDecks decks;  //колода карт игрока
 
     public Player(String name,
                   int level,
@@ -61,6 +61,7 @@ public class Player
         this.helmet = helmet;
         this.leftHand = leftHand;
         this.rightHand = rightHand;
+        this.decks = new PlayerDecks();
     }
 
     public Player(String name)
@@ -81,6 +82,7 @@ public class Player
         this.helmet = null;
         this.leftHand = null;
         this.rightHand = null;
+        this.decks = new PlayerDecks();
     }
 
     public String getName()

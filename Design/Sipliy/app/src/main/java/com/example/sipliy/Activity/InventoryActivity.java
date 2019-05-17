@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,6 +42,7 @@ public class InventoryActivity extends AppCompatActivity {
     private ImageView im_boots;
     private ImageView im_body;
 
+    private static String TAG = "Inventory";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -64,12 +66,14 @@ public class InventoryActivity extends AppCompatActivity {
             }
         };
 
+        Log.d(TAG, "onCreate: " + list_cwb.size());
         exitFromInventory.setOnClickListener(clickListener);
 
         LinearLayoutManager layoutManagerCBW = new LinearLayoutManager(this);
         canBeWornList.setLayoutManager(layoutManagerCBW);
-        canBeWornAdapter = new CanBeWornAdapter(this);
-        canBeWornAdapter.setOnItemClickListner(new CanBeWornAdapter.OnItemClickListener()
+
+        canBeWornAdapter = new CanBeWornAdapter(this, list_cwb);
+        canBeWornAdapter.setOnItemClickListener(new CanBeWornAdapter.ClickListener()
         {
             @Override
             public void onItemClick(View view, final int position)
@@ -84,7 +88,7 @@ public class InventoryActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which)
                             {
                                 setItemsOnPlayer(PlayerInstances.getPlayer().getDecks().getItems().get(position).getIMAGE_ID(),
-                                                PlayerInstances.getPlayer().getDecks().getItems().get(position).getItemType());
+                                        PlayerInstances.getPlayer().getDecks().getItems().get(position).getItemType());
                             }
                         })
                         .setNegativeButton("Назад", new DialogInterface.OnClickListener()
@@ -98,6 +102,7 @@ public class InventoryActivity extends AppCompatActivity {
 
             }
         });
+
         canBeWornList.setAdapter(canBeWornAdapter);
     }
     @Override

@@ -165,6 +165,7 @@ public class GameActivity extends AppCompatActivity
     @Override
     protected void onDestroy()
     {
+        Treasures.update();
         super.onDestroy();
     }
 
