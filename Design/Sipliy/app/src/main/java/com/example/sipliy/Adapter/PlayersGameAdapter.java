@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sipliy.MenuPlayer;
@@ -144,8 +145,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     class PlayerViewHolder extends RecyclerView.ViewHolder
     {
-        //ImageView plus;
-
+        ImageView plus;
         TextView name;
         TextView level;
         TextView strength;
@@ -157,8 +157,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
             name = itemView.findViewById(R.id.Name);
             level = itemView.findViewById(R.id.Level);
             strength = itemView.findViewById(R.id.Strength);
-            //plus = (ImageView)itemView.findViewById(R.id.imageViewCard);
-            //plus.setImageResource(R.drawable.dama);
+            plus = (ImageView)itemView.findViewById(R.id.imageView5);
 
 //            plus.setOnClickListener(new View.OnClickListener() {
 //                @Override
@@ -174,6 +173,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         }
 
         void bind(Player player){
+            plus.setImageResource(R.drawable.player_icon);
             name.setText(String.valueOf(player.getName()));
             level.setText(Integer.toString(player.getLevel()));
             strength.setText(Integer.toString(player.getStrength()));
