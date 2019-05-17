@@ -273,6 +273,11 @@ public class Player
         decks.addCard(item);
     }
 
+    public void addDoors(Object doors)    //добавление сокровища в руку
+    {
+        decks.addCard(doors);
+    }
+
     public PlayerDecks getDecks() {
         return decks;
     }
