@@ -71,6 +71,8 @@ public class GameActivity extends AppCompatActivity
 
         findViewById();
 
+        PlayerInstances.getPlayer().addTreasures(4);
+        PlayerInstances.getPlayer().addDoors(4);
         bildRecyclerView();
 
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -101,6 +103,8 @@ public class GameActivity extends AppCompatActivity
         };
 
         player_icon.setOnClickListener(clickListener);
+        doorsView.setOnClickListener(clickListener);
+        treasuresView.setOnClickListener(clickListener);
         sale.setOnClickListener(clickListener);
 
 //        for (int i = 0; i < SizePlayers; i++) {
