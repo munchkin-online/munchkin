@@ -1,6 +1,8 @@
 package com.example.sipliy.Cards;
 
-public class Items implements Cards, Shmotki
+import android.widget.ImageView;
+
+public class Items implements Cards, ItemsInterface
 {
     private int ID;
     private String name;    //имя карты
@@ -10,13 +12,15 @@ public class Items implements Cards, Shmotki
     private int carrierSex; //пол носителя (1-все, 2-мужчина, 3-женщина)
     private int bonus;
     private int cost;   //стоимость карты
+    private int IMAGE_ID;
 
-    public Items(String name)
+    public Items(String name, int IMAGE_ID)
     {
         this.name = name;
+        this.IMAGE_ID = IMAGE_ID;
     }
 
-    public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost)
+    public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
@@ -26,9 +30,10 @@ public class Items implements Cards, Shmotki
         this.carrierClass = carrierClass;
         this.carrierSex = carrierSex;
         this.cost = cost;
+        this.IMAGE_ID = IMAGE_ID;
     }
 
-    public Items(int ID ,String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int raceBonus)
+    public Items(int ID ,String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int raceBonus, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
@@ -38,6 +43,7 @@ public class Items implements Cards, Shmotki
         this.carrierClass = carrierClass;
         this.carrierSex = carrierSex;
         this.cost = cost;
+        this.IMAGE_ID = IMAGE_ID;
         if(raceBonus == carrierRace)
         {
             this.bonus = elfBonus_2();
@@ -88,6 +94,11 @@ public class Items implements Cards, Shmotki
     public int elfBonus_2()
     {
         return bonus + 2;
+    }
+
+    public int getIMAGE_ID()
+    {
+        return IMAGE_ID;
     }
 
 }

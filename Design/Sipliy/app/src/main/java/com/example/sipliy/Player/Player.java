@@ -16,10 +16,10 @@ public class Player
     private int strengthClothes;    //Суммарная сила всех шмоток игрока
     private int Race;    //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
     private int RaceSecond;    //дополнительная раса для полукровки (1-human, 2-dwarf, 3-elf, 4-hufling)
-    private boolean isSuperManichkin;    //суперманичкин или обычный
+    private boolean isSuperMunckin;    //суперманичкин или обычный
     private int sex;
-    private int Clas;   //класс носителя (2-cleric, 3-wizard, 4-warrior, 5-thief)
-    private int ClasSecond;   //дополнительный класс для суперманичкина (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
+    private int _class;   //класс носителя (2-cleric, 3-wizard, 4-warrior, 5-thief)
+    private int classSecond;   //дополнительный класс для суперманичкина (1-all, 2-cleric, 3-wizard, 4-warrior, 5-thief)
     private boolean isHalfBlood;    //полукровка или обычный
     private Items shoes;    //Обувка игрока
     private Items armor;    //Броник игрока
@@ -34,10 +34,10 @@ public class Player
                   int strengthClothes,
                   int Race,
                   int RaceSecond,
-                  boolean isSuperManichkin,
+                  boolean isSuperMunckin,
                   int sex,
-                  int Class,
-                  int ClassSecond,
+                  int _class,
+                  int classSecond,
                   boolean isHalfBlood,
                   Items shoes,
                   Items armor,
@@ -51,10 +51,10 @@ public class Player
         this.strengthClothes = strengthClothes;
         this.Race = Race;
         this.RaceSecond = RaceSecond;
-        this.isSuperManichkin = isSuperManichkin;
+        this.isSuperMunckin = isSuperMunckin;
         this.sex = sex;
-        this.Clas = Clas;
-        this.ClasSecond = ClasSecond;
+        this._class = _class;
+        this.classSecond = classSecond;
         this.isHalfBlood = isHalfBlood;
         this.shoes = shoes;
         this.armor = armor;
@@ -71,10 +71,10 @@ public class Player
         this.strengthClothes = 0;
         this.Race = 1;
         this.RaceSecond = 1;
-        this.isSuperManichkin = false;
+        this.isSuperMunckin = false;
         this.sex = 1;
-        this.Clas = 1;
-        this.ClasSecond = 1;
+        this._class = 1;
+        this.classSecond = 1;
         this.isHalfBlood = false;
         this.shoes = null;
         this.armor = null;
@@ -137,14 +137,14 @@ public class Player
         this.Race = carrierRace;
     }
 
-    public int getClas()
+    public int get_Class()
     {
-        return Clas;
+        return _class;
     }
 
-    public void setClass(int Clas)
+    public void set_Class(int _class)
     {
-        this.Clas = Clas;
+        this._class = _class;
     }
 
     public Items getShoes()
@@ -212,24 +212,24 @@ public class Player
         this.RaceSecond = RaceSecond;
     }
 
-    public boolean isSuperManichkin()
+    public boolean isSuperMunckin()
     {
-        return isSuperManichkin;
+        return isSuperMunckin;
     }
 
-    public void setSuperManichkin(boolean superManichkin)
+    public void setSuperMunckin(boolean superMunckin)
     {
-        isSuperManichkin = superManichkin;
+        isSuperMunckin = superMunckin;
     }
 
     public int getClassSecond()
     {
-        return ClasSecond;
+        return classSecond;
     }
 
-    public void setClassSecond(int ClasSecond)
+    public void setClassSecond(int classSecond)
     {
-        this.ClasSecond = ClasSecond;
+        this.classSecond = classSecond;
     }
 
     public boolean isHalfBlood()

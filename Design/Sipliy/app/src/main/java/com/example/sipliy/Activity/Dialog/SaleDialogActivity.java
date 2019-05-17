@@ -1,25 +1,20 @@
-package com.example.sipliy.Activity;
+package com.example.sipliy.Activity.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Cards.Buff;
-import com.example.sipliy.Cards.Cards;
 import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.ItemsInterface;
 import com.example.sipliy.Cards.PlayerDecks;
-import com.example.sipliy.Cards.Shmotki;
 import com.example.sipliy.Data.PlayerInstances;
-import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -37,20 +32,20 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
         final int[] cost = {0};
-        final ArrayList<Shmotki> cards = new ArrayList();
-//        for(Shmotki card : playerDecks.getItems())
+        final ArrayList<ItemsInterface> cards = new ArrayList();
+//        for(ItemsInterface card : playerDecks.getItems())
 //        {
 //            cards.add(card);
 //        }
-//        for(Shmotki card : playerDecks.getBuff())
+//        for(ItemsInterface card : playerDecks.getBuff())
 //        {
 //            cards.add(card);
 //        }
 
         for(Object card : playerDecks.getAll())
         {
-            if(card instanceof Shmotki){
-                cards.add((Shmotki) card);
+            if(card instanceof ItemsInterface){
+                cards.add((ItemsInterface) card);
             }
         }
 

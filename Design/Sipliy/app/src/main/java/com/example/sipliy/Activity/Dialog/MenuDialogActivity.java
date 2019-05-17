@@ -1,4 +1,4 @@
-package com.example.sipliy.Activity;
+package com.example.sipliy.Activity.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sipliy.Activity.SettingsActivity;
 import com.example.sipliy.R;
 
 import java.util.Objects;

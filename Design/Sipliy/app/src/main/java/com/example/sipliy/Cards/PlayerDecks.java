@@ -84,5 +84,7 @@ public class PlayerDecks    //колода игрока
         DiscardDecks.addCardsBuffDebuff(buff);
         this.items.clear();
         this.buff.clear();
+        this.buff.clear();
+        this.all.clear();
     }
 }
