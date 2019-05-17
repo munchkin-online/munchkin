@@ -1,5 +1,6 @@
 package com.example.sipliy.Adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,24 +11,19 @@ import com.example.sipliy.Cards.Items;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWViewHolder>
 {
-    private OnItemClickListener listener;
+    private OnItemClickListner listner;
+    private ArrayList<Items> list_cwb;
 
-    public interface OnItemClickListener
-    {
-        void onItemClick(int position);
+    public interface OnItemClickListner{
+        void onItemClick(View v, int position);
     }
 
-//    public void setOnItemClickListner(OnItemClickListener listner)
-//    {
-//        this.listener = listener;
-//    }
-
-    //private ArrayList<Items> list_cwb = new ArrayList<>();
-    private ArrayList<Items> list_cwb;
+    public void setOnItemClickListner(OnItemClickListner listner){
+        this.listner = listner;
+    }
 
     public CanBeWornAdapter()
     {
@@ -45,7 +41,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
     {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.can_be_worn, viewGroup, false);
-        return new CBWViewHolder(view, listener);
+        return new CBWViewHolder(view);
     }
 
     @Override
@@ -65,15 +61,24 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
        TextView name;
        TextView bonus;
 
-       public CBWViewHolder(@NonNull View itemView, OnItemClickListener listener)
+       public CBWViewHolder(@NonNull View itemView)
        {
            super(itemView);
-
            name = itemView.findViewById(R.id.cbw_name);
            bonus = itemView.findViewById(R.id.cbw_bonus);
 
-           name.setText("Кожаный прикид");
-           bonus.setText("+1");
+           itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   if (listner != null){
+                       int position = getAdapterPosition();
+                       if (position != RecyclerView.NO_POSITION){
+                           listner.onItemClick(v, position);
+                       }
+                   }
+               }
+           });
+
        }
 
        void bind(Items item)
@@ -81,5 +86,6 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
            name.setText(item.getName());
            bonus.setText("+" + String.valueOf(item.getBonus()));
        }
+
    }
 }

@@ -208,7 +208,14 @@
         android:layout_marginStart="330dp"
         android:layout_marginTop="310dp"
         android:background="@drawable/box_for_item"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_boots"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_body"
@@ -217,7 +224,14 @@
         android:layout_marginStart="330dp"
         android:layout_marginTop="205dp"
         android:background="@drawable/box_for_item"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_head"
@@ -226,7 +240,14 @@
         android:layout_marginStart="330dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/box_for_item"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_head"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_r_hand"
@@ -235,7 +256,14 @@
         android:layout_marginStart="420dp"
         android:layout_marginTop="250dp"
         android:background="@drawable/box_for_item"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_l_hand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_l_hand"
@@ -244,6 +272,13 @@
         android:layout_marginStart="240dp"
         android:layout_marginTop="250dp"
         android:background="@drawable/box_for_item"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_r_hand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
 
 </RelativeLayout>
