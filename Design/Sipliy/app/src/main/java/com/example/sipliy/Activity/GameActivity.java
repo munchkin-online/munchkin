@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
 import com.example.sipliy.Cards.Doors;
+import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
@@ -33,6 +35,7 @@ public class GameActivity extends AppCompatActivity
     private PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
     private CardsGameAdapter cardsAdapter;
+    private PlayerDecks playerDecks;
 
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
@@ -56,6 +59,16 @@ public class GameActivity extends AppCompatActivity
         {
 
         }
+        playerDecks = new PlayerDecks();
+        playerDecks.addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 600));
+        playerDecks.addCard(new Items(11001, "Шлем", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "Шлем бесстрашия2", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "Шлем2", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
+//        playerDecks.addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
+
 
         setContentView(R.layout.activity_game);
 
@@ -78,7 +91,7 @@ public class GameActivity extends AppCompatActivity
                         PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
                         break;
                     case R.id.imageViewDoors:
-                        PlayerInstances.getPlayer().addDoors(Doors.getItemCard());
+                        //PlayerInstances.getPlayer().addDoors(Doors.getItemCard());
                         break;
                     case R.id.sale:
                         sale();
@@ -147,6 +160,16 @@ public class GameActivity extends AppCompatActivity
 
     public void sale(){
         SaleDialogActivity saleDialog = new SaleDialogActivity();
+        saleDialog.setPlayerDecks(playerDecks);
         saleDialog.show(getSupportFragmentManager(), "Sale");
+    }
+
+    public void remove(){
+        SaleDialogActivity saleDialog = new SaleDialogActivity();
+        saleDialog.setPlayerDecks(playerDecks);
+        saleDialog.show(getSupportFragmentManager(), "Sale");
+        RemoveCardsDialogActivity removeCardsDialogActivity = new RemoveCardsDialogActivity();
+        removeCardsDialogActivity.setPlayerDecks(playerDecks);
+        removeCardsDialogActivity.show(getSupportFragmentManager(), "Remove");
     }
 }
