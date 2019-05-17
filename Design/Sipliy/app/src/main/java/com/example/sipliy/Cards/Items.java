@@ -71,7 +71,7 @@ public class Items implements Cards, Shmotki
 
     @Override
     public int getCost() {
-        return 0;
+        return cost;
     }
 
     @Override

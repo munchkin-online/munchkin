@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Cards;
@@ -19,6 +21,7 @@ import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SaleDialogActivity extends DialogFragment  //диалоговое окно, представляет собой лист из карт игрока с флажками и кнопкой продать и отмена
 {
@@ -27,7 +30,8 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
         final PlayerDecks playerDecks = new PlayerDecks();
-        playerDecks.addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
+        playerDecks.addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 600));
+        playerDecks.addCard(new Items(11001, "Шлем", 1, 1, 1, 1, 1, 600));
         final int[] cost = {0};
         final ArrayList<Shmotki> cards = new ArrayList();
         for(Shmotki card : playerDecks.getItems())
@@ -42,10 +46,8 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
         // Use the Builder class for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        LayoutInflater inflater;// = Objects.requireNonNull(getActivity()).getLayoutInflater();
-
-        inflater = LayoutInflater.from(getContext());
-        View view = inflater.inflate(R.layout.dialogsale, null);
+        final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
+        final View view = inflater.inflate(R.layout.dialogsale, null);
         final boolean[] checkedCardsArray = new boolean[cards.size()];
         for (boolean f : checkedCardsArray)
         {
@@ -54,8 +56,14 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
         String[] cardsName = new String[cards.size()];
         for (int i = 0; i < cards.size(); i++)
         {
-            cardsName[i] = cards.get(i).getClass().getName();
+            cardsName[i] = cards.get(i).getName();
         }
+
+        final Button buttonSale = (Button)view.findViewById(R.id.oksale);
+        final Button buttonCancel = (Button)view.findViewById(R.id.cancel);
+        buttonSale.setEnabled(false);
+
+        builder.setView(view);
         builder.setMultiChoiceItems(cardsName, checkedCardsArray, new DialogInterface.OnMultiChoiceClickListener()
         {
             @Override
@@ -70,25 +78,21 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                 {
                     cost[0] -= cards.get(which).getCost();
                 }
+                if (cost[0] < 1000){
+                    buttonSale.setEnabled(false);
+                }
+                else
+                {
+                    buttonSale.setEnabled(true);
+                }
             }
         });
 
-//        if(cost[0] < 1000)
-//        {
-//            ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-//        }
-//        else
-//        {
-//            ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-//        }
 
-
-
-
-        builder.setPositiveButton("Продать", new DialogInterface.OnClickListener()
+        buttonSale.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(DialogInterface dialog, int which)
+            public void onClick(View v)
             {
                 for (int i = 0; i < checkedCardsArray.length; i++)
                 {
@@ -109,13 +113,12 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
             }
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
 
             }
         });
-
         return builder.create();
     }
 }

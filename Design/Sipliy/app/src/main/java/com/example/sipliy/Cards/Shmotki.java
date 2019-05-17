@@ -4,4 +4,5 @@ package com.example.sipliy.Cards;
 public interface Shmotki
 {
     int getCost();
+    String getName();
 }
