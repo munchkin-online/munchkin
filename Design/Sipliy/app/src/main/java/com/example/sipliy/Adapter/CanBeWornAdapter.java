@@ -1,5 +1,6 @@
 package com.example.sipliy.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -15,50 +16,50 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
-public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWViewHolder>
+public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.ViewHolder>
 {
-    private static OnItemClickListener clickListener;
+    private static ClickListener clickListener;
     private ArrayList<Items> list_cwb;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public CanBeWornAdapter(Context context)
+    public CanBeWornAdapter(Context context, ArrayList<Items> list)
     {
-        this.list_cwb = PlayerInstances.getPlayer().getDecks().getItems();
+        this.list_cwb = list;
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
     @NonNull
     @Override
-    public CBWViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
         View view = layoutInflater.inflate(R.layout.can_be_worn, viewGroup, false);
-        return new CBWViewHolder(view);
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull CBWViewHolder cbwViewHolder, int i)
+    public void onBindViewHolder(@NonNull ViewHolder cbwViewHolder, int i)
     {
-       cbwViewHolder.bonus.setText(PlayerInstances.getPlayer().getDecks().getItems().get(i).getBonus());
-       cbwViewHolder.name.setText(PlayerInstances.getPlayer().getDecks().getItems().get(i).getName());
+       cbwViewHolder.bonus.setText(Integer.toString(list_cwb.get(i).getBonus()));
+       cbwViewHolder.name.setText(list_cwb.get(i).getName());
     }
 
     @Override
     public int getItemCount()
     {
-        return PlayerInstances.getPlayer().getDecks().getItems().size();
+        return list_cwb.size();
     }
 
-    class CBWViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private final TextView name;
         private final TextView bonus;
 
-        public CBWViewHolder(@NonNull View itemView)
+        public ViewHolder(@NonNull View itemView)
         {
             super(itemView);
-
             name = itemView.findViewById(R.id.cbw_name);
             bonus = itemView.findViewById(R.id.cbw_bonus);
             itemView.setOnClickListener(this);
@@ -71,12 +72,12 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.CBWV
             clickListener.onItemClick(v, getAdapterPosition());
         }
     }
-    public interface OnItemClickListener
+    public interface ClickListener
     {
         void onItemClick(View view, int position);
     }
 
-    public void setOnItemClickListner(OnItemClickListener clickListner)
+    public void setOnItemClickListener(ClickListener clickListner)
     {
         CanBeWornAdapter.clickListener = clickListener;
     }

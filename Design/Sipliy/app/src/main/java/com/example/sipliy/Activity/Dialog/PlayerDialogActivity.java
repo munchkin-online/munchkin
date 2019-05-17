@@ -44,8 +44,10 @@ public class PlayerDialogActivity extends DialogFragment
                         PlayerInstances.addPlayer(new Player(un.getText().toString()));
                         RadioButton rbM = (RadioButton) view.findViewById(R.id.radioButtonMale);
                         RadioButton rbF = (RadioButton) view.findViewById(R.id.radioButtonFemale);
-                        if(rbM.isChecked()) PlayerInstances.setPlayerSex(1);
-                        else PlayerInstances.setPlayerSex(2);
+                        if(rbM.isChecked())
+                            PlayerInstances.setPlayerSex(1);
+                        else
+                            PlayerInstances.setPlayerSex(2);
                         PlayerInstances.addPlayer(new Player("Леха"));
                         PlayerInstances.addPlayer(new Player("Лешенька"));
                         PlayerInstances.addPlayer(new Player("Алеша"));

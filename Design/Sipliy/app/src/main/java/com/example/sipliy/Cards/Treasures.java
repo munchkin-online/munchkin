@@ -59,7 +59,6 @@ public class Treasures //класс карт сокровищ (общая кол
         items = reserveItems;
     }
 
-
     public static int getSize()
     {
         return items.size();
