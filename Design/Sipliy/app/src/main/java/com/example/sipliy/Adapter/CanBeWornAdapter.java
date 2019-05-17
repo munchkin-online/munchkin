@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.View
     private ArrayList<Items> list_cwb;
     private Context context;
     private LayoutInflater layoutInflater;
+    private static String TAG = "canBe";
 
     public CanBeWornAdapter(Context context, ArrayList<Items> list)
     {
@@ -69,6 +71,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.View
         @Override
         public void onClick(View v)
         {
+            Log.d(TAG, "onClick: " + getAdapterPosition() + " " + v.getId());
             clickListener.onItemClick(v, getAdapterPosition());
         }
     }
@@ -77,7 +80,7 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.View
         void onItemClick(View view, int position);
     }
 
-    public void setOnItemClickListener(ClickListener clickListner)
+    public void setOnItemClickListener(ClickListener clickListener)
     {
         CanBeWornAdapter.clickListener = clickListener;
     }

@@ -99,6 +99,7 @@ public class InventoryActivity extends AppCompatActivity {
 
                             }
                         });
+                builder.show();
 
             }
         });

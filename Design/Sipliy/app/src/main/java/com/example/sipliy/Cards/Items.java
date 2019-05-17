@@ -1,7 +1,7 @@
 package com.example.sipliy.Cards;
 
 import android.widget.ImageView;
-
+//TODO ЛЕХА БЛЭТ ИСПРАВЬ НУМЕРАЦИЮ
 public class Items implements Cards, ItemsInterface
 {
     private int ID;
