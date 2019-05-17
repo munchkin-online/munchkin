@@ -23,6 +23,9 @@ import java.util.Objects;
 public class SaleDialogActivity extends DialogFragment  //диалоговое окно, представляет собой лист из карт игрока с флажками и кнопкой продать и отмена
 {
     PlayerDecks playerDecks;
+    int cost;
+    boolean[] checkedCardsArray;
+    ArrayList<ItemsInterface> cards;
 
     public void setPlayerDecks(PlayerDecks playerDecks) { //Что бы диалог работал надо передать калоду игрока
         this.playerDecks = playerDecks;
@@ -31,16 +34,9 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        final int[] cost = {0};
-        final ArrayList<ItemsInterface> cards = new ArrayList();
-//        for(ItemsInterface card : playerDecks.getItems())
-//        {
-//            cards.add(card);
-//        }
-//        for(ItemsInterface card : playerDecks.getBuff())
-//        {
-//            cards.add(card);
-//        }
+        cost = 0;
+        cards = new ArrayList();
+
 
         for(Object card : playerDecks.getAll())
         {
@@ -52,9 +48,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
         // Use the Builder class for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-//        final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
-//        final View view = inflater.inflate(R.layout.dialogsale, null);
-        final boolean[] checkedCardsArray = new boolean[cards.size()];
+        checkedCardsArray = new boolean[cards.size()];
         for (boolean f : checkedCardsArray)
         {
             f = false;
@@ -73,13 +67,13 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                 checkedCardsArray[which] = isChecked;
                 if(isChecked)
                 {
-                    cost[0] += cards.get(which).getCost();
+                    cost += cards.get(which).getCost();
                 }
                 else
                 {
-                    cost[0] -= cards.get(which).getCost();
+                    cost -= cards.get(which).getCost();
                 }
-                Toast.makeText(getContext(), Integer.toString(cost[0]), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), Integer.toString(cost), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -89,39 +83,60 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                if (cost[0] < 1000)
-                {
-                    Toast.makeText(getContext(), "Type more than 1000 gold", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    for (int i = 0; i < checkedCardsArray.length; i++)
-                    {
-                        boolean checked = checkedCardsArray[i];
-                        if(checked)
-                        {
-                            Object card = cards.get(i);
-                            if (card instanceof Items)
-                            {
-                                playerDecks.deleteItem((Items) card);
-                            }
-                            else if(card instanceof Buff)
-                            {
-                                playerDecks.deleteBuff((Buff) card);
-                            }
-                        }
-                    }
-                    PlayerInstances.getPlayer().plusLVL();
-                    SaleDialogActivity.this.getDialog().cancel();
-                }
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+        {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                SaleDialogActivity.this.getDialog().cancel();
+            public void onClick(DialogInterface dialog, int which)
+            {
+
             }
         });
         return builder.create();
+    }
+
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        AlertDialog d = (AlertDialog)getDialog();
+        if(d != null)
+        {
+            Button saleButton = (Button) d.getButton(Dialog.BUTTON_POSITIVE);
+            saleButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    if (cost < 1000)
+                    {
+                        Toast.makeText(getContext(), "Type more than 1000 gold", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < checkedCardsArray.length; i++)
+                        {
+                            boolean checked = checkedCardsArray[i];
+                            if(checked)
+                            {
+                                Object card = cards.get(i);
+                                if (card instanceof Items)
+                                {
+                                    playerDecks.deleteItem((Items) card);
+                                }
+                                else if(card instanceof Buff)
+                                {
+                                    playerDecks.deleteBuff((Buff) card);
+                                }
+                            }
+                        }
+                        PlayerInstances.getPlayer().plusLVL();
+                        dismiss();
+                    }
+                }
+            });
+        }
     }
 }
