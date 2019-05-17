@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
@@ -73,6 +74,7 @@ public class GameActivity extends AppCompatActivity
                         PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
                         break;
                     case R.id.imageViewDoors:
+                        PlayerInstances.getPlayer().addDoors(Doors.getItemCard());
                         break;
                     case R.id.sale:
                         sale();
