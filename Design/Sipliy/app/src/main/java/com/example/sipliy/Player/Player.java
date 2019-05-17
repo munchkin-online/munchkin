@@ -1,6 +1,7 @@
 package com.example.sipliy.Player;
 
 import com.example.sipliy.Cards.DiscardDecks;
+import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
@@ -273,6 +274,13 @@ public class Player
         decks.addCard(item);
     }
 
+    public void addDoors(int numbers)   //добавить сокровища в руку игрока
+    {
+        for(int i = 0; i < numbers; i++)
+        {
+            decks.addCard(Doors.getItemCard());
+        }
+    }
     public void addDoors(Object doors)    //добавление сокровища в руку
     {
         decks.addCard(doors);
