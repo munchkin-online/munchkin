@@ -57,8 +57,8 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
         // Use the Builder class for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
-        final View view = inflater.inflate(R.layout.dialogsale, null);
+//        final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
+//        final View view = inflater.inflate(R.layout.dialogsale, null);
         final boolean[] checkedCardsArray = new boolean[cards.size()];
         for (boolean f : checkedCardsArray)
         {
@@ -70,11 +70,6 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
             cardsName[i] = cards.get(i).getName() + " - " + Integer.toString(cards.get(i).getCost());
         }
 
-        final Button buttonSale = (Button)view.findViewById(R.id.oksale);
-        final Button buttonCancel = (Button)view.findViewById(R.id.cancelsale);
-        buttonSale.setEnabled(false);
-
-        builder.setView(view);
         builder.setMultiChoiceItems(cardsName, checkedCardsArray, new DialogInterface.OnMultiChoiceClickListener()
         {
             @Override
@@ -90,47 +85,45 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                     cost[0] -= cards.get(which).getCost();
                 }
                 Toast.makeText(getContext(), Integer.toString(cost[0]), Toast.LENGTH_LONG).show();
-                if (cost[0] < 1000){
-                    buttonSale.setEnabled(false);
+            }
+        });
+
+
+        builder.setPositiveButton("Sale", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                if (cost[0] < 1000)
+                {
+                    Toast.makeText(getContext(), "Type more than 1000 gold", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    buttonSale.setEnabled(true);
-                }
-            }
-        });
-
-
-        buttonSale.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                for (int i = 0; i < checkedCardsArray.length; i++)
-                {
-                    boolean checked = checkedCardsArray[i];
-                    if(checked)
+                    for (int i = 0; i < checkedCardsArray.length; i++)
                     {
-                        Object card = cards.get(i);
-                        if (card instanceof Items)
+                        boolean checked = checkedCardsArray[i];
+                        if(checked)
                         {
-                            playerDecks.deleteItem((Items) card);
-                        }
-                        else if(card instanceof Buff)
-                        {
-                            playerDecks.deleteBuff((Buff) card);
+                            Object card = cards.get(i);
+                            if (card instanceof Items)
+                            {
+                                playerDecks.deleteItem((Items) card);
+                            }
+                            else if(card instanceof Buff)
+                            {
+                                playerDecks.deleteBuff((Buff) card);
+                            }
                         }
                     }
+                    PlayerInstances.getPlayer().plusLVL();
+                    SaleDialogActivity.this.getDialog().cancel();
                 }
-                PlayerInstances.getPlayer().plusLVL();
-                SaleDialogActivity.this.getDialog().cancel();
             }
         });
-
-        buttonCancel.setOnClickListener(new View.OnClickListener()
-        {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(DialogInterface dialog, int which) {
                 SaleDialogActivity.this.getDialog().cancel();
             }
         });
