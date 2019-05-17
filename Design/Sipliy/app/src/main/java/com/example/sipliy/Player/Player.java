@@ -247,6 +247,14 @@ public class Player
         this.level += increase;
     }
 
+    public void plusLVL()
+    {
+        if(this.level < 9)
+        {
+            this.level += 1;
+        }
+    }
+
     public void resetItems()    //удаление карт из руки игрока после смерти
     {
         DiscardDecks.addCard(shoes);

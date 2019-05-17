@@ -34,6 +34,11 @@ public class Monster implements Cards
 
     }
 
+    public Monster(String name)
+    {
+        this.name = name;
+    }
+
     public int getID()
     {
         return ID;
