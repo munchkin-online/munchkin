@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
@@ -36,6 +37,9 @@ public class GameActivity extends AppCompatActivity
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
     private ImageView treasuresView;    //иконка с сокровищами
+    private TextView nameView;
+    private TextView lvlView;
+    private TextView pwrView;
     private ImageView sale;
 
     private GameInteraction gameInteraction;
@@ -118,6 +122,14 @@ public class GameActivity extends AppCompatActivity
         playersList = findViewById(R.id.recyclerViewGamePlayers);
         cardsList = findViewById(R.id.recyclerViewGameCards);
         sale = findViewById(R.id.sale);
+        nameView = findViewById(R.id.nameView);
+        lvlView = findViewById(R.id.lvlView);
+        pwrView = findViewById(R.id.pwrView);
+        nameView.setText(PlayerInstances.getPlayer().getName());
+        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
+        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
+        lvlView.setText(lvl);
+        pwrView.setText(pwr);
     }
 
     @Override

@@ -9,19 +9,146 @@
 
     <ImageView
         android:id="@+id/player_icon"
-        android:layout_width="81dp"
-        android:layout_height="85dp"
+        android:layout_width="96dp"
+        android:layout_height="112dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="118dp"
         android:contentDescription="@"
+        android:paddingTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/sale"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/player_icon" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="13dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewGameCards"
+        app:layout_constraintEnd_toStartOf="@+id/sale"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViewDoors"
+                android:layout_width="137dp"
+                android:layout_height="80dp"
+                app:srcCompat="@drawable/cardbackdoors"
+                tools:layout_editor_absoluteX="52dp"
+                tools:layout_editor_absoluteY="37dp" />
+
+            <ImageView
+                android:id="@+id/imageViewTreasures"
+                android:layout_width="137dp"
+                android:layout_height="80dp"
+                app:srcCompat="@drawable/cardbacktreasures"
+                tools:layout_editor_absoluteX="52dp"
+                tools:layout_editor_absoluteY="146dp" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="167dp"
+            android:addStatesFromChildren="false"
+            android:alwaysDrawnWithCache="false"
+            android:background="@color/munchkin"
+            tools:layout_editor_absoluteX="253dp"
+            tools:layout_editor_absoluteY="31dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="56dp"
+                android:fontFamily="@font/segoesc"
+                android:text="Уровень"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
+                app:layout_constraintEnd_toEndOf="@+id/recyclerViewGamePlayers" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:fontFamily="@font/segoesc"
+                android:text="Имя"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
+                app:layout_constraintStart_toStartOf="@+id/recyclerViewGamePlayers" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoesc"
+                android:text="Сила"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
+                app:layout_constraintEnd_toEndOf="@+id/recyclerViewGamePlayers" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewGamePlayers"
+                android:layout_width="329dp"
+                android:layout_height="143dp"
+                android:padding="8dp"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="92dp"
+            android:orientation="vertical"
+            android:paddingLeft="2dp">
+
+            <TextView
+                android:id="@+id/nameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/segoesc"
+                android:text="nameView" />
+
+            <TextView
+                android:id="@+id/lvlView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/segoesc"
+                android:text="TextView"
+                tools:text="lvlView" />
+
+            <TextView
+                android:id="@+id/pwrView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/segoesc"
+                android:text="pwrView" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewGameCards"
         android:layout_width="0dp"
-        android:layout_height="144dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
@@ -29,102 +156,21 @@
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
     </android.support.v7.widget.RecyclerView>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:addStatesFromChildren="false"
-        android:alwaysDrawnWithCache="false"
-        android:background="@color/munchkin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.655"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="56dp"
-            android:fontFamily="@font/segoesc"
-            android:text="Уровень"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerViewGamePlayers" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:fontFamily="@font/segoesc"
-            android:text="Имя"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
-            app:layout_constraintStart_toStartOf="@+id/recyclerViewGamePlayers" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/segoesc"
-            android:text="Сила"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerViewGamePlayers"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerViewGamePlayers" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewGamePlayers"
-            android:layout_width="256dp"
-            android:layout_height="144dp"
-            android:padding="8dp"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-        </android.support.v7.widget.RecyclerView>
-    </android.support.constraint.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageViewDoors"
-        android:layout_width="137dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09"
-        app:srcCompat="@drawable/cardbackdoors" />
-
-    <ImageView
-        android:id="@+id/imageViewTreasures"
-        android:layout_width="137dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439"
-        app:srcCompat="@drawable/cardbacktreasures" />
 
     <ImageView
         android:id="@+id/sale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewGameCards"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/player_icon"
         app:srcCompat="@android:drawable/btn_dialog" />
 
 </android.support.constraint.ConstraintLayout>
