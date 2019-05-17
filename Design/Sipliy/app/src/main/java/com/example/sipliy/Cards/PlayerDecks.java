@@ -8,8 +8,6 @@ public class PlayerDecks    //колода игрока
 {
     private ArrayList<Items> items; //колода шмоток
     private ArrayList<Buff> buff;  //колода баффов и дебаффов
-    private ArrayList<Object> doors; //колода монстров
-
 
     public ArrayList<Items> getItems() {
         return items;
@@ -23,7 +21,6 @@ public class PlayerDecks    //колода игрока
     {
         items = new ArrayList<>();
         buff = new ArrayList<>();
-        doors = new ArrayList<>();
     }
 
     public void deleteItem(Items item)
@@ -47,18 +44,6 @@ public class PlayerDecks    //колода игрока
         buff.add(card);
     }
 
-<<<<<<< Updated upstream
-=======
-    public void addCard(Doors card)
-    {
-        doors.add(card);
-    }
-
-    public void addCard(Object card)
-    {
-        doors.add(card);
-    }
->>>>>>> Stashed changes
 
     public Items getItemCard(int i)
     {

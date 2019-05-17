@@ -1,9 +1,7 @@
 package com.example.sipliy.Player;
 
 import com.example.sipliy.Cards.DiscardDecks;
-import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
 
@@ -275,13 +273,7 @@ public class Player
         decks.addCard(item);
     }
 
-<<<<<<< Updated upstream
     public PlayerDecks getDecks() {
         return decks;
-=======
-    public void addDoors(Object doors)
-    {
-        decks.addCard(doors);
->>>>>>> Stashed changes
     }
 }

@@ -25,13 +25,15 @@ import java.util.Objects;
 
 public class SaleDialogActivity extends DialogFragment  //диалоговое окно, представляет собой лист из карт игрока с флажками и кнопкой продать и отмена
 {
+    PlayerDecks playerDecks;
+
+    public void setPlayerDecks(PlayerDecks playerDecks) { //Что бы диалог работал надо передать калоду игрока
+        this.playerDecks = playerDecks;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        final PlayerDecks playerDecks = new PlayerDecks();
-        playerDecks.addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 600));
-        playerDecks.addCard(new Items(11001, "Шлем", 1, 1, 1, 1, 1, 600));
         final int[] cost = {0};
         final ArrayList<Shmotki> cards = new ArrayList();
         for(Shmotki card : playerDecks.getItems())
@@ -110,13 +112,15 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                         }
                     }
                 }
+                SaleDialogActivity.this.getDialog().cancel();
             }
         });
 
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
-
+                SaleDialogActivity.this.getDialog().cancel();
             }
         });
         return builder.create();
