@@ -9,12 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sipliy.MenuPlayer;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>{
+public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>
+{
 
     private OnItemClickListener listener;
 
@@ -25,12 +27,13 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
 
 
-    public void setOnItemClickListner(OnItemClickListener listner){
+    public void setOnItemClickListner(OnItemClickListener listner)
+    {
         this.listener = listener;
     }
 
 
-    private List<MenuPlayer> plaersList = new ArrayList<>();
+    private List<Player> playerList = new ArrayList<>();
 
 //    public void setItems(Collection<MenuPlayer> plaers){
 //        plaersList.addAll(plaers);
@@ -42,9 +45,9 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 //        notifyDataSetChanged();
 //    }
 //
-    public void addItem(String str){
-
-        plaersList.add(new MenuPlayer(str));
+    public void addPlayer(Player player)
+    {
+        playerList.add(player);
         notifyDataSetChanged();
     }
 //
@@ -119,7 +122,8 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     @NonNull
     @Override
-    public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.recycleview_item_players_game, viewGroup, false);
         return new PlayerViewHolder(view, listener);
@@ -127,34 +131,33 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i) {
-        playerViewHolder.bind(plaersList.get(i));
+    public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i)
+    {
+        playerViewHolder.bind(playerList.get(i));
     }
 
     @Override
-    public int getItemCount() {
-        return plaersList.size();
+    public int getItemCount()
+    {
+        return playerList.size();
     }
 
-    class PlayerViewHolder extends RecyclerView.ViewHolder{
-
+    class PlayerViewHolder extends RecyclerView.ViewHolder
+    {
         //ImageView plus;
 
         TextView name;
         TextView level;
         TextView strength;
 
-        public PlayerViewHolder(View itemView, final OnItemClickListener listener) {
+        public PlayerViewHolder(View itemView, final OnItemClickListener listener)
+        {
             super(itemView);
 
             name = itemView.findViewById(R.id.Name);
             level = itemView.findViewById(R.id.Level);
             strength = itemView.findViewById(R.id.Strength);
             //plus = (ImageView)itemView.findViewById(R.id.imageViewCard);
-
-
-            level.setText("1");
-            strength.setText("1");
             //plus.setImageResource(R.drawable.dama);
 
 //            plus.setOnClickListener(new View.OnClickListener() {
@@ -170,12 +173,10 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 //            });
         }
 
-        void bind(MenuPlayer plaer){
-            name.setText(plaer.getName());
-//            if (plaer.isBoolStatus()){
-//                listStatus.setText("play");
-//                listStatus.setTextColor(Color.GREEN);
-//            }
+        void bind(Player player){
+            name.setText(String.valueOf(player.getName()));
+            level.setText(Integer.toString(player.getLevel()));
+            strength.setText(Integer.toString(player.getStrength()));
         }
     }
 }

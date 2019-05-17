@@ -1,17 +1,41 @@
 package com.example.sipliy.Cards;
 
+import android.content.ClipData;
+
 import java.util.ArrayList;
 
 public class PlayerDecks    //колода игрока
 {
     private ArrayList<Items> items; //колода шмоток
     private ArrayList<Buff> buff;  //колода баффов и дебаффов
+    private ArrayList<Object> doors; //колода монстров
+
+
+    public ArrayList<Items> getItems() {
+        return items;
+    }
+
+    public ArrayList<Buff> getBuff() {
+        return buff;
+    }
 
     public PlayerDecks()
     {
         items = new ArrayList<>();
         buff = new ArrayList<>();
+        doors = new ArrayList<>();
     }
+
+    public void deleteItem(Items item)
+    {
+        items.remove(item);
+    }
+
+    public void deleteBuff(Buff buf)
+    {
+        buff.remove(buf);
+    }
+
 
     public void addCard(Items card) //добавление карт шмоток в колоду
     {
@@ -22,6 +46,19 @@ public class PlayerDecks    //колода игрока
     {
         buff.add(card);
     }
+
+<<<<<<< Updated upstream
+=======
+    public void addCard(Doors card)
+    {
+        doors.add(card);
+    }
+
+    public void addCard(Object card)
+    {
+        doors.add(card);
+    }
+>>>>>>> Stashed changes
 
     public Items getItemCard(int i)
     {
