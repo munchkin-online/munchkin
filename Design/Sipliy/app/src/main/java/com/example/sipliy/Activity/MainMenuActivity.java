@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;

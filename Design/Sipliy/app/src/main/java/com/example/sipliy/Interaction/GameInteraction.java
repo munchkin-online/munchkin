@@ -13,7 +13,7 @@ public class GameInteraction    //взаимодействие по ходу и�
         if(battleWithMonster(player, monster))
         {
             player.increaseLVL(monster.getGiven_levels());
-            if (player.getClas() == 5 && random.nextInt(101) > 50)//Бафф вора
+            if (player.get_Class() == 5 && random.nextInt(101) > 50)//Бафф вора
                 player.addTreasures(monster.getTreasures() + 1);
             else
                 player.addTreasures(monster.getTreasures());
@@ -30,9 +30,9 @@ public class GameInteraction    //взаимодействие по ходу и�
     }
     private static boolean battleWithMonster(Player player, Monster monster)  //сражение с монстром, в случае победы true.
     {
-        if (player.getClas() == 4)//Бафф воина
+        if (player.get_Class() == 4)//Бафф воина
             return player.getStrength() >= monster.getLevel();
-        else if (player.getClas() == 2 && monster.IsItUndead() == true)//Бафф клирика
+        else if (player.get_Class() == 2 && monster.IsItUndead() == true)//Бафф клирика
             return player.getStrength() + 3 > monster.getLevel();
         return player.getStrength() > monster.getLevel();
     }

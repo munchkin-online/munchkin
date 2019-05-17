@@ -1,4 +1,4 @@
-package com.example.sipliy.Activity;
+package com.example.sipliy.Activity.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -11,8 +11,8 @@ import android.widget.Button;
 
 import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Items;
+import com.example.sipliy.Cards.ItemsInterface;
 import com.example.sipliy.Cards.PlayerDecks;
-import com.example.sipliy.Cards.Shmotki;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -29,12 +29,12 @@ public class RemoveCardsDialogActivity extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        final ArrayList<Shmotki> cards = new ArrayList();
-        for(Shmotki card : playerDecks.getItems())
+        final ArrayList<ItemsInterface> cards = new ArrayList();
+        for(ItemsInterface card : playerDecks.getItems())
         {
             cards.add(card);
         }
-        for(Shmotki card : playerDecks.getBuff())
+        for(ItemsInterface card : playerDecks.getBuff())
         {
             cards.add(card);
         }

@@ -1,4 +1,4 @@
-package com.example.sipliy.Activity;
+package com.example.sipliy.Activity.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.sipliy.Activity.GameActivity;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;

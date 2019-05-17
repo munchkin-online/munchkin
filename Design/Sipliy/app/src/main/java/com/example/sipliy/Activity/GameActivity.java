@@ -1,36 +1,27 @@
 package com.example.sipliy.Activity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.MenuDialogActivity;
+import com.example.sipliy.Activity.Dialog.RemoveCardsDialogActivity;
+import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
-import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Doors;
-import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Cards.Monster;
-import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
-import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.Objects;
-
-import static com.example.sipliy.Activity.MainMenuActivity.Players;
-import static com.example.sipliy.Activity.MainMenuActivity.SizePlayers;
 
 public class GameActivity extends AppCompatActivity
 {
