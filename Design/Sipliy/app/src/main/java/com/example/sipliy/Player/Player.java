@@ -68,12 +68,12 @@ public class Player
         this.level = 1;
         this.strength = 1;
         this.strengthClothes = 0;
-        this.Race = 0;
-        this.RaceSecond = 0;
+        this.Race = 1;
+        this.RaceSecond = 1;
         this.isSuperManichkin = false;
         this.sex = 1;
-        this.Clas = 0;
-        this.ClasSecond = 0;
+        this.Clas = 1;
+        this.ClasSecond = 1;
         this.isHalfBlood = false;
         this.shoes = null;
         this.armor = null;
