@@ -40,7 +40,7 @@ public class RemoveCardsDialogActivity extends DialogFragment {
         }
         final int[] cost = {cards.size()};
 
-        // Use the Builder class for convenient dialog construction
+        // Use the Builder clas for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();

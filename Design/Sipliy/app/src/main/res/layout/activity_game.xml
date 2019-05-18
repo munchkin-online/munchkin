@@ -111,37 +111,57 @@
             </android.support.v7.widget.RecyclerView>
         </android.support.constraint.ConstraintLayout>
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="92dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:paddingLeft="2dp">
 
             <TextView
                 android:id="@+id/nameView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/segoesc"
-                android:text="nameView" />
+                android:text="nameView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/lvlView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/segoesc"
-                android:text="TextView"
-                tools:text="lvlView" />
+                android:text="Уровень:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameView" />
 
             <TextView
-                android:id="@+id/pwrView"
+                android:id="@+id/strView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/segoesc"
-                android:text="pwrView" />
-        </LinearLayout>
+                android:text="Сила:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lvlView" />
+
+            <TextView
+                android:id="@+id/lvlValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoesc"
+                android:text="1"
+                app:layout_constraintStart_toEndOf="@+id/lvlView"
+                app:layout_constraintTop_toBottomOf="@+id/nameView" />
+
+            <TextView
+                android:id="@+id/strValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoesc"
+                android:text="1"
+                app:layout_constraintStart_toEndOf="@+id/strView"
+                app:layout_constraintTop_toBottomOf="@+id/lvlView" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 

@@ -45,7 +45,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
             }
         }
 
-        // Use the Builder class for convenient dialog construction
+        // Use the Builder clas for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         checkedCardsArray = new boolean[cards.size()];

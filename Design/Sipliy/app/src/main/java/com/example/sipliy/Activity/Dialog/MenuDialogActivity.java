@@ -19,7 +19,7 @@ public class MenuDialogActivity extends DialogFragment  //диалоговое �
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        // Use the Builder class for convenient dialog construction
+        // Use the Builder clas for convenient dialog construction
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater;// = Objects.requireNonNull(getActivity()).getLayoutInflater();
@@ -42,7 +42,7 @@ public class MenuDialogActivity extends DialogFragment  //диалоговое �
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                startActivity(new Intent(getActivity(), MainMenuActivity.class));
+                                startActivity(new Intent(getActivity(), MainMenuActivity.clas));
                                 Objects.requireNonNull(getActivity()).finish();
                             }
                         })

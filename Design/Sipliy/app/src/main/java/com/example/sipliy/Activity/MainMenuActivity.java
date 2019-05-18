@@ -75,7 +75,7 @@ public class MainMenuActivity extends AppCompatActivity
                         PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
                         playerDialogActivity.show(getSupportFragmentManager(), "NoticeData");
 
-                        //startActivity(new Intent(MainMenuActivity.this, GameActivity.class));
+                        //startActivity(new Intent(MainMenuActivity.this, GameActivity.clas));
                         break;
                     case R.id.button_exit:
                         search.setText("exit");

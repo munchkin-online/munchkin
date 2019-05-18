@@ -13,9 +13,7 @@ import android.widget.TextView;
 import com.example.sipliy.Activity.Dialog.MenuDialogActivity;
 import com.example.sipliy.Activity.Dialog.RemoveCardsDialogActivity;
 import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
-import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
-import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
@@ -29,14 +27,14 @@ public class GameActivity extends AppCompatActivity
     private RecyclerView playersList;        //лист с игроками
     private PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
-    private CardsGameAdapter cardsAdapter;
+
 
     private ImageView player_icon;  //иконка игрока
     private ImageView doorsView;    //иконка с дверьми
     private ImageView treasuresView;    //иконка с сокровищами
     private TextView nameView;
     private TextView lvlView;
-    private TextView pwrView;
+    private TextView strView;
     private ImageView sale;
 
     private GameInteraction gameInteraction;
@@ -86,7 +84,7 @@ public class GameActivity extends AppCompatActivity
 //                        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
 //                        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
 //                        lvlView.setText(lvl);
-//                        pwrView.setText(pwr);
+//                        strView.setText(pwr);
                         //Toast.makeText(this, Integer.toString(PlayerInstances.getPlayer().getLevel()), Toast.LENGTH_LONG).show();
                         break;
                 }
@@ -115,32 +113,7 @@ public class GameActivity extends AppCompatActivity
                 layoutManagerPlayers.getOrientation());
         playersList.addItemDecoration(dividerItemDecoration);
 
-        LinearLayoutManager layoutManagerCards = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        cardsList.setLayoutManager(layoutManagerCards);
-        cardsAdapter = new CardsGameAdapter();
-        cardsList.setAdapter(cardsAdapter);
-//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем бесстрашия", 1, 1, 1, 1, 1, 200));
-//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11002, "Кожаный прикид",1,  2, 1, 1, 1, 500));
-//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11004, "Посох Напалма",5,  4, 1, 3, 1, 800));
-//        PlayerInstances.getPlayer().getDecks().addCard(new Items(11007, "Шлем-Рогач",1,  1, 3, 1, 1, 600, 3));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr", 1, 1, 1, 1, 1, 600));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем бесстрашия2", 1, 1, 1, 1, 1, 600));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "Шлем2", 1, 1, 1, 1, 1, 600));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
-////        PlayerInstances.getPlayer().getDecks().addCard(new Items(11001, "sgrgr2", 1, 1, 1, 1, 1, 600));
-        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
-        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
-        PlayerInstances.getPlayer().getDecks().addCard(new Doors());
-//        for (Object o : PlayerInstances.getPlayer().getDecks().getItems()){
-//            cardsAdapter.addItem(o);
-//        }
-//        for (Object o : PlayerInstances.getPlayer().getDecks().getBuff()){
-//            cardsAdapter.addItem(o);
-//        }
-//        for (Object o : PlayerInstances.getPlayer().getDecks().getDoors()){
-//            cardsAdapter.addItem(o);
-//        }
+        PlayerInstances.getPlayer().getDecks().bildRecyclerView(this, cardsList);
         playersAdapter.addPlayer(PlayerInstances.getOpponent_1());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_2());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_3());
@@ -153,13 +126,11 @@ public class GameActivity extends AppCompatActivity
         cardsList = findViewById(R.id.recyclerViewGameCards);
         sale = findViewById(R.id.sale);
         nameView = findViewById(R.id.nameView);
-        lvlView = findViewById(R.id.lvlView);
-        pwrView = findViewById(R.id.pwrView);
+        lvlView = findViewById(R.id.lvlValue);
+        strView = findViewById(R.id.strValue);
         nameView.setText(PlayerInstances.getPlayer().getName());
-        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
-        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
-        lvlView.setText(lvl);
-        pwrView.setText(pwr);
+        lvlView.setText(String.valueOf(PlayerInstances.getPlayer().getLevel()));
+        strView.setText(String.valueOf(PlayerInstances.getPlayer().getStrength()));
     }
 
     @Override
@@ -181,10 +152,10 @@ public class GameActivity extends AppCompatActivity
         SaleDialogActivity saleDialog = new SaleDialogActivity();
         saleDialog.setPlayerDecks(PlayerInstances.getPlayer().getDecks());
         saleDialog.show(getSupportFragmentManager(), "Sale");
-        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
-        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
-        lvlView.setText(lvl);
-        pwrView.setText(pwr);
+//        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
+//        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
+//        lvlView.setText(lvl);
+//        strView.setText(pwr);
     }
 
     public void remove()

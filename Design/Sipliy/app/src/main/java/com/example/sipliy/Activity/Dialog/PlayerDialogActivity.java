@@ -29,7 +29,7 @@ public class PlayerDialogActivity extends DialogFragment
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
-        // Use the Builder class for convenient dialog construction
+        // Use the Builder clas for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         final LayoutInflater inflater = Objects.requireNonNull(getActivity()).getLayoutInflater();
