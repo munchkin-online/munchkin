@@ -144,7 +144,10 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                                 }
                             }
                         }
-                        PlayerInstances.getPlayer().plusLVL();
+                        for (int i = 0; i < cost/1000; i++)
+                        {
+                            PlayerInstances.getPlayer().plusLVL();
+                        }
                         if(lvl != null)
                         {
                             lvl.setText(String.valueOf(PlayerInstances.getPlayer().getLevel()));
@@ -153,7 +156,6 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                         {
                             str.setText(String.valueOf(PlayerInstances.getPlayer().getStrength()));
                         }
-
                         dismiss();
                     }
                 }
