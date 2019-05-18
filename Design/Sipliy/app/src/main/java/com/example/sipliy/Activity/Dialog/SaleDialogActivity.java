@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sipliy.Cards.Buff;
@@ -24,8 +25,19 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
 {
     PlayerDecks playerDecks;
     int cost;
+
+    public void setStr(TextView str) {
+        this.str = str;
+    }
+
     boolean[] checkedCardsArray;
     ArrayList<ItemsInterface> cards;
+    TextView lvl;
+    TextView str;
+
+    public void setTextView(TextView textView) {
+        this.lvl = textView;
+    }
 
     public void setPlayerDecks(PlayerDecks playerDecks) { //Что бы диалог работал надо передать калоду игрока
         this.playerDecks = playerDecks;
@@ -133,6 +145,15 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                             }
                         }
                         PlayerInstances.getPlayer().plusLVL();
+                        if(lvl != null)
+                        {
+                            lvl.setText(String.valueOf(PlayerInstances.getPlayer().getLevel()));
+                        }
+                        if(str != null)
+                        {
+                            str.setText(String.valueOf(PlayerInstances.getPlayer().getStrength()));
+                        }
+
                         dismiss();
                     }
                 }

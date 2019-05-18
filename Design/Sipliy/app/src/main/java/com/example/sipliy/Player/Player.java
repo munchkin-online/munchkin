@@ -199,7 +199,7 @@ public class Player
         this.rightHand = rightHand;
     }
 
-    public void sumStrength()
+    private void sumStrength()
     {
         this.strength = this.level + this.strengthClothes;
     }
@@ -247,6 +247,7 @@ public class Player
     public void increaseLVL(int increase)   //увеличение уровня
     {
         this.level += increase;
+        sumStrength();
     }
 
     public void plusLVL()
@@ -255,6 +256,7 @@ public class Player
         {
             this.level += 1;
         }
+        sumStrength();
     }
 
     public void resetItems()    //удаление карт из руки игрока после смерти

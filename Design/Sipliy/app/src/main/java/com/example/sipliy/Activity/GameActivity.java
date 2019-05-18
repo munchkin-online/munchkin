@@ -151,6 +151,8 @@ public class GameActivity extends AppCompatActivity
     {
         SaleDialogActivity saleDialog = new SaleDialogActivity();
         saleDialog.setPlayerDecks(PlayerInstances.getPlayer().getDecks());
+        saleDialog.setTextView(lvlView);
+        saleDialog.setStr(strView);
         saleDialog.show(getSupportFragmentManager(), "Sale");
 //        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
 //        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
