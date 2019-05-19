@@ -32,7 +32,7 @@ public class GameInteraction    //взаимодействие по ходу и�
     {
         if (player.get_Class() == 4)//Бафф воина
             return player.getStrength() >= monster.getLevel();
-        else if (player.get_Class() == 2 && monster.IsItUndead() == true)//Бафф клирика
+        else if (player.get_Class() == 2 && monster.IsItUndead())//Бафф клирика
             return player.getStrength() + 3 > monster.getLevel();
         return player.getStrength() > monster.getLevel();
     }

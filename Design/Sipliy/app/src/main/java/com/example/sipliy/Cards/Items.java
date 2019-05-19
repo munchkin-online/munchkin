@@ -16,12 +16,18 @@ public class Items implements Cards, TreasuresInterface
     private int cost;   //стоимость карты
     private int IMAGE_ID;
 
-    public Items(String name, int IMAGE_ID)
+    public Items(int bonus)
     {
-        this.name = name;
-        this.IMAGE_ID = IMAGE_ID;
+        this.ID = 0;
+        this.name = null;
+        this.itemType = 0;
+        this.carrierClass = 0;
+        this.carrierRace = 0;
+        this.carrierSex = 0;
+        this.bonus = bonus;
+        this.cost = 0;
+        this.IMAGE_ID = 0;
     }
-
     public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int IMAGE_ID)
     {
         this.ID = ID;
@@ -65,7 +71,14 @@ public class Items implements Cards, TreasuresInterface
 
     public int getBonus()
     {
-        return bonus;
+        if(bonus == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return bonus;
+        }
     }
 
     public int getCarrierRace()

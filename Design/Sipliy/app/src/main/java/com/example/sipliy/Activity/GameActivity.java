@@ -115,9 +115,9 @@ public class GameActivity extends AppCompatActivity
         playersList.addItemDecoration(dividerItemDecoration);
 
         PlayerInstances.getPlayer().getDecks().buildRecyclerView(this, cardsList);
-        playersAdapter.addPlayer(PlayerInstances.getOpponent_1());
-        playersAdapter.addPlayer(PlayerInstances.getOpponent_2());
-        playersAdapter.addPlayer(PlayerInstances.getOpponent_3());
+        playersAdapter.addPlayer(PlayerInstances.getOpponent(0));
+        playersAdapter.addPlayer(PlayerInstances.getOpponent(1));
+        playersAdapter.addPlayer(PlayerInstances.getOpponent(2));
     }
     private void findViewById()
     {

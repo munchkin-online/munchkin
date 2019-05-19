@@ -1,5 +1,6 @@
 package com.example.sipliy.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.sipliy.Adapter.CanBeWornAdapter;
 import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -37,6 +39,8 @@ public class InventoryActivity extends AppCompatActivity {
     private ImageView im_boots;
     private ImageView im_body;
 
+    private ArrayList<ImageView> image = new ArrayList<>();
+
     private static String TAG = "Inventory";
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,7 +48,8 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        refreshInform();
+        findViewByID();
+        update();
 
         ArrayList<Items> list_cwb = PlayerInstances.getPlayer().getDecks().getItems();
         View.OnClickListener clickListener = new View.OnClickListener()
@@ -61,7 +66,6 @@ public class InventoryActivity extends AppCompatActivity {
             }
         };
 
-        Log.d(TAG, "onCreate: " + list_cwb.size());
         exitFromInventory.setOnClickListener(clickListener);
 
         LinearLayoutManager layoutManagerCBW = new LinearLayoutManager(this);
@@ -83,7 +87,8 @@ public class InventoryActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which)
                             {
                                 setItemsOnPlayer(PlayerInstances.getPlayer().getDecks().getItems().get(position).getIMAGE_ID(),
-                                        PlayerInstances.getPlayer().getDecks().getItems().get(position).getItemType());
+                                                PlayerInstances.getPlayer().getDecks().getItems().get(position).getItemType(),
+                                                canBeWornAdapter.getItem(position));
                             }
                         })
                         .setNegativeButton("Назад", new DialogInterface.OnClickListener()
@@ -107,7 +112,7 @@ public class InventoryActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private void refreshInform()
+    private void findViewByID()
     {
         name_hat = findViewById(R.id.char_hat);
         strView = findViewById(R.id.tv_strengthValue);
@@ -124,10 +129,60 @@ public class InventoryActivity extends AppCompatActivity {
         im_l_hand = findViewById(R.id.im_l_hand);
         im_r_hand = findViewById(R.id.im_r_hand);
 
+        image.add(im_body);
+        image.add(im_boots);
+        image.add(im_head);
+        image.add(im_l_hand);
+        image.add(im_r_hand);
+    }
+
+    private void setItemsOnPlayer(int IMAGE_ID, int type, Items item)
+    {
+        switch(type)
+        {
+            case 1:
+                im_head.setImageResource(IMAGE_ID);
+                PlayerInstances.getPlayer().setHelmet(item);
+                update();
+                break;
+            case 2:
+                im_body.setImageResource(IMAGE_ID);
+                PlayerInstances.getPlayer().setArmor(item);
+                update();
+                break;
+            case 3:
+                im_boots.setImageResource(IMAGE_ID);
+                PlayerInstances.getPlayer().setShoes(item);
+                update();
+                break;
+            case 4:
+                im_l_hand.setImageResource(IMAGE_ID);
+                PlayerInstances.getPlayer().setLeftHand(item);
+                update();
+                break;
+            case 5:
+                im_r_hand.setImageResource(IMAGE_ID);
+                PlayerInstances.getPlayer().setRightHand(item);
+                update();
+                break;
+        }
+    }
+    @SuppressLint("SetTextI18n")
+    private void update()
+    {
         name_hat.setText(PlayerInstances.getPlayer().getName());
-        strView.setText(String.valueOf(PlayerInstances.getPlayer().getStrength()));
-        lvlView.setText(String.valueOf(PlayerInstances.getPlayer().getLevel()));
-        switch (PlayerInstances.getPlayer().getRace())
+        strView.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
+        lvlView.setText(Integer.toString(PlayerInstances.getPlayer().getLevel()));
+
+        for(int i = 0; i < 4; i++)
+        {
+            if(checkItemsOnPlayer(PlayerInstances.getPlayer().getItem(i)))
+            {
+                updateImage(PlayerInstances.getPlayer().getItem(i), i);
+            }
+        }
+
+        switch(PlayerInstances.getPlayer().getRace())
         {
             case 1:
                 raceView.setText("Человек");
@@ -142,7 +197,7 @@ public class InventoryActivity extends AppCompatActivity {
                 raceView.setText("Хафлинг");
                 break;
         }
-        switch (PlayerInstances.getPlayer().get_Class())
+        switch(PlayerInstances.getPlayer().get_Class())
         {
             case 1:
                 classView.setText("Нет");
@@ -162,28 +217,31 @@ public class InventoryActivity extends AppCompatActivity {
         }
         if(PlayerInstances.getPlayer().getSex() == 1)
             sexView.setText("Мужской");
-        else sexView.setText("Женский");
+        else
+            sexView.setText("Женский");
     }
-
-    private void setItemsOnPlayer(int IMAGE_ID, int type)
+    private boolean checkItemsOnPlayer(Items item)
     {
-        switch(type)
+        return item.getBonus() != 0;
+    }
+    private void updateImage(Items item, int index)
+    {
+        switch(index)
         {
+            case 0:
+                im_boots.setImageResource(item.getIMAGE_ID());
+                break;
             case 1:
-                im_head.setImageResource(IMAGE_ID);
+                im_head.setImageResource(item.getIMAGE_ID());
                 break;
             case 2:
-                im_body.setImageResource(IMAGE_ID);
+                im_body.setImageResource(item.getIMAGE_ID());
                 break;
             case 3:
-                im_boots.setImageResource(IMAGE_ID);
+                im_l_hand.setImageResource(item.getIMAGE_ID());
                 break;
             case 4:
-                im_l_hand.setImageResource(IMAGE_ID);
-                break;
-            case 5:
-                im_r_hand.setImageResource(IMAGE_ID);
-                break;
+                im_r_hand.setImageResource(item.getIMAGE_ID());
         }
     }
 }

@@ -29,6 +29,10 @@ public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.View
         this.layoutInflater = LayoutInflater.from(context);
     }
 
+    public Items getItem(int position)
+    {
+        return list_cwb.get(position);
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
