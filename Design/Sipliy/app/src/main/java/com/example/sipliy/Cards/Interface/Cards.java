@@ -1,4 +1,4 @@
-package com.example.sipliy.Cards;
+package com.example.sipliy.Cards.Interface;
 
 public interface Cards
 {

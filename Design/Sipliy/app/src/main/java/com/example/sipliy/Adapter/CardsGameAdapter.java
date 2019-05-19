@@ -15,11 +15,7 @@ import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Cards.Races;
 import com.example.sipliy.Data.PlayerInstances;
-import com.example.sipliy.MenuPlayer;
 import com.example.sipliy.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.PlayerViewHolder>
 {

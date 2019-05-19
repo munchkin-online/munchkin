@@ -1,6 +1,9 @@
 package com.example.sipliy.Cards;
 
-public class Classes implements Cards
+import com.example.sipliy.Cards.Interface.Cards;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+
+public class Classes implements Cards, DoorsInterface
 {
     private int ID;
     private String name;

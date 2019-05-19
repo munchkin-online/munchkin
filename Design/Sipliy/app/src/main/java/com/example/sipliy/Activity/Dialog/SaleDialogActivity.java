@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,13 +12,11 @@ import android.widget.Toast;
 
 import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Cards.ItemsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Data.PlayerInstances;
-import com.example.sipliy.R;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class SaleDialogActivity extends DialogFragment  //диалоговое окно, представляет собой лист из карт игрока с флажками и кнопкой продать и отмена
 {
@@ -31,7 +28,7 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
     }
 
     boolean[] checkedCardsArray;
-    ArrayList<ItemsInterface> cards;
+    ArrayList<TreasuresInterface> cards;
     TextView lvl;
     TextView str;
 
@@ -52,8 +49,9 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
 
         for(Object card : playerDecks.getAll())
         {
-            if(card instanceof ItemsInterface){
-                cards.add((ItemsInterface) card);
+            if(card instanceof TreasuresInterface)
+            {
+                cards.add((TreasuresInterface) card);
             }
         }
 

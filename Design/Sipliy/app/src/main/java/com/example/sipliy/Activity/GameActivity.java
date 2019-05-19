@@ -14,6 +14,7 @@ import com.example.sipliy.Activity.Dialog.MenuDialogActivity;
 import com.example.sipliy.Activity.Dialog.RemoveCardsDialogActivity;
 import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
@@ -62,7 +63,7 @@ public class GameActivity extends AppCompatActivity
 
         PlayerInstances.getPlayer().addTreasures(4);
         PlayerInstances.getPlayer().addDoors(4);
-        bildRecyclerView();
+        buildRecyclerView();
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
@@ -102,7 +103,7 @@ public class GameActivity extends AppCompatActivity
 
     }
 
-    public void bildRecyclerView()
+    public void buildRecyclerView()
     {
         LinearLayoutManager layoutManagerPlayers = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         playersList.setLayoutManager(layoutManagerPlayers);
@@ -113,7 +114,7 @@ public class GameActivity extends AppCompatActivity
                 layoutManagerPlayers.getOrientation());
         playersList.addItemDecoration(dividerItemDecoration);
 
-        PlayerInstances.getPlayer().getDecks().bildRecyclerView(this, cardsList);
+        PlayerInstances.getPlayer().getDecks().buildRecyclerView(this, cardsList);
         playersAdapter.addPlayer(PlayerInstances.getOpponent_1());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_2());
         playersAdapter.addPlayer(PlayerInstances.getOpponent_3());

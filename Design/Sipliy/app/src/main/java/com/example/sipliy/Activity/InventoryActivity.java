@@ -1,6 +1,5 @@
 package com.example.sipliy.Activity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,18 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sipliy.Adapter.CanBeWornAdapter;
 import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
-import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity {
 

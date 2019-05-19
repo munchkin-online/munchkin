@@ -1,6 +1,9 @@
 package com.example.sipliy.Cards;
 
-public class Monster implements Cards
+import com.example.sipliy.Cards.Interface.Cards;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+
+public class Monster implements Cards, DoorsInterface
 {
     private int ID;
     private String name;    //имя монстра

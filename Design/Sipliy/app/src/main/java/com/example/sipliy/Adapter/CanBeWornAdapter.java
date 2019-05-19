@@ -10,12 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sipliy.Cards.Items;
-import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.Inflater;
 
 public class CanBeWornAdapter extends RecyclerView.Adapter<CanBeWornAdapter.ViewHolder>
 {

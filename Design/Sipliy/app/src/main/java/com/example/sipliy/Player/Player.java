@@ -2,11 +2,11 @@ package com.example.sipliy.Player;
 
 import com.example.sipliy.Cards.DiscardDecks;
 import com.example.sipliy.Cards.Doors;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
 import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.PlayerDecks;
 import com.example.sipliy.Cards.Treasures;
-
-import java.util.ArrayList;
 
 public class Player
 {
@@ -281,7 +281,7 @@ public class Player
             decks.addCard(Treasures.getItemCard());
         }
     }
-    public void addTreasures(Items item)    //добавление сокровища в руку
+    public void addTreasures(TreasuresInterface item)    //добавление сокровища в руку
     {
         decks.addCard(item);
     }
@@ -293,7 +293,7 @@ public class Player
             decks.addCard(Doors.getItemCard());
         }
     }
-    public void addDoors(Object doors)    //добавление сокровища в руку
+    public void addDoors(DoorsInterface doors)    //добавление сокровища в руку
     {
         decks.addCard(doors);
     }

@@ -1,8 +1,10 @@
 package com.example.sipliy.Cards;
 
-import android.widget.ImageView;
+import com.example.sipliy.Cards.Interface.Cards;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
+
 //TODO ЛЕХА БЛЭТ ИСПРАВЬ НУМЕРАЦИЮ
-public class Items implements Cards, ItemsInterface
+public class Items implements Cards, TreasuresInterface
 {
     private int ID;
     private String name;    //имя карты
@@ -50,6 +52,7 @@ public class Items implements Cards, ItemsInterface
         }
     }
 
+    @Override
     public int getID()
     {
         return ID;

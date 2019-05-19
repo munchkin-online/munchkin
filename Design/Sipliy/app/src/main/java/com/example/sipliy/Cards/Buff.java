@@ -1,6 +1,9 @@
 package com.example.sipliy.Cards;
 
-public class Buff implements BuffInterface, Cards, ItemsInterface
+import com.example.sipliy.Cards.Interface.Cards;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
+
+public class Buff implements Cards, TreasuresInterface
 {
     private int ID; //id карты
     private String name;    //имя карты
@@ -19,15 +22,10 @@ public class Buff implements BuffInterface, Cards, ItemsInterface
         this.cost = cost;
     }
 
+    @Override
     public int getID()
     {
         return ID;
-    }
-
-    @Override
-    public int getValue()
-    {
-        return value;
     }
 
     @Override

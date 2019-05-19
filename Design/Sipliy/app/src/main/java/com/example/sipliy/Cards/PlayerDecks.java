@@ -1,64 +1,74 @@
 package com.example.sipliy.Cards;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
 
 import java.util.ArrayList;
 
 public class PlayerDecks    //колода игрока
 {
-    private ArrayList<Items> items; //колода шмоток
-    private ArrayList<Buff> buff;  //колода баффов и дебаффов
-    private ArrayList<Object> doors; //колода монстров
+    private ArrayList<TreasuresInterface> treasures;    //колода сокровищ
+    private ArrayList<DoorsInterface> doors;    //колода монстров
     private ArrayList<Object> all;
     private CardsGameAdapter cardsAdapter;
 
-
-    public ArrayList<Items> getItems() {
-        return items;
-    }
-
-    public ArrayList<Buff> getBuff() {
-        return buff;
-    }
-
     public PlayerDecks()
     {
-        items = new ArrayList<>();
-        buff = new ArrayList<>();
+        treasures = new ArrayList<>();
         doors = new ArrayList<>();
         all = new ArrayList<>();
     }
 
+    public ArrayList<Items> getItems()
+    {
+        ArrayList<Items> items = new ArrayList<>();
+        for(int i = 0; i < treasures.size(); i++)
+        {
+            if(treasures.get(i).getClass() == Items.class)
+            {
+                items.add((Items)treasures.get(i));
+            }
+        }
+        return items;
+    }
+
+    public ArrayList<Buff> getBuffs()
+    {
+        ArrayList<Buff> buffs = new ArrayList<>();
+        for(int i = 0; i < treasures.size(); i++)
+        {
+            if(treasures.get(i).getClass() == Buff.class)
+            {
+                buffs.add((Buff)treasures.get(i));
+            }
+        }
+        return buffs;
+    }
+
+
     public void deleteItem(Items item)
     {
-        items.remove(item);
+        treasures.remove(item);
         all.remove(item);
         update();
     }
 
-    public void deleteBuff(Buff buf)
+    public void deleteBuff(Buff buff)
     {
-        buff.remove(buf);
-        buff.remove(buff);
+        treasures.remove(buff);
+        all.remove(buff);
         update();
     }
 
 
-    public void addCard(Items card) //добавление карт шмоток в колоду
+    public void addCard(TreasuresInterface card) //добавление карт шмоток в колоду
     {
-        items.add(card);
-        all.add(card);
-        update();
-    }
-
-    public void addCard(Buff card)  //добавление карт баффов и дебаффов в колоду
-    {
-        buff.add(card);
+        treasures.add(card);
         all.add(card);
         update();
     }
@@ -68,39 +78,38 @@ public class PlayerDecks    //колода игрока
         return all;
     }
 
-    public void addCard(Object card)
+    public void addCard(DoorsInterface card)
     {
         doors.add(card);
         all.add(card);
         update();
     }
 
-    public ArrayList<Object> getDoors() {
+    public ArrayList<DoorsInterface> getDoors()
+    {
         return doors;
     }
 
-    public Items getItemCard(int i)
+    public TreasuresInterface getTreasuresCard(int id)
     {
-        return items.get(i);
-    }
-
-    public Buff getBuffOrDebuffCard(int i)
-    {
-        return buff.get(i);
+        for(TreasuresInterface card : treasures)
+        {
+            if(card.getID() == id)
+                return card;
+        }
+        return null;
     }
 
     public void reset()
     {
-        DiscardDecks.addCardsItems(items);
-        DiscardDecks.addCardsBuffDebuff(buff);
-        this.items.clear();
-        this.buff.clear();
-        this.buff.clear();
-        this.all.clear();
+        DiscardDecks.addTreasures(treasures);
+        DiscardDecks.addDoors(doors);
+        this.treasures.clear();
+        this.doors.clear();
         update();
     }
 
-    public void bildRecyclerView(Context context, RecyclerView cardsList)
+    public void buildRecyclerView(Context context, RecyclerView cardsList)
     {
         LinearLayoutManager layoutManagerCards = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         cardsList.setLayoutManager(layoutManagerCards);
@@ -110,7 +119,8 @@ public class PlayerDecks    //колода игрока
 
     private void update()
     {
-        if(cardsAdapter != null){
+        if(cardsAdapter != null)
+        {
             cardsAdapter.update();
         }
     }

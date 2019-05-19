@@ -1,30 +1,32 @@
 package com.example.sipliy.Cards;
 
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
+
 import java.util.ArrayList;
 
 //TODO сделать взаимодействие со сброшенными картами
 
 public class DiscardDecks //карты сброшенные в сброс-колоду
 {
-    private static ArrayList<Items> discardItems; //колода шмоток
-    private static ArrayList<Buff> discardBuff;  //колода баффов и дебаффов
+    private static ArrayList<TreasuresInterface> discardTreasures; //сброшенная карты из колоды сокровищ
+    private static ArrayList<DoorsInterface> discardDoors;  //сброшенные карты из колоды дверей
 
-    public static void addCard(Items card) //добавление карт шмоток в колоду
+    public static void addCard(TreasuresInterface card) //добавление карт шмоток в колоду
     {
-        discardItems.add(card);
+        discardTreasures.add(card);
     }
-
-    public static void addCard(Buff card)  //добавление карт баффов и дебаффов в колоду
+    public static void addCard(DoorsInterface card)
     {
-        discardBuff.add(card);
+        discardDoors.add(card);
     }
-    public static void addCardsItems(ArrayList<Items> cards)  //добавление карт баффов и дебаффов в колоду
+    public static void addTreasures(ArrayList<TreasuresInterface> cards)  //добавление карт баффов и дебаффов в колоду
     {
-        discardItems.addAll(cards);
+        discardTreasures.addAll(cards);
     }
-    public static void addCardsBuffDebuff(ArrayList<Buff> cards)  //добавление карт баффов и дебаффов в колоду
+    public static void addDoors(ArrayList<DoorsInterface> cards)  //добавление карт баффов и дебаффов в колоду
     {
-        discardBuff.addAll(cards);
+        discardDoors.addAll(cards);
     }
 
 }

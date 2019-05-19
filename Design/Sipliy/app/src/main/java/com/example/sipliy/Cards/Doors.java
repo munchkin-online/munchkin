@@ -1,18 +1,21 @@
 package com.example.sipliy.Cards;
 
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+
 import java.util.ArrayList;
 
 public class Doors
 {
-    private static ArrayList<Object> doors; //колода дверей
-
+    private static ArrayList<DoorsInterface> doors; //колода дверей
+    private static ArrayList<DoorsInterface> spareDoorsDeck;
     public Doors()
     {
         doors = new ArrayList<>();
         fill();
+        spareDoorsDeck = doors;
     }
 
-    public static Object getItemCard()
+    public static DoorsInterface getItemCard()
     {
         return doors.remove(doors.size() - 1);
     }
@@ -42,4 +45,8 @@ public class Doors
         doors.clear();
     }
 
+    public static void update()
+    {
+        doors = spareDoorsDeck;
+    }
 }

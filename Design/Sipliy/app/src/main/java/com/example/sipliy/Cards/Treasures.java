@@ -1,6 +1,6 @@
 package com.example.sipliy.Cards;
 
-import com.example.sipliy.Player.Player;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
@@ -8,17 +8,17 @@ import java.util.ArrayList;
 
 public class Treasures //класс карт сокровищ (общая колода с картами сокровищ)
 {
-    private static ArrayList<Items> items; //колода сокровищ
-    private static ArrayList<Items> reserveItems;   //запосная колода, для восстановления после закрытия активити
+    private static ArrayList<TreasuresInterface> items; //колода сокровищ
+    private static ArrayList<TreasuresInterface> spareItemsDeck;   //запосная колода, для восстановления после закрытия активити
 
     public Treasures()
     {
         items = new ArrayList<>();
         fill();
-        reserveItems = items;
+        spareItemsDeck = items;
     }
 
-    public static Items getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
+    public static TreasuresInterface getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
         if(items.size() == 0)
         {
@@ -30,7 +30,7 @@ public class Treasures //класс карт сокровищ (общая кол
         }
     }
 
-    public static ArrayList<Items> getAllTreasures()
+    public static ArrayList<TreasuresInterface> getAllTreasures()
     {
         return items;
     }
@@ -56,7 +56,7 @@ public class Treasures //класс карт сокровищ (общая кол
 
     public static void update()
     {
-        items = reserveItems;
+        items = spareItemsDeck;
     }
 
     public static int getSize()
