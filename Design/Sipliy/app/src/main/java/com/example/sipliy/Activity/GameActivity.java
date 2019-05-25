@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,12 +20,10 @@ import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
-import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
-import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.Objects;
@@ -111,7 +108,7 @@ public class GameActivity extends AppCompatActivity
                                 final Monster monster = (Monster)item;
 
                                 strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
-                                monsterImage.setImageResource(R.drawable.d11001);
+                                monsterImage.setImageResource(R.drawable.d31001);
 
                                 builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener()
                                 {

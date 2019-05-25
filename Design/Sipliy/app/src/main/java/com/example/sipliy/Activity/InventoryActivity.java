@@ -86,7 +86,7 @@ public class InventoryActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                setItemsOnPlayer(PlayerInstances.getPlayer().getDecks().getItems().get(position).getIMAGE_ID(),
+                                setItemsOnPlayer(PlayerInstances.getPlayer().getDecks().getItems().get(position).getICON_ID(),
                                                 PlayerInstances.getPlayer().getDecks().getItems().get(position).getItemType(),
                                                 canBeWornAdapter.getItem(position));
                             }
@@ -229,19 +229,19 @@ public class InventoryActivity extends AppCompatActivity {
         switch(index)
         {
             case 0:
-                im_boots.setImageResource(item.getIMAGE_ID());
+                im_boots.setImageResource(item.getICON_ID());
                 break;
             case 1:
-                im_head.setImageResource(item.getIMAGE_ID());
+                im_head.setImageResource(item.getICON_ID());
                 break;
             case 2:
-                im_body.setImageResource(item.getIMAGE_ID());
+                im_body.setImageResource(item.getICON_ID());
                 break;
             case 3:
-                im_l_hand.setImageResource(item.getIMAGE_ID());
+                im_l_hand.setImageResource(item.getICON_ID());
                 break;
             case 4:
-                im_r_hand.setImageResource(item.getIMAGE_ID());
+                im_r_hand.setImageResource(item.getICON_ID());
         }
     }
 }

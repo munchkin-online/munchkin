@@ -14,6 +14,7 @@ public class Items implements Cards, TreasuresInterface
     private int carrierSex; //пол носителя (1-все, 2-мужчина, 3-женщина)
     private int bonus;
     private int cost;   //стоимость карты
+    private int ICON_ID;
     private int IMAGE_ID;
 
     public Items(int bonus)
@@ -27,8 +28,9 @@ public class Items implements Cards, TreasuresInterface
         this.bonus = bonus;
         this.cost = 0;
         this.IMAGE_ID = 0;
+        this.ICON_ID = 0;
     }
-    public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int IMAGE_ID)
+    public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost,int ICON_ID, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
@@ -38,10 +40,11 @@ public class Items implements Cards, TreasuresInterface
         this.carrierClass = carrierClass;
         this.carrierSex = carrierSex;
         this.cost = cost;
+        this.ICON_ID = ICON_ID;
         this.IMAGE_ID = IMAGE_ID;
     }
 
-    public Items(int ID ,String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int raceBonus, int IMAGE_ID)
+    public Items(int ID ,String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost, int raceBonus, int ICON_ID, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
@@ -51,6 +54,7 @@ public class Items implements Cards, TreasuresInterface
         this.carrierClass = carrierClass;
         this.carrierSex = carrierSex;
         this.cost = cost;
+        this.ICON_ID = ICON_ID;
         this.IMAGE_ID = IMAGE_ID;
         if(raceBonus == carrierRace)
         {
@@ -110,6 +114,11 @@ public class Items implements Cards, TreasuresInterface
     public int elfBonus_2()
     {
         return bonus + 2;
+    }
+
+    public int getICON_ID()
+    {
+        return ICON_ID;
     }
 
     public int getIMAGE_ID()

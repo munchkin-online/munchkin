@@ -114,7 +114,7 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
             }
             else
             {
-                icon.setImageResource(R.drawable.d11001);
+                icon.setImageResource(R.drawable.d31001);
             }
         }
     }
