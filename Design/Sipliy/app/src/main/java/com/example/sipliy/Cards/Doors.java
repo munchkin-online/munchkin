@@ -43,7 +43,7 @@ public class Doors
         doors.add(new Monster(20018, "Типа вошки", false, 1, 1, 1, 0, 0, 0, 0, 0, -6));
         doors.add(new Monster(20019, "Адвокат", false, 6, 2, 1, 2, 5, 0, 0, 0, 0));
         doors.add(new Monster(20020, "Гипогриф", false, 18, 4, 2, 4, 3, 0, 0, 0, 0));
-        doors.add(new Monster(20014, "Закос под вампиров", false, 12, 3, 1, 2, 2, 0, 0, 0, 0));
+        doors.add(new Monster(20021, "Закос под вампиров", false, 12, 3, 1, 2, 2, 0, 0, 0, 0));
         //Закончил писать монстров на 8 странице
 
         doors.add(new Races(24002, "Дварф"));
