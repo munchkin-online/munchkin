@@ -20,4 +20,5 @@
     <string name="lvl_of_monster">lvl of monster</string>
     <string name="escape">Убежать</string>
     <string name="battle">Атаковать</string>
+    <string name="strength">Ваша сила на данный момент</string>
 </resources>

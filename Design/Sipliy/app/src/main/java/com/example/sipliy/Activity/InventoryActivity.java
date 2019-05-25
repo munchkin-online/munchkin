@@ -174,7 +174,7 @@ public class InventoryActivity extends AppCompatActivity {
         strView.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
         lvlView.setText(Integer.toString(PlayerInstances.getPlayer().getLevel()));
 
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 5; i++)
         {
             if(checkItemsOnPlayer(PlayerInstances.getPlayer().getItem(i)))
             {

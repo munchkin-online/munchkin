@@ -19,7 +19,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class RemoveCardsDialogActivity extends DialogFragment {
+public class RemoveCardsDialogActivity extends DialogFragment
+{
     PlayerDecks playerDecks;
 
     public void setPlayerDecks(PlayerDecks playerDecks) { //Что бы диалог работал надо передать калоду игрока

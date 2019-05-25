@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class DiscardDecks //карты сброшенные в сброс-колоду
 {
-    private static ArrayList<TreasuresInterface> discardTreasures; //сброшенная карты из колоды сокровищ
-    private static ArrayList<DoorsInterface> discardDoors;  //сброшенные карты из колоды дверей
+    private static ArrayList<TreasuresInterface> discardTreasures = new ArrayList<>(); //сброшенная карты из колоды сокровищ
+    private static ArrayList<DoorsInterface> discardDoors = new ArrayList<>();  //сброшенные карты из колоды дверей
 
     public static void addCard(TreasuresInterface card) //добавление карт шмоток в колоду
     {

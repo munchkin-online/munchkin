@@ -20,6 +20,12 @@ public class Classes implements Cards, DoorsInterface
     }
 
     @Override
+    public int getType()  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья.
+    {
+        return 1;
+    }
+
+    @Override
     public String getName()
     {
         return null;

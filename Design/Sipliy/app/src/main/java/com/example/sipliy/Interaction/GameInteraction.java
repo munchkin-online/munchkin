@@ -7,9 +7,9 @@ import java.util.Random;
 
 public class GameInteraction    //взаимодействие по ходу игры
 {
+    private static Random random = new Random();
     public static void battle(Player player, Monster monster)  //сражение с монстром и последующее решение
     {
-        Random random = new Random();
         if(battleWithMonster(player, monster))
         {
             player.increaseLVL(monster.getGiven_levels());
@@ -20,13 +20,17 @@ public class GameInteraction    //взаимодействие по ходу и�
         }
         else
         {
-            if (player.getRace() == 3 && random.nextInt(6) + 1 >= 4)//Бафф эльфа на смывку
-                    return;
-            else if (random.nextInt(6) + 1 >= 4)
-                return;
-            else
-                player.resetItems();
+            leave(player);
         }
+    }
+    public static void leave(Player player)
+    {
+        if (player.getRace() == 3 && random.nextInt(6) + 1 >= 4)//Бафф эльфа на смывку
+            return;
+        else if (random.nextInt(6) >= 4)
+            return;
+        else
+            player.resetItems();
     }
     private static boolean battleWithMonster(Player player, Monster monster)  //сражение с монстром, в случае победы true.
     {

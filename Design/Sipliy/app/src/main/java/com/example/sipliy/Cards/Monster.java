@@ -47,6 +47,12 @@ public class Monster implements Cards, DoorsInterface
         return ID;
     }
 
+    @Override
+    public int getType()  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья.
+    {
+        return 3;
+    }
+
     public boolean IsItUndead()
     {
         return undead;

@@ -64,7 +64,7 @@ public class Player
         this.classSecond = 1;
         this.isHalfBlood = false;
         this.thingsOnCharacter = new ArrayList<>();
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 5; i++)
         {
             thingsOnCharacter.add(new Items(0));
         }
