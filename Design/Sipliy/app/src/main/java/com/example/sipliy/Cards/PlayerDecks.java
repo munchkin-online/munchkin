@@ -107,6 +107,7 @@ public class PlayerDecks    //колода игрока
         DiscardDecks.addDoors(doors);
         this.treasures.clear();
         this.doors.clear();
+        this.all.clear();
         update();
     }
 
