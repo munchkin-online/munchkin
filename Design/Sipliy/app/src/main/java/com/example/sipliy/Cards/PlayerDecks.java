@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
+import com.example.sipliy.Cards.Interface.Cards;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.Cards.Interface.TreasuresInterface;
 
@@ -14,7 +15,7 @@ public class PlayerDecks    //колода игрока
 {
     private ArrayList<TreasuresInterface> treasures;    //колода сокровищ
     private ArrayList<DoorsInterface> doors;    //колода монстров
-    private ArrayList<Object> all;
+    private ArrayList<Cards> all;
     private CardsGameAdapter cardsAdapter;
 
     public PlayerDecks()
@@ -69,11 +70,11 @@ public class PlayerDecks    //колода игрока
     public void addCard(TreasuresInterface card) //добавление карт шмоток в колоду
     {
         treasures.add(card);
-        all.add(card);
+        all.add((Cards) card);
         update();
     }
 
-    public ArrayList<Object> getAll()
+    public ArrayList<Cards> getAll()
     {
         return all;
     }
@@ -81,7 +82,7 @@ public class PlayerDecks    //колода игрока
     public void addCard(DoorsInterface card)
     {
         doors.add(card);
-        all.add(card);
+        all.add((Cards) card);
         update();
     }
 
@@ -113,7 +114,7 @@ public class PlayerDecks    //колода игрока
     {
         LinearLayoutManager layoutManagerCards = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         cardsList.setLayoutManager(layoutManagerCards);
-        cardsAdapter = new CardsGameAdapter();
+        cardsAdapter = new CardsGameAdapter(context, all);
         cardsList.setAdapter(cardsAdapter);
     }
 

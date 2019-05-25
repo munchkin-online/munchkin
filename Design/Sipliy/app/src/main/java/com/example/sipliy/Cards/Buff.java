@@ -39,4 +39,12 @@ public class Buff implements Cards, TreasuresInterface
     {
         return name;
     }
+
+    @Override
+    public int getIMAGE_ID()
+    {
+        return 0;
+    }
+
+
 }

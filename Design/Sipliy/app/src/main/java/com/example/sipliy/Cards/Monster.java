@@ -105,6 +105,7 @@ public class Monster implements Cards, DoorsInterface
         return vanish;
     }
 
+    @Override
     public int getIMAGE_ID()
     {
         return IMAGE_ID;
@@ -115,7 +116,5 @@ public class Monster implements Cards, DoorsInterface
     {
         return name;
     }
-
-
 
 }

@@ -33,4 +33,10 @@ public class Races implements Cards, DoorsInterface
     {
         return name;
     }
+
+    @Override
+    public int getIMAGE_ID()
+    {
+        return IMAGE_ID;
+    }
 }

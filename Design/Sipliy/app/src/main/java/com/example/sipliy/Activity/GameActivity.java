@@ -108,7 +108,7 @@ public class GameActivity extends AppCompatActivity
                                 final Monster monster = (Monster)item;
 
                                 strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
-                                monsterImage.setImageResource(R.drawable.d31001);
+                                monsterImage.setImageResource(monster.getIMAGE_ID());
 
                                 builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener()
                                 {

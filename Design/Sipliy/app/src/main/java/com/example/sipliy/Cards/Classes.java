@@ -21,6 +21,7 @@ public class Classes implements Cards, DoorsInterface
         return ID;
     }
 
+    @Override
     public int getIMAGE_ID()
     {
         return IMAGE_ID;
@@ -37,4 +38,5 @@ public class Classes implements Cards, DoorsInterface
     {
         return null;
     }
+
 }

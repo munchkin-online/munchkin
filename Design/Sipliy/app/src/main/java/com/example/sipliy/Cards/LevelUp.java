@@ -17,4 +17,10 @@ public class LevelUp implements Cards
     {
         return name;
     }
+
+    @Override
+    public int getIMAGE_ID()
+    {
+        return 0;
+    }
 }

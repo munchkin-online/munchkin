@@ -18,7 +18,7 @@ import java.util.List;
 
 public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.PlayerViewHolder>
 {
-
+    private List<Player> playerList = new ArrayList<>();
     private OnItemClickListener listener;
 
     public interface OnItemClickListener
@@ -26,15 +26,12 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         void onItemClick(int position);
     }
 
-
-
     public void setOnItemClickListner(OnItemClickListener listner)
     {
         this.listener = listener;
     }
 
 
-    private List<Player> playerList = new ArrayList<>();
 
 //    public void setItems(Collection<MenuPlayer> plaers){
 //        plaersList.addAll(plaers);
