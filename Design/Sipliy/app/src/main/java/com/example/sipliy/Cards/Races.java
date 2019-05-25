@@ -2,16 +2,19 @@ package com.example.sipliy.Cards;
 
 import com.example.sipliy.Cards.Interface.Cards;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.R;
 
 public class Races implements Cards, DoorsInterface
 {
     private int ID;
     private String name;
+    private int IMAGE_ID;
 
-    public Races(int ID, String name)
+    public Races(int ID, String name, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
+        this.IMAGE_ID = IMAGE_ID;
     }
 
     public int getID()

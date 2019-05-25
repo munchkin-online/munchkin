@@ -7,16 +7,23 @@ public class Classes implements Cards, DoorsInterface
 {
     private int ID;
     private String name;
+    private int IMAGE_ID;
 
-    public Classes(int ID, String name)
+    public Classes(int ID, String name, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
+        this.IMAGE_ID = IMAGE_ID;
     }
 
     public int getID()
     {
         return ID;
+    }
+
+    public int getIMAGE_ID()
+    {
+        return IMAGE_ID;
     }
 
     @Override

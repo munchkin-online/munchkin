@@ -17,10 +17,11 @@ public class Monster implements Cards, DoorsInterface
     private int debuff_class;   //класс, против которой монстр дает дебафф
     private int debuff_value;   //сам дебафф
     private int vanish;     //бафф или дебафф к смывке(положительное или отрицательное число соотвественно)
+    private int IMAGE_ID;
 
     public Monster(int ID, String name, boolean undead,
                    int level, int treasures, int given_levels, int not_beating_with, int not_beating_index, int debuff_race,
-                   int debuff_class, int debuff_value, int vanish)
+                   int debuff_class, int debuff_value, int vanish, int IMAGE_ID)
     {
         this.ID = ID;
         this.name = name;
@@ -34,6 +35,7 @@ public class Monster implements Cards, DoorsInterface
         this.debuff_class = debuff_class;
         this.debuff_value = debuff_value;
         this.vanish = vanish;
+        this.IMAGE_ID = IMAGE_ID;
 
     }
 
@@ -101,6 +103,11 @@ public class Monster implements Cards, DoorsInterface
     public int getVanish()
     {
         return vanish;
+    }
+
+    public int getIMAGE_ID()
+    {
+        return IMAGE_ID;
     }
 
     @Override
