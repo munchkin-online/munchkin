@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,8 +47,13 @@ public class GameActivity extends AppCompatActivity
     private TextView strView;
     private TextView strengthInBattle;
 
+    private Button endTurn; //кнопка конца хода
+
     private ImageView monsterImage;
     private ImageView sale;
+
+    private int fightAmount = 0; //количество битв
+    private int doorsAmount = 0; //количетво взятых карт дверей
 
 
     private GameInteraction gameInteraction;
@@ -71,6 +77,7 @@ public class GameActivity extends AppCompatActivity
         PlayerInstances.getPlayer().addTreasures(4);
         PlayerInstances.getPlayer().addDoors(4);
         buildRecyclerView();
+
 
         View.OnClickListener clickListener = new View.OnClickListener()
         {
@@ -98,8 +105,9 @@ public class GameActivity extends AppCompatActivity
                         {
                             Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
                         }
-                        else
+                        else if(doorsAmount == 0 || doorsAmount == 1)
                         {
+                            doorsAmount++;
                             final DoorsInterface item = Doors.getItemCard();
                             switch(item.getType())
                             {
@@ -112,50 +120,63 @@ public class GameActivity extends AppCompatActivity
                                     PlayerInstances.getPlayer().addDoors(item);
                                     break;
                                 case 3:
-                                    Log.d(TAG, "onClick3: ");
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                                    builder.setCancelable(false);
-                                    View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
-                                    monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
-                                    strengthInBattle = view.findViewById(R.id.textViewStrenght);
-
-                                    final Monster monster = (Monster)item;
-
-                                    strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
-                                    monsterImage.setImageResource(monster.getIMAGE_ID());
-
-                                    builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener()
+                                    if(fightAmount == 0)
                                     {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which)
-                                        {
-                                            GameInteraction.leave(PlayerInstances.getPlayer());
-                                        }
-                                    })
-                                            .setPositiveButton("Атаковать", new DialogInterface.OnClickListener()
-                                            {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which)
-                                                {
-                                                    GameInteraction.battle(PlayerInstances.getPlayer(), monster);
-                                                }
-                                            });
-                                    builder.setView(view);
-                                    builder.show();
+                                        Log.d(TAG, "onClick3: ");
+                                        fightAmount++;
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                                        builder.setCancelable(false);
+                                        View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
+                                        monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
+                                        strengthInBattle = view.findViewById(R.id.textViewStrenght);
 
+                                        final Monster monster = (Monster) item;
+
+                                        strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
+                                        monsterImage.setImageResource(monster.getIMAGE_ID());
+
+                                        builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                GameInteraction.leave(PlayerInstances.getPlayer());
+                                            }
+                                        })
+                                                .setPositiveButton("Атаковать", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        GameInteraction.battle(PlayerInstances.getPlayer(), monster);
+                                                    }
+                                                });
+                                        builder.setView(view);
+                                        builder.show();
+                                    }
+                                    else
+                                    {
+                                        PlayerInstances.getPlayer().addDoors(item);
+                                    }
                                     break;
                                 case 4:
                                     break;
                             }
                         }
+                        else
+                        {
+                            Toast.makeText(GameActivity.this, "No more doors", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case R.id.sale:
                         sale();
+                        break;
+                    case R.id.btn_endTurn:
+                        Log.d(TAG, "EndOfTurn: ");
+                        doorsAmount = 0;
+                        fightAmount = 0;
                         break;
                 }
             }
         };
 
+        endTurn.setOnClickListener(clickListener);
         player_icon.setOnClickListener(clickListener);
         doorsView.setOnClickListener(clickListener);
         treasuresView.setOnClickListener(clickListener);
@@ -197,6 +218,7 @@ public class GameActivity extends AppCompatActivity
         playersList = findViewById(R.id.recyclerViewGamePlayers);
         cardsList = findViewById(R.id.recyclerViewGameCards);
         sale = findViewById(R.id.sale);
+        endTurn = findViewById(R.id.btn_endTurn);
         nameView = findViewById(R.id.nameView);
         lvlView = findViewById(R.id.lvlValue);
         strView = findViewById(R.id.strValue);
@@ -252,4 +274,5 @@ public class GameActivity extends AppCompatActivity
         lvlView.setText(String.valueOf(PlayerInstances.getPlayer().getLevel()));
         strView.setText(String.valueOf(PlayerInstances.getPlayer().getStrength()));
     }
+
 }
