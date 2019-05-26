@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,6 +51,8 @@ public class GameActivity extends AppCompatActivity
 
     private GameInteraction gameInteraction;
 
+
+    private static String TAG = "INGAME";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -59,6 +62,7 @@ public class GameActivity extends AppCompatActivity
             Objects.requireNonNull(this.getSupportActionBar()).hide();
         }
         catch(NullPointerException e) {}
+
         setContentView(R.layout.activity_game);
         gameInteraction = new GameInteraction();    //создание управление игрой
         findViewById();
@@ -93,12 +97,15 @@ public class GameActivity extends AppCompatActivity
                         switch(item.getType())
                         {
                             case 1:
+                                Log.d(TAG, "onClick1: ");
                                 PlayerInstances.getPlayer().addDoors(item);
                                 break;
                             case 2:
+                                Log.d(TAG, "onClick2: ");
                                 PlayerInstances.getPlayer().addDoors(item);
                                 break;
                             case 3:
+                                Log.d(TAG, "onClick3: ");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
                                 builder.setCancelable(false);
                                 View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
@@ -133,7 +140,6 @@ public class GameActivity extends AppCompatActivity
                             case 4:
                                 break;
                         }
-                        PlayerInstances.getPlayer().addDoors(Doors.getItemCard());
                         break;
                     case R.id.sale:
                         sale();
@@ -186,8 +192,6 @@ public class GameActivity extends AppCompatActivity
         nameView = findViewById(R.id.nameView);
         lvlView = findViewById(R.id.lvlValue);
         strView = findViewById(R.id.strValue);
-        //attackButton = findViewById(R.id.battleButton);
-        //leaveButton = findViewById(R.id.leaveBattle);
     }
 
     @Override
@@ -195,6 +199,7 @@ public class GameActivity extends AppCompatActivity
     {
         Treasures.update();
         Doors.update();
+        PlayerInstances.getPlayer().resetItems();
         super.onDestroy();
     }
 

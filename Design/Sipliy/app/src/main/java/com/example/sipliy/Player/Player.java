@@ -1,5 +1,7 @@
 package com.example.sipliy.Player;
 
+import android.util.Log;
+
 import com.example.sipliy.Cards.DiscardDecks;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
@@ -256,13 +258,20 @@ public class Player
         return thingsOnCharacter.get(index);
     }
 
+    public boolean hasItems()
+    {
+        return thingsOnCharacter.size() != 0;
+    }
     public void resetItems()    //удаление карт из руки игрока после смерти
     {
         for(Items items : thingsOnCharacter)
         {
             DiscardDecks.addCard(items);
         }
-        this.thingsOnCharacter.clear();
+        for(int i = 0; i < thingsOnCharacter.size(); i++)
+        {
+            thingsOnCharacter.set(i, new Items(0));
+        }
         this.decks.reset();
     }
 

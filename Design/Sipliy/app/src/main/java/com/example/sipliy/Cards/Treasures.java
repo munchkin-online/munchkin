@@ -4,10 +4,12 @@ import com.example.sipliy.Cards.Interface.TreasuresInterface;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Treasures //класс карт сокровищ (общая колода с картами сокровищ)
 {
+    private static Random random;
     private static ArrayList<TreasuresInterface> items; //колода сокровищ
     private static ArrayList<TreasuresInterface> spareItemsDeck;   //запосная колода, для восстановления после закрытия активити
 
@@ -16,6 +18,7 @@ public class Treasures //класс карт сокровищ (общая кол
         items = new ArrayList<>();
         fill();
         spareItemsDeck = items;
+        random = new Random();
     }
 
     public static TreasuresInterface getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
@@ -26,7 +29,7 @@ public class Treasures //класс карт сокровищ (общая кол
         }
         else
         {
-            return items.remove(items.size() - 1);
+            return items.remove(random.nextInt(items.size() - 1));
         }
     }
 

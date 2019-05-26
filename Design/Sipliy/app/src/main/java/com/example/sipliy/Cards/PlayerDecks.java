@@ -3,6 +3,7 @@ package com.example.sipliy.Cards;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Cards.Interface.Cards;
@@ -10,6 +11,8 @@ import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.Cards.Interface.TreasuresInterface;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 public class PlayerDecks    //колода игрока
 {
@@ -69,6 +72,8 @@ public class PlayerDecks    //колода игрока
 
     public void addCard(TreasuresInterface card) //добавление карт шмоток в колоду
     {
+        if(card == null)
+            return;
         treasures.add(card);
         all.add((Cards) card);
         update();
@@ -81,6 +86,8 @@ public class PlayerDecks    //колода игрока
 
     public void addCard(DoorsInterface card)
     {
+        if(card == null)
+            return;
         doors.add(card);
         all.add((Cards) card);
         update();

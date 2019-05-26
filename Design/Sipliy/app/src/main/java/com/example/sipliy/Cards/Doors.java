@@ -4,9 +4,11 @@ import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.R;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Doors
 {
+    private static Random random;
     private static ArrayList<DoorsInterface> doors; //колода дверей
     private static ArrayList<DoorsInterface> spareDoorsDeck;
     public Doors()
@@ -14,11 +16,12 @@ public class Doors
         doors = new ArrayList<>();
         fill();
         spareDoorsDeck = doors;
+        random = new Random();
     }
 
     public static DoorsInterface getItemCard()
     {
-        return doors.remove(doors.size() - 1);
+        return doors.remove(random.nextInt(doors.size() - 1));
     }
 
     public void fill()
