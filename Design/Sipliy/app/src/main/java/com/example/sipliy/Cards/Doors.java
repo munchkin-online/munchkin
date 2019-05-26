@@ -21,9 +21,31 @@ public class Doors
 
     public static DoorsInterface getItemCard()
     {
-        return doors.remove(random.nextInt(doors.size() - 1));
+        if(doors.size() == 0)
+        {
+            return null;
+        }
+        else if(doors.size() == 1)
+        {
+            return doors.remove(0);
+        }
+        else
+        {
+            return doors.remove(random.nextInt(doors.size() - 1));
+        }
     }
 
+    public static DoorsInterface getItem()
+    {
+        if(doors.size() == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return doors.get(doors.size() - 1);
+        }
+    }
     public void fill()
     {
         //not_beating_with: 1 - рассовый признак, 2 - классовый признак, 3 - половой признак, 4 - уровневый признак

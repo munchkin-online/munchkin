@@ -21,11 +21,26 @@ public class Treasures //класс карт сокровищ (общая кол
         random = new Random();
     }
 
+    public static TreasuresInterface getItem()
+    {
+        if(items.size() == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return items.remove(random.nextInt(items.size() - 1));
+        }
+    }
     public static TreasuresInterface getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
     {
         if(items.size() == 0)
         {
             return null;
+        }
+        else if(items.size() == 1)
+        {
+            return items.remove(0);
         }
         else
         {

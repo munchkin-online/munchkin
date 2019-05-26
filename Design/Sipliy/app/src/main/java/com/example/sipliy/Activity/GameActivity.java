@@ -2,6 +2,7 @@ package com.example.sipliy.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,7 +84,7 @@ public class GameActivity extends AppCompatActivity
                         startActivity(new Intent(GameActivity.this, InventoryActivity.class));
                         break;
                     case R.id.imageViewTreasures:
-                        if(Treasures.getItemCard() == null)
+                        if(Treasures.getItem() == null)
                         {
                             Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
                         }
@@ -93,52 +94,59 @@ public class GameActivity extends AppCompatActivity
                         }
                         break;
                     case R.id.imageViewDoors:
-                        final DoorsInterface item = Doors.getItemCard();
-                        switch(item.getType())
+                        if(Doors.getItem() == null)
                         {
-                            case 1:
-                                Log.d(TAG, "onClick1: ");
-                                PlayerInstances.getPlayer().addDoors(item);
-                                break;
-                            case 2:
-                                Log.d(TAG, "onClick2: ");
-                                PlayerInstances.getPlayer().addDoors(item);
-                                break;
-                            case 3:
-                                Log.d(TAG, "onClick3: ");
-                                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                                builder.setCancelable(false);
-                                View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
-                                monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
-                                strengthInBattle = view.findViewById(R.id.textViewStrenght);
+                            Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            final DoorsInterface item = Doors.getItemCard();
+                            switch(item.getType())
+                            {
+                                case 1:
+                                    Log.d(TAG, "onClick1: ");
+                                    PlayerInstances.getPlayer().addDoors(item);
+                                    break;
+                                case 2:
+                                    Log.d(TAG, "onClick2: ");
+                                    PlayerInstances.getPlayer().addDoors(item);
+                                    break;
+                                case 3:
+                                    Log.d(TAG, "onClick3: ");
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                                    builder.setCancelable(false);
+                                    View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
+                                    monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
+                                    strengthInBattle = view.findViewById(R.id.textViewStrenght);
 
-                                final Monster monster = (Monster)item;
+                                    final Monster monster = (Monster)item;
 
-                                strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
-                                monsterImage.setImageResource(monster.getIMAGE_ID());
+                                    strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
+                                    monsterImage.setImageResource(monster.getIMAGE_ID());
 
-                                builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener()
-                                {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which)
+                                    builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener()
                                     {
-                                        GameInteraction.leave(PlayerInstances.getPlayer());
-                                    }
-                                })
-                                        .setPositiveButton("Атаковать", new DialogInterface.OnClickListener()
-                                {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which)
-                                    {
-                                        GameInteraction.battle(PlayerInstances.getPlayer(), monster);
-                                    }
-                                });
-                                builder.setView(view);
-                                builder.show();
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+                                            GameInteraction.leave(PlayerInstances.getPlayer());
+                                        }
+                                    })
+                                            .setPositiveButton("Атаковать", new DialogInterface.OnClickListener()
+                                            {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which)
+                                                {
+                                                    GameInteraction.battle(PlayerInstances.getPlayer(), monster);
+                                                }
+                                            });
+                                    builder.setView(view);
+                                    builder.show();
 
-                                break;
-                            case 4:
-                                break;
+                                    break;
+                                case 4:
+                                    break;
+                            }
                         }
                         break;
                     case R.id.sale:
@@ -174,7 +182,7 @@ public class GameActivity extends AppCompatActivity
         playersList.setAdapter(playersAdapter);
         player_icon = findViewById(R.id.player_icon);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(playersList.getContext(),
-                layoutManagerPlayers.getOrientation());
+        layoutManagerPlayers.getOrientation());
         playersList.addItemDecoration(dividerItemDecoration);
 
         PlayerInstances.getPlayer().getDecks().buildRecyclerView(this, cardsList);
@@ -201,6 +209,15 @@ public class GameActivity extends AppCompatActivity
         Doors.update();
         PlayerInstances.getPlayer().resetItems();
         super.onDestroy();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState)
+    {
+        Treasures.update();
+        Doors.update();
+        PlayerInstances.getPlayer().resetItems();
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override
