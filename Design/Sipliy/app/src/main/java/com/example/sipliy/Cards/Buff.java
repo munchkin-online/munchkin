@@ -8,6 +8,12 @@ public class Buff implements Cards, TreasuresInterface
     private int ID; //id карты
     private String name;    //имя карты
     private int value;  //значение баффа
+
+    @Override
+    public int getType() { // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
+        return 5;
+    }
+
     private int cost;   //стоимость карты
 
     public Buff(String name)

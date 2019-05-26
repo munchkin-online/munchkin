@@ -72,18 +72,18 @@ public class Doors
         doors.add(new Monster(20021, "Закос под вампиров", false, 12, 3, 1, 2, 2, 0, 0, 0, 0, R.drawable.d20021));
         //Закончил писать монстров на 8 странице
 
-        doors.add(new Races(24001, "Дварф", R.drawable.d24002));
-        doors.add(new Races(24002, "Дварф", R.drawable.d24002_2));
-        doors.add(new Races(24003, "Эльф", R.drawable.d24003));
-        doors.add(new Races(24004, "Эльф", R.drawable.d24003_2));
-        doors.add(new Races(24005, "Хафлинг", R.drawable.d24004));
-        doors.add(new Races(24006, "Хафлинг", R.drawable.d24004_2));
-        doors.add(new Classes(25001, "Воин", R.drawable.d25004));
-        doors.add(new Classes(25002, "Воин", R.drawable.d25004_2));
-        doors.add(new Classes(25003, "Клирик", R.drawable.d25002));//У клирика пассивная способность +3 против андедов
-        doors.add(new Classes(25004, "Клирик", R.drawable.d25002_2));
-        doors.add(new Classes(25005, "Вор", R.drawable.d25005));//имеет шанс 50% получить дополнительное сокровище за убийство монстра
-        doors.add(new Classes(25006, "Вор", R.drawable.d25005_2));
+        doors.add(new Races(24001, "Дварф", R.drawable.d24002, 2));  //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
+        doors.add(new Races(24002, "Дварф", R.drawable.d24002_2, 2));
+        doors.add(new Races(24003, "Эльф", R.drawable.d24003, 3));
+        doors.add(new Races(24004, "Эльф", R.drawable.d24003_2, 3));
+        doors.add(new Races(24005, "Хафлинг", R.drawable.d24004, 4));
+        doors.add(new Races(24006, "Хафлинг", R.drawable.d24004_2, 4));
+        doors.add(new Classes(25001, "Воин", R.drawable.d25004, 4)); //класс носителя (2-cleric, 3-wizard, 4-warrior, 5-thief)
+        doors.add(new Classes(25002, "Воин", R.drawable.d25004_2, 4));
+        doors.add(new Classes(25003, "Клирик", R.drawable.d25002, 2));//У клирика пассивная способность +3 против андедов
+        doors.add(new Classes(25004, "Клирик", R.drawable.d25002_2, 2));
+        doors.add(new Classes(25005, "Вор", R.drawable.d25005, 5));//имеет шанс 50% получить дополнительное сокровище за убийство монстра
+        doors.add(new Classes(25006, "Вор", R.drawable.d25005_2, 5));
     }
 
     public static void reset()

@@ -165,7 +165,6 @@ public class GameActivity extends AppCompatActivity
 //        for (int i = 0; i < SizePlayers; i++) {
 //            playersAdapter.addItem(Players[i]);
 //        }
-
     }
 
     @Override
@@ -236,10 +235,6 @@ public class GameActivity extends AppCompatActivity
         saleDialog.setTextView(lvlView);
         saleDialog.setStr(strView);
         saleDialog.show(getSupportFragmentManager(), "Sale");
-//        String lvl = "Уровень: " + String.valueOf(PlayerInstances.getPlayer().getLevel());
-//        String pwr = "Сила: " + String.valueOf(PlayerInstances.getPlayer().getStrength());
-//        lvlView.setText(lvl);
-//        strView.setText(pwr);
     }
 
     public void remove()
