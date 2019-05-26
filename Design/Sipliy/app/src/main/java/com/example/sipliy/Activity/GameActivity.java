@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.BattleDialog;
 import com.example.sipliy.Activity.Dialog.MenuDialogActivity;
 import com.example.sipliy.Activity.Dialog.RemoveCardsDialogActivity;
 import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
@@ -109,6 +110,7 @@ public class GameActivity extends AppCompatActivity
                         {
                             doorsAmount++;
                             final DoorsInterface item = Doors.getItemCard();
+                            assert item != null;
                             switch(item.getType())
                             {
                                 case 1:
@@ -124,31 +126,8 @@ public class GameActivity extends AppCompatActivity
                                     {
                                         Log.d(TAG, "onClick3: ");
                                         fightAmount++;
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                                        builder.setCancelable(false);
-                                        View view = LayoutInflater.from(GameActivity.this).inflate(R.layout.battledialog, null);
-                                        monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
-                                        strengthInBattle = view.findViewById(R.id.textViewStrenght);
-
-                                        final Monster monster = (Monster) item;
-
-                                        strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
-                                        monsterImage.setImageResource(monster.getIMAGE_ID());
-
-                                        builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                GameInteraction.leave(PlayerInstances.getPlayer());
-                                            }
-                                        })
-                                                .setPositiveButton("Атаковать", new DialogInterface.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        GameInteraction.battle(PlayerInstances.getPlayer(), monster);
-                                                    }
-                                                });
-                                        builder.setView(view);
-                                        builder.show();
+                                        BattleDialog battleDialog = new BattleDialog();
+                                        battleDialog.show(getSupportFragmentManager(), "Notice Data");
                                     }
                                     else
                                     {
