@@ -34,7 +34,7 @@ public class Doors
         doors.add(new Monster(20005, "Просто Тролль", false, 10, 3, 1, 0, 0, 0, 0, 0, 0, R.drawable.d20005));
         doors.add(new Monster(20006, "Рыгачу", false, 6, 2, 1, 0, 0, 0, 0, 0, 0, R.drawable.d20006));
         doors.add(new Monster(20007, "Лицесос", false, 8, 2, 1, 0, 0, 3, 0, 6, 0, R.drawable.d20007));
-        doors.add(new Monster(20008, "Наскипидаренные улитки", false, 4, 2, 1, 0, 0, 3, 0, 6, -2, R.drawable.d20008));
+        doors.add(new Monster(20008, "Наскипидаренные улитки", false, 4, 2, 1, 0, 0, 3, 0, 0, -2, R.drawable.d20008));
         doors.add(new Monster(20009, "Невыразимо Жуткий Неописуемый Ужас", false, 14, 4, 1, 0, 0, 0, 4, 4, 0, R.drawable.d20009));
         doors.add(new Monster(20010, "Король Тут", true, 16, 4, 2, 4, 3, 0, 0, 0, 0, R.drawable.d20010));
         doors.add(new Monster(20011, "Сопливый Нос", false, 10, 3, 1, 0, 0, 0, 0, 0, -6, R.drawable.d20011));
@@ -50,12 +50,18 @@ public class Doors
         doors.add(new Monster(20021, "Закос под вампиров", false, 12, 3, 1, 2, 2, 0, 0, 0, 0, R.drawable.d20021));
         //Закончил писать монстров на 8 странице
 
-        doors.add(new Races(24002, "Дварф", R.drawable.d24002));
+        doors.add(new Races(24001, "Дварф", R.drawable.d24002));
+        doors.add(new Races(24002, "Дварф", R.drawable.d24002_2));
         doors.add(new Races(24003, "Эльф", R.drawable.d24003));
-        doors.add(new Races(24004, "Хафлинг", R.drawable.d24004));
-        doors.add(new Classes(25004, "Воин", R.drawable.d25004));
-        doors.add(new Classes(25002, "Клирик", R.drawable.d25002));//У клирика пассивная способность +3 против андедов
+        doors.add(new Races(24004, "Эльф", R.drawable.d24003_2));
+        doors.add(new Races(24005, "Хафлинг", R.drawable.d24004));
+        doors.add(new Races(24006, "Хафлинг", R.drawable.d24004_2));
+        doors.add(new Classes(25001, "Воин", R.drawable.d25004));
+        doors.add(new Classes(25002, "Воин", R.drawable.d25004_2));
+        doors.add(new Classes(25003, "Клирик", R.drawable.d25002));//У клирика пассивная способность +3 против андедов
+        doors.add(new Classes(25004, "Клирик", R.drawable.d25002_2));
         doors.add(new Classes(25005, "Вор", R.drawable.d25005));//имеет шанс 50% получить дополнительное сокровище за убийство монстра
+        doors.add(new Classes(25006, "Вор", R.drawable.d25005_2));
     }
 
     public static void reset()
