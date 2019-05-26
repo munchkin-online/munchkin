@@ -70,6 +70,21 @@ public class Doors
         doors.add(new Monster(20019, "Адвокат", false, 6, 2, 1, 2, 5, 0, 0, 0, 0, R.drawable.d20019));
         doors.add(new Monster(20020, "Гипогриф", false, 18, 4, 2, 4, 3, 0, 0, 0, 0, R.drawable.d20020));
         doors.add(new Monster(20021, "Закос под вампиров", false, 12, 3, 1, 2, 2, 0, 0, 0, 0, R.drawable.d20021));
+        doors.add(new Monster(20022, "Лятучие Легушки", false, 2, 1, 1, 0, 0, 0, 0, 0, -1, R.drawable.d20022));
+        doors.add(new Monster(20023, "Калечный Гоблин", false, 1, 1, 1, 0, 0, 0, 0, 0, 1, R.drawable.d20023));
+        doors.add(new Monster(20024, "Здоровенная Бешеная Цыпа", false, 2, 1, 1, 0, 0, 0, 0, 0, 0, R.drawable.d20024));
+        doors.add(new Monster(20025, "Дотошный Ботан", false, 6, 2, 1, 0, 0, 0, 4, 6, 0, R.drawable.d20025));
+        doors.add(new Monster(20026, "Трава в Горшке", false, 1, 1, 1, 0, 0, 0, 0, 0, 6, R.drawable.d20026));
+        doors.add(new Monster(20027, "Белые Братья", true, 16, 4, 2, 4, 3, 0, 0, 0, 0, R.drawable.d20027));
+        doors.add(new Monster(20028, "Плутониевый Дракон", false, 20, 5, 2, 4, 5, 0, 0, 0, 0, R.drawable.d20028));
+        doors.add(new Monster(20029, "Обдолбанный Голем", false, 14, 4, 1, 0, 0, 0, 0, 0, 6, R.drawable.d20029));
+        doors.add(new Monster(20030, "Демон с Язычком", false, 12, 3, 1, 0, 0, 0, 2, 4, 0, R.drawable.d20030));
+        doors.add(new Monster(20031, "Утикора", false, 6, 2, 1, 0, 0, 0, 3, 6, 0, R.drawable.d20031));
+        doors.add(new Monster(20032, "Бигфут", false, 12, 3, 1, 0, 0, 2, 0, 3, 0, R.drawable.d20032));
+        doors.add(new Monster(20033, "Сочащаяся Слизь", false, 1, 1, 1, 0, 0, 3, 0, 4, 0, R.drawable.d20033));
+        doors.add(new Monster(20034, "Г-н Кости", true, 2, 1, 1, 0, 0, 0, 0, 0, 0, R.drawable.d20034));
+        doors.add(new Monster(20035, "Неживой Коник", true, 4, 2, 1, 0, 0, 2, 0, 5, 0, R.drawable.d20035));
+        doors.add(new Monster(20036, "Бабыри", true, 8, 2, 1, 0, 0, 0, 0, 0, 0, R.drawable.d20036));
         //Закончил писать монстров на 8 странице
 
         doors.add(new Races(24001, "Дварф", R.drawable.d24002, 2));  //раса носителя (1-human, 2-dwarf, 3-elf, 4-hufling)
