@@ -100,31 +100,31 @@ public class MainMenuActivity extends AppCompatActivity
                     case R.id.button_settings:
                         startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
-                    case R.id.imageView_search_plus:
-                        status = false;
-                        AsyncTaskStatus as = new AsyncTaskStatus();
-                        as.execute();
-                        //as.cancel(true);
-
-                        Log.d("statusNew", String.valueOf(status));
-
-                        /*if(status)
-                        {
-                            playersAdapter.addItem(String.valueOf(search.getText()));
-                            search.setText("");
-                        }
-                        else
-                        {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.BOTTOM, 0, 0);
-                            toast.show();
-                        }*/
-                        break;
+//                    case R.id.imageView_search_plus:
+//                        status = false;
+//                        /*AsyncTaskStatus as = new AsyncTaskStatus();
+//                        as.execute();*/
+//                        //as.cancel(true);
+//
+//                        Log.d("statusNew", String.valueOf(status));
+//
+//                        /*if(status)
+//                        {
+//                            playersAdapter.addItem(String.valueOf(search.getText()));
+//                            search.setText("");
+//                        }
+//                        else
+//                        {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
+//                            toast.setGravity(Gravity.BOTTOM, 0, 0);
+//                            toast.show();
+//                        }*/
+//                        break;
                 }
             }
         };
 
-        plusSearch.setOnClickListener(clickListener);
+        //plusSearch.setOnClickListener(clickListener);
         play.setOnClickListener(clickListener);
         exit.setOnClickListener(clickListener);
         settings.setOnClickListener(clickListener);
@@ -221,14 +221,9 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
     public void clickSearch(View view) {
-        if (status) {
-            playersAdapter.addItem(String.valueOf(search.getText()));
-            search.setText("");
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-            toast.show();
-        }
+        Log.d("startStatus", String.valueOf(status));
+        AsyncTaskStatus as = new AsyncTaskStatus();
+        as.execute();
     }
 
     public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
@@ -253,10 +248,10 @@ public class MainMenuActivity extends AppCompatActivity
                 status = false;
             }
             else if (Integer.valueOf(answerHTTP)==1){
-                Log.d("status","true");
+                Log.d("newStatus","true");
                 status = true;
             }
-            /*if(status)
+            if(status)
             {
                 playersAdapter.addItem(String.valueOf(search.getText()));
                 search.setText("");
@@ -266,7 +261,7 @@ public class MainMenuActivity extends AppCompatActivity
                 Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.BOTTOM, 0, 0);
                 toast.show();
-            }*/
+            }
             return null;
         }
 
