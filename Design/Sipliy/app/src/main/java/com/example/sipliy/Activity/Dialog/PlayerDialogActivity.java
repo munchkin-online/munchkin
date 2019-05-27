@@ -41,7 +41,7 @@ public class PlayerDialogActivity extends DialogFragment
                     public void onClick(DialogInterface dialog, int id)
                     {
                         EditText un = (EditText)view.findViewById(R.id.username);
-                        PlayerInstances.addPlayer(new Player(un.getText().toString()));
+                        //PlayerInstances.addPlayer(new Player(un.getText().toString()));
                         RadioButton rbM = (RadioButton) view.findViewById(R.id.radioButtonMale);
                         RadioButton rbF = (RadioButton) view.findViewById(R.id.radioButtonFemale);
                         if(rbM.isChecked())
