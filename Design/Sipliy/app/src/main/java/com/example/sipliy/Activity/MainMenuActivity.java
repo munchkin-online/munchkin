@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.AsyncTask.AsyncTaskStatus;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
@@ -85,7 +86,12 @@ public class MainMenuActivity extends AppCompatActivity
                         startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
                     case R.id.imageView_search_plus:
-                        if(true)
+                        boolean status = false;
+                        AsyncTaskStatus as = new AsyncTaskStatus();
+                        as.setStatus(status, String.valueOf(search.getText()), getApplicationContext(), playersAdapter);
+                        as.execute();
+
+                        /*if(status)
                         {
                             playersAdapter.addItem(String.valueOf(search.getText()));
                             search.setText("");
@@ -95,7 +101,7 @@ public class MainMenuActivity extends AppCompatActivity
                             Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
                             toast.setGravity(Gravity.BOTTOM, 0, 0);
                             toast.show();
-                        }
+                        }*/
                         break;
                 }
             }

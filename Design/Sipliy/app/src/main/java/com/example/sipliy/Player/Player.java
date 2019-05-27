@@ -26,6 +26,7 @@ public class Player
     private boolean isHalfBlood;    //полукровка или обычный
     private ArrayList<Items> thingsOnCharacter; // 0 - обувка. 1 - голова. 2 - броня. 3 - левая рука. 4 - правая рука
     private PlayerDecks decks;  //колода карт игрока
+    private int id;
 
     public Player(String name,
                   int level,
@@ -55,6 +56,35 @@ public class Player
 
     public Player(String name)
     {
+        this.name = name;
+        this.level = 1;
+        this.strengthClothes = 0;
+        this.Race = 1;
+        this.RaceSecond = 1;
+        this.isSuperMunchkin = false;
+        this.sex = 1;
+        this._class = 1;
+        this.classSecond = 1;
+        this.isHalfBlood = false;
+        this.thingsOnCharacter = new ArrayList<>();
+        for(int i = 0; i < 5; i++)
+        {
+            thingsOnCharacter.add(new Items(0));
+        }
+        this.decks = new PlayerDecks();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Player(String name, int id)
+    {
+        this.id = id;
         this.name = name;
         this.level = 1;
         this.strengthClothes = 0;
