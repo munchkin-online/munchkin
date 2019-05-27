@@ -58,7 +58,6 @@ public class SignInActivity extends AppCompatActivity {
     public void clickRegistr(View view) {
         Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
         startActivity(intent);
-
     }
 
     class MyAsyncTask extends AsyncTask<String, String, String> {
