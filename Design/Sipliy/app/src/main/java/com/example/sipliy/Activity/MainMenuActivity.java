@@ -164,9 +164,9 @@ public class MainMenuActivity extends AppCompatActivity
                     Log.d("scroll", "onScrollStateChanged");
                     AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
                     asyncTaskCheckIvite.execute();
+                    AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
+                    asyncTaskCheckInviteResult.execute();
                     if (PlayerInstances.getPlayer().isInvite() == true){
-                        AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
-                        asyncTaskCheckInviteResult.execute();
                         PlayerInstances.getPlayer().setInvite(false);
                     }
                 }

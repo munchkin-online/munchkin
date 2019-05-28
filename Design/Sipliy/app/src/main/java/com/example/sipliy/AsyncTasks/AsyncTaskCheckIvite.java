@@ -53,7 +53,7 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        if (answerHTTP!="0"){
+        if (!answerHTTP.equals("0")){
             invite(answerHTTP);
         }
     }

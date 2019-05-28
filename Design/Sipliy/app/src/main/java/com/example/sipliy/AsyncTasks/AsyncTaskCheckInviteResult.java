@@ -29,7 +29,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
+    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/checkinviteresult";
 
     @Override
     protected void onPreExecute() {
@@ -49,7 +49,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP == "0"){
+        if (answerHTTP.equals("0")){
             Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
         }
         else {
