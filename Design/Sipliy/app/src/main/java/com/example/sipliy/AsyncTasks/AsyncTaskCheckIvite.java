@@ -40,7 +40,7 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
+        postDataParams.put("login", String.valueOf(PlayerInstances.getPlayer().getName()));
         answerHTTP = performPostCall(server,postDataParams);
         Log.d("check invite",answerHTTP);
 
