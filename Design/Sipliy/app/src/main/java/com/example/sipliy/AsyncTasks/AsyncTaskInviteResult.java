@@ -1,17 +1,13 @@
 package com.example.sipliy.AsyncTasks;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.example.sipliy.Activity.MainMenuActivity;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
-import com.example.sipliy.Player.Player;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,15 +21,17 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
+public class AsyncTaskInviteResult extends AsyncTask<String, String, String> {
     private String  answerHTTP;
+    private String result;
     Context context;
 
-    public AsyncTaskCheckIvite(Context context) {
+    public AsyncTaskInviteResult(String result, Context context) {
+        this.result = result;
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/checkinvite";
+    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
 
     @Override
     protected void onPreExecute() {
@@ -44,21 +42,16 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
         postDataParams.put("login", String.valueOf(PlayerInstances.getPlayer().getName()));
-        answerHTTP = performPostCall(server,postDataParams);
-        Log.d("check invite",answerHTTP);
-
+        postDataParams.put("result", String.valueOf(result));
+        performPostCall(server,postDataParams);
+        Log.d("AsyncTas","InviteResult");
         return null;
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        if (answerHTTP!="0"){
-            invite(answerHTTP);
-        }
     }
-
-
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
         URL url;
@@ -105,37 +98,5 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
         }
 
         return result.toString();
-    }
-    public void invite(final String name)
-    {                                                //уведомлие приглашение в игру
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Invite")
-                .setMessage("Join the game with player " + name + "?")
-//                .setIcon(R.drawable.ic_android_cat)
-                .setCancelable(false)
-                .setNegativeButton("No",
-                        new DialogInterface.OnClickListener()
-                        {
-                            public void onClick(DialogInterface dialog, int id)
-                            {
-                                AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("no", context);
-                                asyncTaskInviteResult.execute();
-                                dialog.cancel();
-                            }
-                        })
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
-                                AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("yes", context);
-                                asyncTaskInviteResult.execute();
-                                MenuPlayers.toIvite(name);
-                                dialog.cancel();
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
     }
 }
