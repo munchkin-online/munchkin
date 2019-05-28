@@ -43,15 +43,7 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         postDataParams.put("login", String.valueOf(login));
         answerHTTP = performPostCall(server,postDataParams);
         Log.d("status",answerHTTP);
-        if (Integer.valueOf(answerHTTP)==0){
-            Toast toast = Toast.makeText(context, "Player is offline", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-            toast.show();
-        }
-        else if (Integer.valueOf(answerHTTP)==1){
-            Log.d("newStatus","true");
-            MenuPlayers.addItem(String.valueOf(login));
-        }
+
         return null;
     }
 
@@ -59,6 +51,15 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
+        if (Integer.valueOf(answerHTTP)==0){
+            Toast toast2 = Toast.makeText(context, "Player is offline", Toast.LENGTH_SHORT);
+            toast2.setGravity(Gravity.BOTTOM, 0, 0);
+            toast2.show();
+        }
+        else if (Integer.valueOf(answerHTTP)==1){
+            Log.d("newStatus","true");
+            MenuPlayers.addItem(String.valueOf(login));
+        }
     }
 
 
