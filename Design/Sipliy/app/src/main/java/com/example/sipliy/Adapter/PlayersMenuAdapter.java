@@ -86,7 +86,7 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
                     AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
                     asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(getAdapterPosition()).getName(), context);
                     asyncTaskInvite.execute();
-                    Toast.makeText(context, "Пригашенин отпрвлено", Toast.LENGTH_LONG).show();
+
                     //isPlay(position);
                     if (listener != null){
                         int position = getAdapterPosition();
