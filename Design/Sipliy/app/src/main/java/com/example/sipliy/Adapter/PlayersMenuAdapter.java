@@ -82,14 +82,14 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
                 @Override
                 public void onClick(View v) {
                     Log.d("plus", "click");
+                    AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
+                    asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(getAdapterPosition()).getName(), context);
+                    asyncTaskInvite.execute();
                     //isPlay(position);
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
                             Log.d("asyncTask", "invite");
-                            AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
-                            asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(position).getName(), context);
-                            asyncTaskInvite.execute();
                             listener.onItemClick(position);
                         }
                         else {
