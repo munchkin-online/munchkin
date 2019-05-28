@@ -161,7 +161,7 @@ public class MainMenuActivity extends AppCompatActivity
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(-1)) {
                     Log.d("scroll", "onScrollStateChanged");
-                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(getApplicationContext());
+                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
                     asyncTaskCheckIvite.execute();
                 }
             }
