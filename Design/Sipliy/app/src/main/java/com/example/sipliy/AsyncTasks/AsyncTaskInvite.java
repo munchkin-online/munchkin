@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AsyncTaskInvite extends AsyncTask<String, String, String> {
-    private String login;
+    private String login, answerHTTP;
     Context context;
 
     public void setLogin(String login, Context context) {
@@ -42,6 +42,7 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
         HashMap<String,String> postDataParams = new HashMap<>();
         postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
         postDataParams.put("whoinvite", String.valueOf(login));
+        answerHTTP = performPostCall(server,postDataParams);
         Log.d("invite", login);
 
         return null;
