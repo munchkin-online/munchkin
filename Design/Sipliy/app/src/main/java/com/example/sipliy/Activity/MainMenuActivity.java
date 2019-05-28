@@ -207,11 +207,11 @@ public class MainMenuActivity extends AppCompatActivity
         }
     }
 
-    public void clickSearch(View view) {
+    /*public void clickSearch(View view) {
         Log.d("startStatus", String.valueOf(status));
         AsyncTaskStatus as = new AsyncTaskStatus();
         as.execute();
-    }
+    }*/
 
     public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         private String  answerHTTP;
@@ -231,7 +231,7 @@ public class MainMenuActivity extends AppCompatActivity
             postDataParams.put("login", String.valueOf(search.getText()));
             answerHTTP = performPostCall(server,postDataParams);
             Log.d("status",answerHTTP);
-            if (Integer.valueOf(answerHTTP)==0){
+            /*if (Integer.valueOf(answerHTTP)==0){
                 Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.BOTTOM, 0, 0);
                 toast.show();
@@ -240,7 +240,7 @@ public class MainMenuActivity extends AppCompatActivity
                 Log.d("newStatus","true");
                 MenuPlayers.addItem(String.valueOf(search.getText()));
                 search.setText("");
-            }
+            }*/
             return null;
         }
 
@@ -248,6 +248,16 @@ public class MainMenuActivity extends AppCompatActivity
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Toast toast = Toast.makeText(getApplicationContext(),answerHTTP,Toast.LENGTH_SHORT);
+            if (Integer.valueOf(answerHTTP)==0){
+                Toast toast2 = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
+                toast2.setGravity(Gravity.BOTTOM, 0, 0);
+                toast2.show();
+            }
+            else if (Integer.valueOf(answerHTTP)==1){
+                Log.d("newStatus","true");
+                MenuPlayers.addItem(String.valueOf(search.getText()));
+                search.setText("");
+            }
         }
 
 
