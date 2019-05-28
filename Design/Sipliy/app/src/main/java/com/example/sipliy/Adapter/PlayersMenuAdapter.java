@@ -3,6 +3,7 @@ package com.example.sipliy.Adapter;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,10 +74,14 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.d("plus", "click");
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
                             listener.onItemClick(position);
+                        }
+                        else {
+                            Log.d("plus", "NO_POSITION");
                         }
                     }
                 }
