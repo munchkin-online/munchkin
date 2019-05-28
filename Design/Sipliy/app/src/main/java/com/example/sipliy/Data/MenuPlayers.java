@@ -127,10 +127,10 @@ public class MenuPlayers {
             @Override
             public void onItemClick(int position)
             {
-                AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
-                asyncTaskInvite.setLogin(playersList.get(position).getName(), context);
                 Log.d("asyncTask", "invite");
-                asyncTaskInvite.execute();
+                /*AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
+                asyncTaskInvite.setLogin(playersList.get(position).getName(), context);
+                asyncTaskInvite.execute();*/
                 //isPlay(position);
             }
         });
