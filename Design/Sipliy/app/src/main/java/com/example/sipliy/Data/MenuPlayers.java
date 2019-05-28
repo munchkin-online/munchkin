@@ -134,6 +134,10 @@ public class MenuPlayers {
         return playersList;
     }
 
+    public static PlayersMenuAdapter getPlayersAdapter() {
+        return playersAdapter;
+    }
+
     private static void update()
     {
         if(playersAdapter != null)

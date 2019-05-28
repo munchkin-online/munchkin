@@ -121,6 +121,7 @@ public class MainMenuActivity extends AppCompatActivity
                         }*/
                         break;
                 }
+                MenuPlayers.getPlayersAdapter().update();
             }
         };
 
@@ -207,11 +208,11 @@ public class MainMenuActivity extends AppCompatActivity
         }
     }
 
-    public void clickSearch(View view) {
+    /*public void clickSearch(View view) {
         Log.d("startStatus", String.valueOf(status));
         AsyncTaskStatus as = new AsyncTaskStatus();
         as.execute();
-    }
+    }*/
 
     public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         private String  answerHTTP;
