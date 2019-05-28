@@ -27,6 +27,7 @@ public class Player
     private ArrayList<Items> thingsOnCharacter; // 0 - обувка. 1 - голова. 2 - броня. 3 - левая рука. 4 - правая рука
     private PlayerDecks decks;  //колода карт игрока
     private int id;
+    boolean isInvite;
 
     public Player(String name,
                   int level,
@@ -52,6 +53,7 @@ public class Player
         this.isHalfBlood = isHalfBlood;
         this.thingsOnCharacter = things;
         this.decks = new PlayerDecks();
+        this.isInvite = false;
     }
 
     public Player(String name)
@@ -72,6 +74,7 @@ public class Player
             thingsOnCharacter.add(new Items(0));
         }
         this.decks = new PlayerDecks();
+        this.isInvite = false;
     }
 
     public int getId() {
@@ -80,6 +83,14 @@ public class Player
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isInvite() {
+        return isInvite;
+    }
+
+    public void setInvite(boolean invite) {
+        isInvite = invite;
     }
 
     public Player(String name, int id)
@@ -101,6 +112,7 @@ public class Player
             thingsOnCharacter.add(new Items(0));
         }
         this.decks = new PlayerDecks();
+        this.isInvite = false;
     }
 
     public String getName()

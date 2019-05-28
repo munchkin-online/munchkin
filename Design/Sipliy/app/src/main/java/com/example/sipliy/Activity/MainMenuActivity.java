@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckInviteResult;
 import com.example.sipliy.AsyncTasks.AsyncTaskCheckIvite;
 import com.example.sipliy.AsyncTasks.AsyncTaskStatus;
 import com.example.sipliy.Data.MenuPlayers;
@@ -163,6 +164,11 @@ public class MainMenuActivity extends AppCompatActivity
                     Log.d("scroll", "onScrollStateChanged");
                     AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
                     asyncTaskCheckIvite.execute();
+                    if (PlayerInstances.getPlayer().isInvite() == true){
+                        AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
+                        asyncTaskCheckInviteResult.execute();
+                        PlayerInstances.getPlayer().setInvite(false);
+                    }
                 }
             }
         });

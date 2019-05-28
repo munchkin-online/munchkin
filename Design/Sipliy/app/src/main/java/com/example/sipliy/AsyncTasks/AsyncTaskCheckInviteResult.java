@@ -21,17 +21,15 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskInvite extends AsyncTask<String, String, String> {
-    private String login, answerHTTP;
+public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String> {
+    private String  answerHTTP;
     Context context;
 
-
-    public AsyncTaskInvite(String login, Context context) {
-        this.login = login;
+    public AsyncTaskCheckInviteResult(Context context) {
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/invite";
+    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
 
     @Override
     protected void onPreExecute() {
@@ -42,26 +40,23 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
         postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
-        postDataParams.put("whoinvite", String.valueOf(login));
         answerHTTP = performPostCall(server,postDataParams);
-
+        Log.d("CheckInviteResult",answerHTTP);
         return null;
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        if (Integer.valueOf(answerHTTP) == 0){
-            Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG).show();
+        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
+        if (answerHTTP == "0"){
+            Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
         }
-        else if (Integer.valueOf(answerHTTP)==1){
-            Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG).show();
-            PlayerInstances.getPlayer().setInvite(true);
+        else {
+            Toast.makeText(context, "Игрок принял приглашение", Toast.LENGTH_LONG).show();
+            MenuPlayers.toIvite(answerHTTP);
         }
-        Log.d("invite", login);
     }
-
-
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
         URL url;
