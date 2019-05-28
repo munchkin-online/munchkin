@@ -43,13 +43,6 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
         postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
         postDataParams.put("whoinvite", String.valueOf(login));
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("invite", login);
-        if (Integer.valueOf(answerHTTP) == 0){
-            Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG).show();
-        }
-        else if (Integer.valueOf(answerHTTP)==1){
-            Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG).show();
-        }
 
         return null;
     }
@@ -57,6 +50,17 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
+
+        if (Integer.valueOf(answerHTTP) == 0){
+            Toast toast2 = Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG);
+            toast2.show();
+        }
+        else if (Integer.valueOf(answerHTTP)==1){
+            Toast toast3 = Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG);
+            toast3.show();
+        }
+        Log.d("invite", login);
     }
 
 
