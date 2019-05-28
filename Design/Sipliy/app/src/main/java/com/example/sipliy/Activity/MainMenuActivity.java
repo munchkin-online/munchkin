@@ -39,6 +39,8 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainMenuActivity extends AppCompatActivity
 {
@@ -47,6 +49,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     public static String[] Players = new String[3];
     public static int SizePlayers;
+    Timer timer;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
@@ -151,6 +154,27 @@ public class MainMenuActivity extends AppCompatActivity
 
 
         bildRecyclerView(); //cборка листа
+        timer.schedule(new UpdateTimeTask(), 0, 10000);
+    }
+    class UpdateTimeTask extends TimerTask {
+
+        @Override
+        public void run() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("scroll", "onScrollStateChanged");
+                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
+                    asyncTaskCheckIvite.execute();
+                    if (PlayerInstances.getPlayer().isInvite() == true){
+                        AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
+                        asyncTaskCheckInviteResult.execute();
+                        PlayerInstances.getPlayer().setInvite(false);
+                    }
+                }
+            });
+
+        }
     }
 
     public void bildRecyclerView()
@@ -161,14 +185,7 @@ public class MainMenuActivity extends AppCompatActivity
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(-1)) {
-                    Log.d("scroll", "onScrollStateChanged");
-                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
-                    asyncTaskCheckIvite.execute();
-                    AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
-                    asyncTaskCheckInviteResult.execute();
-                    if (PlayerInstances.getPlayer().isInvite() == true){
-                        PlayerInstances.getPlayer().setInvite(false);
-                    }
+
                 }
             }
         });

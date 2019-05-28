@@ -120,7 +120,7 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
                             {
                                 AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("no", context);
                                 asyncTaskInviteResult.execute();
-                                dialog.cancel();
+                                dialog.dismiss();
                             }
                         })
                 .setPositiveButton("Yes",
@@ -132,7 +132,7 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
                                 AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("yes", context);
                                 asyncTaskInviteResult.execute();
                                 MenuPlayers.toIvite(name);
-                                dialog.cancel();
+                                dialog.dismiss();
                             }
                         });
         AlertDialog alert = builder.create();
