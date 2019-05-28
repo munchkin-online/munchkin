@@ -120,14 +120,14 @@ public class MenuPlayers {
     public static void buildRecyclerView(final Context context, RecyclerView players) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         players.setLayoutManager(layoutManager);
-        playersAdapter = new PlayersMenuAdapter();
+        playersAdapter = new PlayersMenuAdapter(context);
         players.setAdapter(playersAdapter);
         playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListener()
         {
             @Override
             public void onItemClick(int position)
             {
-                Log.d("asyncTask", "invite");
+                //Log.d("asyncTask", "invite");
                 /*AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
                 asyncTaskInvite.setLogin(playersList.get(position).getName(), context);
                 asyncTaskInvite.execute();*/

@@ -1,5 +1,6 @@
 package com.example.sipliy.Adapter;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.sipliy.AsyncTasks.AsyncTaskInvite;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.MenuPlayer;
 import com.example.sipliy.R;
@@ -21,6 +23,11 @@ import java.util.List;
 public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.PlayerViewHolder>{
 
     private OnItemClickListener listener;
+    private Context context;
+
+    public PlayersMenuAdapter(Context context) {
+        this.context = context;
+    }
 
     public interface OnItemClickListener{
         void onItemClick(int position);
@@ -75,9 +82,14 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
                 @Override
                 public void onClick(View v) {
                     Log.d("plus", "click");
+                    //isPlay(position);
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
+                            Log.d("asyncTask", "invite");
+                            AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
+                            asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(position).getName(), context);
+                            asyncTaskInvite.execute();
                             listener.onItemClick(position);
                         }
                         else {
