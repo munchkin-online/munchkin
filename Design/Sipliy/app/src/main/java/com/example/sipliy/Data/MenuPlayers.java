@@ -3,8 +3,10 @@ package com.example.sipliy.Data;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.AsyncTasks.AsyncTaskInvite;
 import com.example.sipliy.MenuPlayer;
 
 import java.util.ArrayList;
@@ -125,13 +127,21 @@ public class MenuPlayers {
             @Override
             public void onItemClick(int position)
             {
-                isPlay(position);
+                AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
+                asyncTaskInvite.setLogin(playersList.get(position).getName(), context);
+                Log.d("asyncTask", "invite");
+                asyncTaskInvite.execute();
+                //isPlay(position);
             }
         });
     }
 
     public static ArrayList<MenuPlayer> getPlayersList() {
         return playersList;
+    }
+
+    public static PlayersMenuAdapter getPlayersAdapter() {
+        return playersAdapter;
     }
 
     private static void update()

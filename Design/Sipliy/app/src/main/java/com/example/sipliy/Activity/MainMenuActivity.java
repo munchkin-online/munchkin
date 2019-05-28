@@ -3,6 +3,7 @@ package com.example.sipliy.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.AsyncTasks.AsyncTaskStatus;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
@@ -103,24 +105,14 @@ public class MainMenuActivity extends AppCompatActivity
                         break;
                     case R.id.imageView_search_plus:
                         status = false;
-                        new AsyncTaskStatus().execute();
-                        //as.cancel(true);
-
-                        Log.d("statusNew", String.valueOf(status));
-
-                        /*if(status)
-                        {
-                            playersAdapter.addItem(String.valueOf(search.getText()));
-                            search.setText("");
-                        }
-                        else
-                        {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.BOTTOM, 0, 0);
-                            toast.show();
-                        }*/
+                        AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus();
+                        asyncTaskStatus.setLogin(String.valueOf(search.getText()), getApplicationContext());
+                        Log.d("asyncTask", "status");
+                        asyncTaskStatus.execute();
+                        search.setText(null);
                         break;
                 }
+                MenuPlayers.getPlayersAdapter().update();
             }
         };
 
@@ -156,6 +148,19 @@ public class MainMenuActivity extends AppCompatActivity
     public void bildRecyclerView()
     {
         MenuPlayers.buildRecyclerView(this, playersList);
+        playersList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("scroll", "onScrolled");
+            }
+
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Log.d("scroll", "onScrollStateChanged");
+            }
+        });
     }
 
 
@@ -207,108 +212,8 @@ public class MainMenuActivity extends AppCompatActivity
         }
     }
 
-    /*public void clickSearch(View view) {
-        Log.d("startStatus", String.valueOf(status));
-        AsyncTaskStatus as = new AsyncTaskStatus();
-        as.execute();
-    }*/
-
-    public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
-        private String  answerHTTP;
 
 
-
-        String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            HashMap<String,String> postDataParams = new HashMap<>();
-            postDataParams.put("login", String.valueOf(search.getText()));
-            answerHTTP = performPostCall(server,postDataParams);
-            Log.d("status",answerHTTP);
-            /*if (Integer.valueOf(answerHTTP)==0){
-                Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM, 0, 0);
-                toast.show();
-            }
-            else if (Integer.valueOf(answerHTTP)==1){
-                Log.d("newStatus","true");
-                MenuPlayers.addItem(String.valueOf(search.getText()));
-                search.setText("");
-            }*/
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            Toast toast = Toast.makeText(getApplicationContext(),answerHTTP,Toast.LENGTH_SHORT);
-            if (Integer.valueOf(answerHTTP)==0){
-                Toast toast2 = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-                toast2.setGravity(Gravity.BOTTOM, 0, 0);
-                toast2.show();
-            }
-            else if (Integer.valueOf(answerHTTP)==1){
-                Log.d("newStatus","true");
-                MenuPlayers.addItem(String.valueOf(search.getText()));
-                search.setText("");
-            }
-        }
-
-
-
-        public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
-            URL url;
-            String response = "";
-            try{
-                url = new URL(requestUrl);
-                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-                conn.setReadTimeout(15000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os,"UTF-8"));
-                writer.write(getDataString(postDataParams));
-                writer.flush();
-                writer.close();
-                os.close();
-                int responseCode = conn.getResponseCode();
-                if(responseCode == HttpURLConnection.HTTP_OK){
-                    String line;
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    while((line = br.readLine()) != null)
-                        response += line;
-                }
-                else response = "";
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-            return response;
-        }
-        private String getDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
-            StringBuilder result = new StringBuilder();
-            boolean first = true;
-            for (Map.Entry<String, String> entry : params.entrySet()) {
-                if (first)
-                    first = false;
-                else
-                    result.append("&");
-
-                result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                result.append("=");
-                result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-            }
-
-            return result.toString();
-        }
-    }
-
+    
 
 }
