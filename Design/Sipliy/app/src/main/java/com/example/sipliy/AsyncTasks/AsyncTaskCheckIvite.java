@@ -1,11 +1,14 @@
 package com.example.sipliy.AsyncTasks;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.example.sipliy.Activity.MainMenuActivity;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
@@ -50,16 +53,9 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-//        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-//        if (Integer.valueOf(answerHTTP)==0){
-//            Toast toast2 = Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT);
-//            toast2.setGravity(Gravity.BOTTOM, 0, 0);
-//            toast2.show();
-//        }
-//        else if (Integer.valueOf(answerHTTP)==1){
-//            Log.d("newStatus","true");
-//            MenuPlayers.addItem(String.valueOf(login));
-//        }
+        if (Integer.valueOf(answerHTTP)!=0){
+            invite(answerHTTP);
+        }
     }
 
 
@@ -109,5 +105,34 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
         }
 
         return result.toString();
+    }
+    public void invite(final String name)
+    {                                                //уведомлие приглашение в игру
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Invite")
+                .setMessage("Join the game with player " + name + "?")
+//                .setIcon(R.drawable.ic_android_cat)
+                .setCancelable(false)
+                .setNegativeButton("No",
+                        new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog, int id)
+                            {
+                                dialog.cancel();
+                            }
+                        })
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                //ДЛЯ ФЕДИ И ВАНИ!!!!!! ДОБАВИТЬ ОТПРАВКУ ОТВЕТА ДРУГУ
+                                MenuPlayers.toIvite(name);
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

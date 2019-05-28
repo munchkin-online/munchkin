@@ -106,9 +106,16 @@ public class MainMenuActivity extends AppCompatActivity
                         break;
                     case R.id.imageView_search_plus:
                         status = false;
-                        AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus(String.valueOf(search.getText()), getApplicationContext());
+                        if (String.valueOf(search.getText()) != PlayerInstances.getPlayer().getName())
+                        {
+                            AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus(String.valueOf(search.getText()), getApplicationContext());
+                            asyncTaskStatus.execute();
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Вы приглашете самого себя", Toast.LENGTH_LONG).show();
+                        }
                         Log.d("asyncTask", "status");
-                        asyncTaskStatus.execute();
                         search.setText(null);
                         break;
                 }
@@ -162,36 +169,6 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
 
-
-    public void invite(final String name)
-    {                                                //уведомлие приглашение в игру
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this);
-        builder.setTitle("Invite")
-                .setMessage("Join the game with player " + name + "?")
-//                .setIcon(R.drawable.ic_android_cat)
-                .setCancelable(false)
-                .setNegativeButton("No",
-                        new DialogInterface.OnClickListener()
-                        {
-                            public void onClick(DialogInterface dialog, int id)
-                            {
-                                dialog.cancel();
-                            }
-                        })
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
-                                                                                          //ДЛЯ ФЕДИ И ВАНИ!!!!!! ДОБАВИТЬ ОТПРАВКУ ОТВЕТА ДРУГУ
-                                MenuPlayers.toIvite(name);
-                                dialog.cancel();
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
     @Override
     protected void onDestroy()
     {
