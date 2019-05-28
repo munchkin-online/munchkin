@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckIvite;
 import com.example.sipliy.AsyncTasks.AsyncTaskStatus;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
@@ -105,8 +106,7 @@ public class MainMenuActivity extends AppCompatActivity
                         break;
                     case R.id.imageView_search_plus:
                         status = false;
-                        AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus();
-                        asyncTaskStatus.setLogin(String.valueOf(search.getText()), getApplicationContext());
+                        AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus(String.valueOf(search.getText()), getApplicationContext());
                         Log.d("asyncTask", "status");
                         asyncTaskStatus.execute();
                         search.setText(null);
@@ -154,6 +154,8 @@ public class MainMenuActivity extends AppCompatActivity
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(-1)) {
                     Log.d("scroll", "onScrollStateChanged");
+                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(getApplicationContext());
+                    asyncTaskCheckIvite.execute();
                 }
             }
         });

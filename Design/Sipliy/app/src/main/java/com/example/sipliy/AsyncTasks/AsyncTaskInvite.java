@@ -25,7 +25,8 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     private String login, answerHTTP;
     Context context;
 
-    public void setLogin(String login, Context context) {
+
+    public AsyncTaskInvite(String login, Context context) {
         this.login = login;
         this.context = context;
     }
@@ -50,15 +51,11 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-
         if (Integer.valueOf(answerHTTP) == 0){
-            Toast toast2 = Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG);
-            toast2.show();
+            Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG).show();
         }
         else if (Integer.valueOf(answerHTTP)==1){
-            Toast toast3 = Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG);
-            toast3.show();
+            Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG).show();
         }
         Log.d("invite", login);
     }

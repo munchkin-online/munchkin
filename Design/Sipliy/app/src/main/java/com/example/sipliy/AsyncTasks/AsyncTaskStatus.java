@@ -25,7 +25,7 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
     private String login;
     Context context;
 
-    public void setLogin(String login, Context context) {
+    public AsyncTaskStatus(String login, Context context) {
         this.login = login;
         this.context = context;
     }
@@ -43,7 +43,6 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         postDataParams.put("login", String.valueOf(login));
         answerHTTP = performPostCall(server,postDataParams);
         Log.d("status",answerHTTP);
-
         return null;
     }
 
@@ -61,8 +60,6 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
             MenuPlayers.addItem(String.valueOf(login));
         }
     }
-
-
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
         URL url;

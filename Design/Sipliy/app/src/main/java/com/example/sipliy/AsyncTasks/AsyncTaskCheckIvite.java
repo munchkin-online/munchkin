@@ -26,7 +26,7 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
     private String  answerHTTP;
     Context context;
 
-    public void setLogin(Context context) {
+    public AsyncTaskCheckIvite(Context context) {
         this.context = context;
     }
 

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.AsyncTasks.AsyncTaskInvite;
 import com.example.sipliy.Data.MenuPlayers;
+import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.MenuPlayer;
 import com.example.sipliy.R;
 
@@ -83,9 +84,14 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
                 @Override
                 public void onClick(View v) {
                     Log.d("plus", "click");
-                    AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
-                    asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(getAdapterPosition()).getName(), context);
-                    asyncTaskInvite.execute();
+                    if (PlayerInstances.getPlayer().getName() != MenuPlayers.getPlayersList().get(getAdapterPosition()).getName())
+                    {
+                        AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite(MenuPlayers.getPlayersList().get(getAdapterPosition()).getName(), context);
+                        asyncTaskInvite.execute();
+                    } else
+                    {
+                        Toast.makeText(context, "Вы приглашаете самого себя", Toast.LENGTH_LONG);
+                    }
 
                     //isPlay(position);
                     if (listener != null){
