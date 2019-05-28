@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,16 +22,15 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskInvite extends AsyncTask<String, String, String> {
-    private String login, answerHTTP;
+public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
+    private String  answerHTTP;
     Context context;
 
-    public void setLogin(String login, Context context) {
-        this.login = login;
+    public void setLogin(Context context) {
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/invite";
+    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
 
     @Override
     protected void onPreExecute() {
@@ -41,15 +41,8 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
         postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
-        postDataParams.put("whoinvite", String.valueOf(login));
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("invite", login);
-        if (Integer.valueOf(answerHTTP) == 0){
-            Toast.makeText(context, "Пользователя нельзя пригласить", Toast.LENGTH_LONG).show();
-        }
-        else if (Integer.valueOf(answerHTTP)==1){
-            Toast.makeText(context, "Пригашениe отпрвлено", Toast.LENGTH_LONG).show();
-        }
+        Log.d("check invite",answerHTTP);
 
         return null;
     }
@@ -57,6 +50,16 @@ public class AsyncTaskInvite extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+//        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
+//        if (Integer.valueOf(answerHTTP)==0){
+//            Toast toast2 = Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT);
+//            toast2.setGravity(Gravity.BOTTOM, 0, 0);
+//            toast2.show();
+//        }
+//        else if (Integer.valueOf(answerHTTP)==1){
+//            Log.d("newStatus","true");
+//            MenuPlayers.addItem(String.valueOf(login));
+//        }
     }
 
 
