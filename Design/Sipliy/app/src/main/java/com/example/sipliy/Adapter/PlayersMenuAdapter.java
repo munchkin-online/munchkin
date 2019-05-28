@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.MenuPlayer;
 import com.example.sipliy.R;
 
@@ -24,115 +25,17 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         void onItemClick(int position);
     }
 
+    public void update()
+    {
+        notifyDataSetChanged();
+    }
+
 
 
     public void setOnItemClickListner(OnItemClickListener listner){
         this.listener = listener;
     }
 
-
-    private List<MenuPlayer> playersList = new ArrayList<>();
-
-    public void setItems(Collection<MenuPlayer> plaers){
-        playersList.addAll(plaers);
-        notifyDataSetChanged();
-    }
-
-    public void clearItems(){
-        playersList.clear();
-        notifyDataSetChanged();
-    }
-
-    public void addItem(String str){
-        if(!thereIs(str)){
-            playersList.add(new MenuPlayer(str));
-            notifyDataSetChanged();
-        }
-    }
-
-    public void addItemPlay(String str){
-        if (!thereIs(str)){
-            playersList.add(new MenuPlayer(str, true));
-            Sort();
-            notifyDataSetChanged();
-        }
-    }
-
-    public void isPlay(int i){
-        playersList.get(i).setBoolStatus(true);
-        Sort();
-        notifyDataSetChanged();
-    }
-
-    public void toIvite(String name){
-        boolean f = false;
-        for (MenuPlayer item : playersList){
-            if (item.getName().equals(name)){
-                isPlay(playersList.indexOf(item));
-                f = true;
-            }
-        }
-        if (!f){
-            addItemPlay(name);
-        }
-    }
-
-    public boolean thereIs(String name){
-        boolean f = false;
-        for(MenuPlayer item : playersList){
-            if (item.getName().equals(name)){
-                f = true;
-            }
-        }
-
-        return f;
-    }
-
-    public int getSize(){
-        int count = 0;
-        for (int i = 0; i < playersList.size(); i++) {
-            if(playersList.get(i).isBoolStatus()) count++;
-        }
-        return count;
-    }
-
-    public String getName(int i){
-        if (playersList.get(i).isBoolStatus()){
-            return playersList.get(i).getName();
-        }
-        else return "";
-    }
-
-    public void Sort(){
-        int startIndex = 0;
-        int endIndex = playersList.size() - 1;
-        doSort(startIndex, endIndex);
-    }
-    public void doSort(int start, int end) {
-        if (start >= end)
-            return;
-        int i = start, j = end;
-        int cur = i - (i - j) / 2;
-        while (i < j) {
-            while (i < cur && (Boolean.compare(playersList.get(i).isBoolStatus(), false) >= Boolean.compare(playersList.get(cur).isBoolStatus(), false))) {
-                i++;
-            }
-            while (j > cur && (Boolean.compare(playersList.get(cur).isBoolStatus() ,false) >= Boolean.compare(playersList.get(j).isBoolStatus(), false))) {
-                j--;
-            }
-            if (i < j) {
-                MenuPlayer temp = playersList.get(i);
-                playersList.set(i,playersList.get(j));
-                playersList.set(j,temp);
-                if (i == cur)
-                    cur = j;
-                else if (j == cur)
-                    cur = i;
-            }
-        }
-        doSort(start, cur);
-        doSort(cur+1, end);
-    }
 
     @NonNull
     @Override
@@ -146,12 +49,12 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder playerViewHolder, int i) {
-        playerViewHolder.bind(playersList.get(i));
+        playerViewHolder.bind(MenuPlayers.getPlayersList().get(i));
     }
 
     @Override
     public int getItemCount() {
-        return playersList.size();
+        return MenuPlayers.getPlayersList().size();
     }
 
     class PlayerViewHolder extends RecyclerView.ViewHolder{

@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
+import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
@@ -31,6 +32,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +40,6 @@ public class MainMenuActivity extends AppCompatActivity
 {
 
     private RecyclerView playersList;        //лист с игрками
-    private PlayersMenuAdapter playersAdapter;   //адаптер для листа
 
     public static String[] Players = new String[3];
     public static int SizePlayers;
@@ -100,31 +101,30 @@ public class MainMenuActivity extends AppCompatActivity
                     case R.id.button_settings:
                         startActivity(new Intent(MainMenuActivity.this, SettingsActivity.class));
                         break;
-//                    case R.id.imageView_search_plus:
-//                        status = false;
-//                        /*AsyncTaskStatus as = new AsyncTaskStatus();
-//                        as.execute();*/
-//                        //as.cancel(true);
-//
-//                        Log.d("statusNew", String.valueOf(status));
-//
-//                        /*if(status)
-//                        {
-//                            playersAdapter.addItem(String.valueOf(search.getText()));
-//                            search.setText("");
-//                        }
-//                        else
-//                        {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-//                            toast.setGravity(Gravity.BOTTOM, 0, 0);
-//                            toast.show();
-//                        }*/
-//                        break;
+                    case R.id.imageView_search_plus:
+                        status = false;
+                        new AsyncTaskStatus().execute();
+                        //as.cancel(true);
+
+                        Log.d("statusNew", String.valueOf(status));
+
+                        /*if(status)
+                        {
+                            playersAdapter.addItem(String.valueOf(search.getText()));
+                            search.setText("");
+                        }
+                        else
+                        {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.BOTTOM, 0, 0);
+                            toast.show();
+                        }*/
+                        break;
                 }
             }
         };
 
-        //plusSearch.setOnClickListener(clickListener);
+        plusSearch.setOnClickListener(clickListener);
         play.setOnClickListener(clickListener);
         exit.setOnClickListener(clickListener);
         settings.setOnClickListener(clickListener);
@@ -151,24 +151,11 @@ public class MainMenuActivity extends AppCompatActivity
 
 
         bildRecyclerView(); //cборка листа
-
-        playersAdapter.setOnItemClickListner(new PlayersMenuAdapter.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(int position)
-            {
-                playersAdapter.isPlay(position);
-            }
-        });
-
     }
 
     public void bildRecyclerView()
     {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        playersList.setLayoutManager(layoutManager);
-        playersAdapter = new PlayersMenuAdapter();
-        playersList.setAdapter(playersAdapter);
+        MenuPlayers.buildRecyclerView(this, playersList);
     }
 
 
@@ -195,7 +182,7 @@ public class MainMenuActivity extends AppCompatActivity
                             public void onClick(DialogInterface dialog, int which)
                             {
                                                                                           //ДЛЯ ФЕДИ И ВАНИ!!!!!! ДОБАВИТЬ ОТПРАВКУ ОТВЕТА ДРУГУ
-                                playersAdapter.toIvite(name);
+                                MenuPlayers.toIvite(name);
                                 dialog.cancel();
                             }
                         });
@@ -210,12 +197,12 @@ public class MainMenuActivity extends AppCompatActivity
 
     public void transfer()
     {
-        SizePlayers = playersAdapter.getSize();
+        SizePlayers = MenuPlayers.getSize();
         for (int i = 0; i < SizePlayers; i++)
         {
-            if (playersAdapter.getName(i) != "")
+            if (MenuPlayers.getName(i) != "")
             {
-                Players[i] = playersAdapter.getName(i);
+                Players[i] = MenuPlayers.getName(i);
             }
         }
     }
@@ -245,22 +232,14 @@ public class MainMenuActivity extends AppCompatActivity
             answerHTTP = performPostCall(server,postDataParams);
             Log.d("status",answerHTTP);
             if (Integer.valueOf(answerHTTP)==0){
-                status = false;
-            }
-            else if (Integer.valueOf(answerHTTP)==1){
-                Log.d("newStatus","true");
-                status = true;
-            }
-            if(status)
-            {
-                playersAdapter.addItem(String.valueOf(search.getText()));
-                search.setText("");
-            }
-            else
-            {
                 Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.BOTTOM, 0, 0);
                 toast.show();
+            }
+            else if (Integer.valueOf(answerHTTP)==1){
+                Log.d("newStatus","true");
+                MenuPlayers.addItem(String.valueOf(search.getText()));
+                search.setText("");
             }
             return null;
         }
