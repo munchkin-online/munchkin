@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sipliy.AsyncTasks.AsyncTaskInvite;
 import com.example.sipliy.Data.MenuPlayers;
@@ -85,15 +86,12 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
                     AsyncTaskInvite asyncTaskInvite = new AsyncTaskInvite();
                     asyncTaskInvite.setLogin(MenuPlayers.getPlayersList().get(getAdapterPosition()).getName(), context);
                     asyncTaskInvite.execute();
+                    Toast.makeText(context, "Пригашенин отпрвлено", Toast.LENGTH_LONG).show();
                     //isPlay(position);
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
-                            Log.d("asyncTask", "invite");
                             listener.onItemClick(position);
-                        }
-                        else {
-                            Log.d("plus", "NO_POSITION");
                         }
                     }
                 }

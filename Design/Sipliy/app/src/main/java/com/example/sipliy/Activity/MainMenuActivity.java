@@ -150,15 +150,11 @@ public class MainMenuActivity extends AppCompatActivity
         MenuPlayers.buildRecyclerView(this, playersList);
         playersList.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                Log.d("scroll", "onScrolled");
-            }
-
-            @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.d("scroll", "onScrollStateChanged");
+                if (!recyclerView.canScrollVertically(-1)) {
+                    Log.d("scroll", "onScrollStateChanged");
+                }
             }
         });
     }
