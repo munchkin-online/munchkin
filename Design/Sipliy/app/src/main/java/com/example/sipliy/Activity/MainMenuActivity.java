@@ -107,23 +107,9 @@ public class MainMenuActivity extends AppCompatActivity
                         status = false;
                         AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus();
                         asyncTaskStatus.setLogin(String.valueOf(search.getText()), getApplicationContext());
+                        Log.d("asyncTask", "status");
                         asyncTaskStatus.execute();
                         search.setText(null);
-                        //as.cancel(true);
-
-                        Log.d("statusNew", String.valueOf(status));
-
-                        /*if(status)
-                        {
-                            playersAdapter.addItem(String.valueOf(search.getText()));
-                            search.setText("");
-                        }
-                        else
-                        {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Player is offline", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.BOTTOM, 0, 0);
-                            toast.show();
-                        }*/
                         break;
                 }
                 MenuPlayers.getPlayersAdapter().update();
