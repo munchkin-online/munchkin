@@ -50,7 +50,7 @@ public class Monster implements Cards, DoorsInterface
     }
 
     @Override
-    public int getType()  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья.
+    public int getType()  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
     {
         return 3;
     }

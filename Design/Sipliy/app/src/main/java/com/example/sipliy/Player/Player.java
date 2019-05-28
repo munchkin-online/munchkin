@@ -107,7 +107,10 @@ public class Player
         int sum = 0;
         for(Items item : thingsOnCharacter)
         {
-            sum += item.getBonus();
+            if (item != null)
+            {
+                sum += item.getBonus();
+            }
         }
         return sum;
     }
@@ -156,6 +159,12 @@ public class Player
         update();
     }
 
+    public void deleteShoes()
+    {
+        this.thingsOnCharacter.set(0, null);
+        update();
+    }
+
     public Items getArmor()
     {
         return thingsOnCharacter.get(2);
@@ -164,6 +173,12 @@ public class Player
     public void setArmor(Items armor)
     {
         this.thingsOnCharacter.set(2, armor);
+        update();
+    }
+
+    public void deleteArmor()
+    {
+        this.thingsOnCharacter.set(2, null);
         update();
     }
 
@@ -178,6 +193,12 @@ public class Player
         update();
     }
 
+    public void deleteHelmet()
+    {
+        this.thingsOnCharacter.set(1, null);
+        update();
+    }
+
     public Items getLeftHand()
     {
         return thingsOnCharacter.get(3);
@@ -189,6 +210,12 @@ public class Player
         update();
     }
 
+    public void deleteLeftHand()
+    {
+        this.thingsOnCharacter.set(3, null);
+        update();
+    }
+
     public Items getRightHand()
     {
         return thingsOnCharacter.get(4);
@@ -197,6 +224,12 @@ public class Player
     public void setRightHand(Items rightHand)
     {
         this.thingsOnCharacter.set(4, rightHand);
+        update();
+    }
+
+    public void deleteRightHand()
+    {
+        this.thingsOnCharacter.set(4, null);
         update();
     }
 

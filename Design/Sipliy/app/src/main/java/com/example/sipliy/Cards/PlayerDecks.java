@@ -1,14 +1,25 @@
 package com.example.sipliy.Cards;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.BattleDialog;
+import com.example.sipliy.Activity.Dialog.ChoiceBattleDialogActivity;
+import com.example.sipliy.Activity.Dialog.PutOnCardDialogActivity;
+import com.example.sipliy.Activity.GameActivity;
+import com.example.sipliy.Activity.InventoryActivity;
 import com.example.sipliy.Adapter.CardsGameAdapter;
 import com.example.sipliy.Cards.Interface.Cards;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.Cards.Interface.TreasuresInterface;
+import com.example.sipliy.Data.PlayerInstances;
 
 import java.util.ArrayList;
 
@@ -118,12 +129,55 @@ public class PlayerDecks    //колода игрока
         update();
     }
 
-    public void buildRecyclerView(Context context, RecyclerView cardsList)
+    public void buildRecyclerView(final Context context, RecyclerView cardsList)
     {
         LinearLayoutManager layoutManagerCards = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         cardsList.setLayoutManager(layoutManagerCards);
         cardsAdapter = new CardsGameAdapter(context, all);
         cardsList.setAdapter(cardsAdapter);
+        cardsAdapter.setOnItemClickListner(new CardsGameAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
+                Cards card = PlayerInstances.getPlayer().getDecks().getAll().get(position);
+                switch (card.getType()){  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
+                    case 1:
+                        Log.d("isClass", "Classe");
+                        PutOnCardDialogActivity putOnCardDialogActivity = new PutOnCardDialogActivity();
+                        putOnCardDialogActivity.setCard(card);
+                        putOnCardDialogActivity.show(fragmentManager, "Notice Data");
+                        break;
+                    case 2:
+                        Log.d("isClass", "Races");
+                        putOnCardDialogActivity = new PutOnCardDialogActivity();
+                        putOnCardDialogActivity.setCard(card);
+                        putOnCardDialogActivity.show(fragmentManager, "Notice Data");
+                        break;
+                    case 3:
+                        Log.d("isClass", "Monster");
+                        ChoiceBattleDialogActivity choiceBattleDialogActivity = new ChoiceBattleDialogActivity();
+                        choiceBattleDialogActivity.setMonster((Monster) card);
+                        choiceBattleDialogActivity.show(fragmentManager, "Notice Data");
+                        break;
+                    case 4:
+                        Log.d("isClass", "Проклятья");
+                        Toast.makeText(context, "Это проклятья", Toast.LENGTH_LONG).show();
+                        break;
+                    case 5:
+                        Log.d("isClass", "Buff");
+                        Toast.makeText(context, "Это Buff", Toast.LENGTH_LONG).show();
+                        break;
+                    case 6:
+                        Log.d("isClass", "Items");
+                        context.startActivity(new Intent(context, InventoryActivity.class));
+                        break;
+                    case 7:
+                        Log.d("isClass", "LevelUp");
+                        Toast.makeText(context, "Это LevelUp", Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+        });
     }
 
     private void update()

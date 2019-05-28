@@ -135,6 +135,24 @@ public class SaleDialogActivity extends DialogFragment  //диалоговое �
                                 if (card instanceof Items)
                                 {
                                     playerDecks.deleteItem((Items) card);
+                                    /*switch(((Items) card).getItemType())
+                                    {
+                                        case 1:
+                                            PlayerInstances.getPlayer().deleteHelmet();
+                                            break;
+                                        case 2:
+                                            PlayerInstances.getPlayer().deleteArmor();
+                                            break;
+                                        case 3:
+                                            PlayerInstances.getPlayer().deleteShoes();
+                                            break;
+                                        case 4:
+                                            PlayerInstances.getPlayer().deleteLeftHand();
+                                            break;
+                                        case 5:
+                                            PlayerInstances.getPlayer().deleteRightHand();
+                                            break;
+                                    }*/
                                 }
                                 else if(card instanceof Buff)
                                 {
