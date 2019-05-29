@@ -48,6 +48,8 @@ public class AsyncTaskExit extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        PlayerInstances.exit();
+        MenuPlayers.clearItems();
     }
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){

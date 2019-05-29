@@ -39,7 +39,7 @@ public class AsyncTaskPlay extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("login", String.valueOf(PlayerInstances.getPlayer().getName()));
+        postDataParams.put("login", PlayerInstances.getPlayer().getName());
         performPostCall(server,postDataParams);
         Log.d("AsyncTask","Play");
         return null;

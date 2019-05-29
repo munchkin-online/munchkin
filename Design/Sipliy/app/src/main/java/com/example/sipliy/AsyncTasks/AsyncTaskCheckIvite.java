@@ -110,37 +110,40 @@ public class AsyncTaskCheckIvite extends AsyncTask<String, String, String> {
         return result.toString();
     }
     public void invite(final String name)
-    {                                                //уведомлие приглашение в игру
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Invite")
-                .setMessage("Join the game with player " + name + "?")
+    {
+        //уведомлие приглашение в игру
+        if(!name.equals("")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Invite")
+                    .setMessage("Join the game with player " + name + "?")
 //                .setIcon(R.drawable.ic_android_cat)
-                .setCancelable(false)
-                .setNegativeButton("No",
-                        new DialogInterface.OnClickListener()
-                        {
-                            public void onClick(DialogInterface dialog, int id)
+                    .setCancelable(false)
+                    .setNegativeButton("No",
+                            new DialogInterface.OnClickListener()
                             {
-                                AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("no", context);
-                                asyncTaskInviteResult.execute();
-                                dialog.dismiss();
-                                checkDialogInvite = false;
-                            }
-                        })
-                .setPositiveButton("Yes",
-                        new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
+                                public void onClick(DialogInterface dialog, int id)
+                                {
+                                    AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("no", context);
+                                    asyncTaskInviteResult.execute();
+                                    dialog.dismiss();
+                                    checkDialogInvite = false;
+                                }
+                            })
+                    .setPositiveButton("Yes",
+                            new DialogInterface.OnClickListener()
                             {
-                                AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("yes", context);
-                                asyncTaskInviteResult.execute();
-                                MenuPlayers.toIvite(name);
-                                dialog.dismiss();
-                                checkDialogInvite = false;
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    AsyncTaskInviteResult asyncTaskInviteResult = new AsyncTaskInviteResult("yes", context);
+                                    asyncTaskInviteResult.execute();
+                                    MenuPlayers.toIvite(name);
+                                    dialog.dismiss();
+                                    checkDialogInvite = false;
+                                }
+                            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
     }
 }

@@ -51,6 +51,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
         if (answerHTTP.equals("0")){
             Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
+            PlayerInstances.getPlayer().setInvite(false);
         }
         else if (answerHTTP.equals("-2")){
             Toast.makeText(context, "AsyncTaskCheckInviteResult ошибка", Toast.LENGTH_LONG).show();
@@ -60,6 +61,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
         }
         else {
             Toast.makeText(context, "Игрок принял приглашение", Toast.LENGTH_LONG).show();
+            PlayerInstances.getPlayer().setInvite(false);
             MenuPlayers.toIvite(answerHTTP);
         }
     }

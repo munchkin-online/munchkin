@@ -184,7 +184,6 @@ public class MainMenuActivity extends AppCompatActivity
                     if (PlayerInstances.getPlayer().isInvite() == true){
                         AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
                         asyncTaskCheckInviteResult.execute();
-                        PlayerInstances.getPlayer().setInvite(false);
                     }
                     AsyncTaskCheckPlay asyncTaskCheckPlay = new AsyncTaskCheckPlay(getApplicationContext(), getSupportFragmentManager());
                     asyncTaskCheckPlay.execute();
@@ -206,7 +205,5 @@ public class MainMenuActivity extends AppCompatActivity
         AsyncTaskExit asyncTaskExit = new AsyncTaskExit(getApplicationContext());
         asyncTaskExit.execute();
         super.onDestroy();
-        PlayerInstances.exit();
-        MenuPlayers.clearItems();
     }
 }
