@@ -21,7 +21,9 @@ import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
 import com.example.sipliy.AsyncTasks.AsyncTaskCheckInviteResult;
 import com.example.sipliy.AsyncTasks.AsyncTaskCheckIvite;
+import com.example.sipliy.AsyncTasks.AsyncTaskExit;
 import com.example.sipliy.AsyncTasks.AsyncTaskStatus;
+import com.example.sipliy.AsyncTasks.AsyncTaskUpdate;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Player.Player;
@@ -50,12 +52,14 @@ public class MainMenuActivity extends AppCompatActivity
     public static String[] Players = new String[3];
     public static int SizePlayers;
     Timer timer;
+    public static boolean checkDialogInvite = false;
 
     private EditText search;      // строка поиска
     private ImageView plusSearch; //кнопка плюсик в строке поиска
     private Button play;
     private Button settings;
     private Button exit;
+    private ImageView update;
 
     private boolean status = false;
 
@@ -81,6 +85,8 @@ public class MainMenuActivity extends AppCompatActivity
         play = findViewById(R.id.button_play);
         settings = findViewById(R.id.button_settings);
         exit = findViewById(R.id.button_exit);
+        update = findViewById(R.id.imageView_update);
+
 
         View.OnClickListener clickListener = new View.OnClickListener()
         {
@@ -122,12 +128,17 @@ public class MainMenuActivity extends AppCompatActivity
                         Log.d("asyncTask", "status");
                         search.setText(null);
                         break;
+                    case R.id.imageView_update:
+                        AsyncTaskUpdate asyncTaskUpdate = new AsyncTaskUpdate(getApplicationContext());
+                        asyncTaskUpdate.execute();
+                        break;
                 }
                 MenuPlayers.getPlayersAdapter().update();
             }
         };
 
         plusSearch.setOnClickListener(clickListener);
+        update.setOnClickListener(clickListener);
         play.setOnClickListener(clickListener);
         exit.setOnClickListener(clickListener);
         settings.setOnClickListener(clickListener);
@@ -155,7 +166,7 @@ public class MainMenuActivity extends AppCompatActivity
 
         bildRecyclerView(); //cборка листа
         timer = new Timer();
-        timer.schedule(new UpdateTimeTask(), 0, 20000);
+        timer.schedule(new UpdateTimeTask(), 0, 5000);
     }
     class UpdateTimeTask extends TimerTask {
 
@@ -165,8 +176,10 @@ public class MainMenuActivity extends AppCompatActivity
                 @Override
                 public void run() {
                     Log.d("scroll", "onScrollStateChanged");
-                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
-                    asyncTaskCheckIvite.execute();
+                    if (checkDialogInvite == false){
+                        AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
+                        asyncTaskCheckIvite.execute();
+                    }
                     if (PlayerInstances.getPlayer().isInvite() == true){
                         AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
                         asyncTaskCheckInviteResult.execute();
@@ -196,6 +209,8 @@ public class MainMenuActivity extends AppCompatActivity
     @Override
     protected void onDestroy()
     {
+        AsyncTaskExit asyncTaskExit = new AsyncTaskExit(getApplicationContext());
+        asyncTaskExit.execute();
         super.onDestroy();
     }
 
