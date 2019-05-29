@@ -22,7 +22,9 @@ import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Adapter.PlayersMenuAdapter;
 import com.example.sipliy.AsyncTasks.AsyncTaskCheckInviteResult;
 import com.example.sipliy.AsyncTasks.AsyncTaskCheckIvite;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckPlay;
 import com.example.sipliy.AsyncTasks.AsyncTaskExit;
+import com.example.sipliy.AsyncTasks.AsyncTaskPlay;
 import com.example.sipliy.AsyncTasks.AsyncTaskStatus;
 import com.example.sipliy.AsyncTasks.AsyncTaskUpdate;
 import com.example.sipliy.Data.MenuPlayers;
@@ -103,16 +105,8 @@ public class MainMenuActivity extends AppCompatActivity
                 switch(v.getId())
                 {
                     case R.id.button_play:
-                        //search.setText("play");
-                        transfer();
-                        for(int i = 0; i < SizePlayers; i++)    //добавление игроков в класс PlayerInstances
-                        {
-                            PlayerInstances.addPlayer(new Player(Players[i]));
-                        }
-                        PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
-                        playerDialogActivity.show(getSupportFragmentManager(), "NoticeData");
-
-                        //startActivity(new Intent(MainMenuActivity.this, GameActivity.clas));
+                        AsyncTaskPlay asyncTaskPlay = new AsyncTaskPlay(getApplicationContext());
+                        asyncTaskPlay.execute();
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
@@ -182,7 +176,7 @@ public class MainMenuActivity extends AppCompatActivity
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("scroll", "onScrollStateChanged");
+                    Log.d("check", String.valueOf(PlayerInstances.getPlayer().isInvite()));
                     if (checkDialogInvite == false){
                         AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
                         asyncTaskCheckIvite.execute();
@@ -192,6 +186,8 @@ public class MainMenuActivity extends AppCompatActivity
                         asyncTaskCheckInviteResult.execute();
                         PlayerInstances.getPlayer().setInvite(false);
                     }
+                    AsyncTaskCheckPlay asyncTaskCheckPlay = new AsyncTaskCheckPlay(getApplicationContext(), getSupportFragmentManager());
+                    asyncTaskCheckPlay.execute();
                 }
             });
 
@@ -212,17 +208,5 @@ public class MainMenuActivity extends AppCompatActivity
         super.onDestroy();
         PlayerInstances.exit();
         MenuPlayers.clearItems();
-    }
-
-    public void transfer()
-    {
-        SizePlayers = MenuPlayers.getSize();
-        for (int i = 0; i < SizePlayers; i++)
-        {
-            if (MenuPlayers.getName(i) != "")
-            {
-                Players[i] = MenuPlayers.getName(i);
-            }
-        }
     }
 }

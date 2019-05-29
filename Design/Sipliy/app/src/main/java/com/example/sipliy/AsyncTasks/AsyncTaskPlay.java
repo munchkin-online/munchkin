@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,16 +22,15 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String> {
-    private String  answerHTTP;
+public class AsyncTaskPlay extends AsyncTask<String, String, String> {
     Context context;
 
-    public AsyncTaskCheckInviteResult(Context context) {
+    public AsyncTaskPlay(Context context) {
         this.context = context;
     }
 
-    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checkinviteresult";
-
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/play";
+///serverRegistration_war_exploded
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -39,29 +39,15 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
-        answerHTTP = performPostCall(server,postDataParams);
-        Log.d("CheckInviteResult",answerHTTP);
+        postDataParams.put("login", String.valueOf(PlayerInstances.getPlayer().getName()));
+        performPostCall(server,postDataParams);
+        Log.d("AsyncTask","Play");
         return null;
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP.equals("0")){
-            Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
-        }
-        else if (answerHTTP.equals("-2")){
-            Toast.makeText(context, "AsyncTaskCheckInviteResult ошибка", Toast.LENGTH_LONG).show();
-        }
-        else if (answerHTTP.equals("-1")){
-
-        }
-        else {
-            Toast.makeText(context, "Игрок принял приглашение", Toast.LENGTH_LONG).show();
-            MenuPlayers.toIvite(answerHTTP);
-        }
     }
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
