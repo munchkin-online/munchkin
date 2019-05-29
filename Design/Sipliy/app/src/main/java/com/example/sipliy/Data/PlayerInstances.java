@@ -32,6 +32,14 @@ public class PlayerInstances    //класс хранящий данные иг�
             return false;
         }
     }
+    public static void exit(){
+        player = null;
+        opponent_1 = null;
+        opponent_2 = null;
+        opponent_3 = null;
+        opponent_4 = null;
+        opponent_5 = null;
+    }
     public static Player getPlayer()
     {
         return player;

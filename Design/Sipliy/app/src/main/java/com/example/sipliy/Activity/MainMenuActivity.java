@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
@@ -60,6 +61,8 @@ public class MainMenuActivity extends AppCompatActivity
     private Button settings;
     private Button exit;
     private ImageView update;
+    TextView playerName;
+    TextView playerId;
 
     private boolean status = false;
 
@@ -86,6 +89,10 @@ public class MainMenuActivity extends AppCompatActivity
         settings = findViewById(R.id.button_settings);
         exit = findViewById(R.id.button_exit);
         update = findViewById(R.id.imageView_update);
+        playerName = findViewById(R.id.playerName);
+        playerId = findViewById(R.id.playerId);
+        playerName.setText(PlayerInstances.getPlayer().getName());
+        playerId.setText(PlayerInstances.getPlayer().getId());
 
 
         View.OnClickListener clickListener = new View.OnClickListener()
@@ -194,15 +201,6 @@ public class MainMenuActivity extends AppCompatActivity
     public void bildRecyclerView()
     {
         MenuPlayers.buildRecyclerView(this, playersList);
-        playersList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (!recyclerView.canScrollVertically(-1)) {
-
-                }
-            }
-        });
     }
 
 
@@ -212,6 +210,8 @@ public class MainMenuActivity extends AppCompatActivity
         AsyncTaskExit asyncTaskExit = new AsyncTaskExit(getApplicationContext());
         asyncTaskExit.execute();
         super.onDestroy();
+        PlayerInstances.exit();
+        MenuPlayers.clearItems();
     }
 
     public void transfer()
