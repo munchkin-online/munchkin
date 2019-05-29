@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private class MyAsyncTask extends AsyncTask<String,String, String> {
         String a, b, answerHTTP;
-        String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/api/registration";
+        String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/registration";
 
         @Override
         protected void onPreExecute() {

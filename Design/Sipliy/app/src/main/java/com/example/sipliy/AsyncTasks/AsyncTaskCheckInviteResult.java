@@ -29,7 +29,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/api/checkinviteresult";
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checkinviteresult";
 
     @Override
     protected void onPreExecute() {
