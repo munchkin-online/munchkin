@@ -49,7 +49,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:fontFamily="@font/segoesc"
-        android:hint="Searh"
+        android:hint="Search"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintEnd_toStartOf="@+id/imageView_search_plus"

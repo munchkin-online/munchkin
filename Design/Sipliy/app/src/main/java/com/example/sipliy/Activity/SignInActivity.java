@@ -78,7 +78,7 @@ public class SignInActivity extends AppCompatActivity {
             postDataParams.put("password",b);
             answerHTTP = performPostCall(server,postDataParams);
             if (Integer.valueOf(answerHTTP)==-1){
-                textView.setText("Player with this username is not exist. Or password is not true");
+                Toast.makeText(getApplicationContext(), "Неправельный логин или пароль", Toast.LENGTH_LONG);
             }
             else{
 

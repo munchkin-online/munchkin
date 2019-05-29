@@ -49,11 +49,14 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void clickBtnRegistr(View view) {
-        if (edtPassword1.getText().toString().equals(edtPassword2.getText().toString())){
+        if(edtLogin.getText().toString().equals("")){
+           Toast.makeText(getApplicationContext(), "Введите логин", Toast.LENGTH_LONG);
+        }
+        else if (edtPassword1.getText().toString().equals(edtPassword2.getText().toString())){
             new MyAsyncTask().execute();
         }
         else{
-            txtResult.setText("Passwords don't match");
+            Toast.makeText(getApplicationContext(), "Пароли не совпадают", Toast.LENGTH_LONG);
         }
     }
 
