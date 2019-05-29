@@ -2,10 +2,11 @@ package com.example.sipliy.AsyncTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
 
@@ -21,15 +22,19 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String> {
+import static com.example.sipliy.Activity.MainMenuActivity.Players;
+
+public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
     private String  answerHTTP;
+    FragmentManager fragmentManager;
     Context context;
 
-    public AsyncTaskCheckInviteResult(Context context) {
+    public AsyncTaskCheckPlay(Context context, FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
         this.context = context;
     }
 
-    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checkinviteresult";
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checkplay";
 
     @Override
     protected void onPreExecute() {
@@ -39,9 +44,9 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("id", String.valueOf(PlayerInstances.getPlayer().getId()));
+        postDataParams.put("login", PlayerInstances.getPlayer().getName());
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("CheckInviteResult",answerHTTP);
+        Log.d("CheckPlay",answerHTTP);
         return null;
     }
 
@@ -49,19 +54,29 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP.equals("0")){
-            Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
-        }
-        else if (answerHTTP.equals("-2")){
-            Toast.makeText(context, "AsyncTaskCheckInviteResult ошибка", Toast.LENGTH_LONG).show();
-        }
-        else if (answerHTTP.equals("-1")){
+        if (answerHTTP.equals("1")){
+            Toast.makeText(context, "Play", Toast.LENGTH_LONG).show();
+            //transfer();
 
+            /*for(int i = 0; i < MenuPlayers.getSize(); i++)    //добавление игроков в класс PlayerInstances
+            {
+                //PlayerInstances.addPlayer(new Player(Players[i]));
+            }
+            PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
+            playerDialogActivity.show(fragmentManager, "NoticeData");*/
         }
-        else {
-            Toast.makeText(context, "Игрок принял приглашение", Toast.LENGTH_LONG).show();
-            MenuPlayers.toIvite(answerHTTP);
-        }
+    }
+
+    public void transfer()
+    {
+//        SizePlayers = MenuPlayers.getSize();
+//        for (int i = 0; i < SizePlayers; i++)
+//        {
+//            if (MenuPlayers.getName(i) != "")
+//            {
+//                Players[i] = MenuPlayers.getName(i);
+//            }
+//        }
     }
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
