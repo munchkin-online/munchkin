@@ -92,7 +92,7 @@ public class MainMenuActivity extends AppCompatActivity
         playerName = findViewById(R.id.playerName);
         playerId = findViewById(R.id.playerId);
         playerName.setText(PlayerInstances.getPlayer().getName());
-        playerId.setText(PlayerInstances.getPlayer().getId());
+        playerId.setText(String.valueOf(PlayerInstances.getPlayer().getId()));
 
 
         View.OnClickListener clickListener = new View.OnClickListener()
@@ -173,7 +173,7 @@ public class MainMenuActivity extends AppCompatActivity
 
         bildRecyclerView(); //cборка листа
         timer = new Timer();
-        timer.schedule(new UpdateTimeTask(), 0, 5000);
+        timer.schedule(new UpdateTimeTask(), 0, 10000);
     }
     class UpdateTimeTask extends TimerTask {
 
