@@ -176,7 +176,7 @@ public class MainMenuActivity extends AppCompatActivity
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("check", String.valueOf(PlayerInstances.getPlayer().isInvite()));
+                    //Log.d("check", String.valueOf(PlayerInstances.getPlayer().isInvite()));
                     if (checkDialogInvite == false){
                         AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
                         asyncTaskCheckIvite.execute();
