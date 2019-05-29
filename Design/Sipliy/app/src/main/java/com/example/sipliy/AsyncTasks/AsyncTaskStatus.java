@@ -30,7 +30,7 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         this.context = context;
     }
 
-    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/status";
+    String server = "http://192.168.1.9:8080/serverRegistration_war_exploded/api/status";
 
     @Override
     protected void onPreExecute() {
