@@ -1,0 +1,43 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/listPreferredItemHeightSmall"
+        android:layout_gravity="end"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:gravity="end|center_vertical"
+        android:paddingStart="?android:attr/listPreferredItemPaddingLeft"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cancelremove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Cancel"
+        app:layout_constraintEnd_toStartOf="@+id/okremove"
+        app:layout_constraintTop_toBottomOf="@+id/checkedTextView" />
+
+    <Button
+        android:id="@+id/okremove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkedTextView" />
+
+</android.support.constraint.ConstraintLayout>
