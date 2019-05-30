@@ -121,6 +121,14 @@ public class Treasures //класс карт сокровищ (общая кол
                 R.drawable.d31032,R.drawable.d11032));
         items.add(new Items(11033, "Паленые Доспехи",2,  2, 1, 1, 1, 400,
                 R.drawable.d31033,R.drawable.d11033));
+        items.add(new Buff(12001, "Мэджик Мисайл!", 5, 300, R.drawable.d12001));
+        items.add(new Buff(12002, "Клевые Шарики", 5, 0, R.drawable.d12002));
+        items.add(new Buff(12003, "Зелье Холодильного Взрыва", 3, 100, R.drawable.d12003));
+        items.add(new Buff(12004, "Зелье Идиотской Храбрости", 2, 100, R.drawable.d12004));
+        items.add(new Buff(12005, "Питье Противно-Спортивное", 2, 200, R.drawable.d12005));
+        items.add(new Buff(12006, "Зелье Жгучего Яда", 3, 100, R.drawable.d12006));
+        items.add(new Buff(12007, "Стакан Яппи", 2, 100, R.drawable.d12007));
+        items.add(new Buff(12008, "Радиоактивноэлектрокислотное Зелье", 5, 200, R.drawable.d12008));
     }
 
     public static void reset()

@@ -11,7 +11,7 @@ public class Buff implements Cards, TreasuresInterface
     private final int IMAGE_ID;
     private int cost;   //стоимость карты
 
-    public Buff(int id, String name, int value, boolean isItForHero, int cost, int im)
+    public Buff(int id, String name, int value, int cost, int im)
     {
         this.ID = id;
         this.name = name;
