@@ -110,7 +110,7 @@ public class GameActivity extends AppCompatActivity
                         }
                         else if(doorsAmount == 0 || doorsAmount == 1)
                         {
-                            doorsAmount++;
+                            //doorsAmount++;
                             final DoorsInterface item = Doors.getItemCard();
                             assert item != null;
                             switch(item.getType())
@@ -127,10 +127,11 @@ public class GameActivity extends AppCompatActivity
                                     if(fightAmount == 0)
                                     {
                                         Log.d(TAG, "onClick3: ");
-                                        fightAmount++;
+                                        //fightAmount++;
                                         BattleDialog battleDialog = new BattleDialog();
                                         battleDialog.setItem(item);
                                         battleDialog.show(getSupportFragmentManager(), "Notice Data");
+
                                     }
                                     else
                                     {
@@ -143,7 +144,7 @@ public class GameActivity extends AppCompatActivity
                         }
                         else
                         {
-                            Toast.makeText(GameActivity.this, "No more doors", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GameActivity.this, "You can't do it more than 2 times", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.sale:

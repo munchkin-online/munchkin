@@ -85,9 +85,12 @@ public class PlayerDecks    //колода игрока
     {
         if(card == null)
             return;
-        treasures.add(card);
-        all.add((Cards) card);
-        update();
+        else
+        {
+            treasures.add(card);
+            all.add((Cards) card);
+            update();
+        }
     }
 
     public ArrayList<Cards> getAll()
@@ -135,12 +138,13 @@ public class PlayerDecks    //колода игрока
         cardsList.setLayoutManager(layoutManagerCards);
         cardsAdapter = new CardsGameAdapter(context, all);
         cardsList.setAdapter(cardsAdapter);
-        cardsAdapter.setOnItemClickListner(new CardsGameAdapter.OnItemClickListener() {
+        cardsAdapter.setOnItemClickListener(new CardsGameAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
                 Cards card = PlayerInstances.getPlayer().getDecks().getAll().get(position);
-                switch (card.getType()){  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
+                switch (card.getType())
+                {  // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
                     case 1:
                         Log.d("isClass", "Classe");
                         PutOnCardDialogActivity putOnCardDialogActivity = new PutOnCardDialogActivity();
@@ -175,7 +179,10 @@ public class PlayerDecks    //колода игрока
                         Log.d("isClass", "LevelUp");
                         Toast.makeText(context, "Это LevelUp", Toast.LENGTH_LONG).show();
                         break;
+                    default:
+                        Log.d("isClass", "onItemClick:" + card.getClass());
                 }
+                Log.d("isClass", "onItemClick:" + card.getClass());
             }
         });
     }

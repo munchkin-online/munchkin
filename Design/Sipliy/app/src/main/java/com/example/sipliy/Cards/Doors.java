@@ -16,7 +16,7 @@ public class Doors
         doors = new ArrayList<>();
         fill();
         spareDoorsDeck = doors;
-        random = new Random();
+        random = new Random(0);
     }
 
     public static DoorsInterface getItemCard()

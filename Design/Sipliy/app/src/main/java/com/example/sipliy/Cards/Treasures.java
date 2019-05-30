@@ -18,7 +18,7 @@ public class Treasures //класс карт сокровищ (общая кол
         items = new ArrayList<>();
         fill();
         spareItemsDeck = items;
-        random = new Random();
+        random = new Random(0);
     }
 
     public static TreasuresInterface getItem()
@@ -29,7 +29,7 @@ public class Treasures //класс карт сокровищ (общая кол
         }
         else
         {
-            return items.get(random.nextInt(items.size() - 1));
+            return items.get(random.nextInt(items.size()));
         }
     }
     public static TreasuresInterface getItemCard()   //удаление карты из колоды с целью вставки ее в колоду игрока
@@ -44,7 +44,7 @@ public class Treasures //класс карт сокровищ (общая кол
         }
         else
         {
-            return items.remove(random.nextInt(items.size() - 1));
+            return items.remove(random.nextInt(items.size()));
         }
     }
 
@@ -77,8 +77,8 @@ public class Treasures //класс карт сокровищ (общая кол
                 R.drawable.d31010, R.drawable.d11010));
         items.add(new Items(11011, "Доспехи Поперек-себя-шире",3,  2, 2, 1, 1, 400,
                 R.drawable.d31011,R.drawable.d11011));
-        items.add(new Items(11012, "Вездешний Щит",4,  4, 1, 4, 1, 600
-                , R.drawable.d31012,R.drawable.d11012));
+        items.add(new Items(11012, "Вездешний Щит",4,  4, 1, 4, 1, 600,
+                R.drawable.d31012,R.drawable.d11012));
         items.add(new Items(11013, "Колготки Великанской Силы",3,  6, 1, 1, 1, 600,
                 R.drawable.d31013,R.drawable.d11013));
         items.add(new Items(11014, "Пафосный Баклер",2,  4, 1, 1, 1, 400,
