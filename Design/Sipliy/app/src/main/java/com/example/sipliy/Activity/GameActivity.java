@@ -128,6 +128,7 @@ public class GameActivity extends AppCompatActivity
                                     {
                                         Log.d(TAG, "onClick3: ");
                                         fightAmount++;
+                                        doorsAmount +=fightAmount;
                                         BattleDialog battleDialog = new BattleDialog();
                                         battleDialog.setItem(item);
                                         battleDialog.show(getSupportFragmentManager(), "Notice Data");

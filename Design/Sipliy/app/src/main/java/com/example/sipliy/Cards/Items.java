@@ -30,6 +30,21 @@ public class Items implements Cards, TreasuresInterface
         this.IMAGE_ID = 0;
         this.ICON_ID = 0;
     }
+
+    public Items(String name, int bonus)
+    {
+        this.ID = 0;
+        this.name = name;
+        this.itemType = 0;
+        this.carrierClass = 0;
+        this.carrierRace = 0;
+        this.carrierSex = 0;
+        this.bonus = bonus;
+        this.cost = 0;
+        this.IMAGE_ID = 0;
+        this.ICON_ID = 0;
+    }
+
     public Items(int ID , String name, int bonus, int itemType, int carrierRace, int carrierClass, int carrierSex, int cost,int ICON_ID, int IMAGE_ID)
     {
         this.ID = ID;
