@@ -24,12 +24,9 @@ public class PlayersMenuAdapter extends RecyclerView.Adapter<PlayersMenuAdapter.
         void onItemClick(int position);
     }
 
-
-
-    public void setOnItemClickListner(OnItemClickListener listner){
+    public void setOnItemClickListner(OnItemClickListener listener){
         this.listener = listener;
     }
-
 
     private List<MenuPlayer> playersList = new ArrayList<>();
 
