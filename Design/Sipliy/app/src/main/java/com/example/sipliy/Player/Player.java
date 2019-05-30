@@ -97,12 +97,12 @@ public class Player
     {
         return level + strengthClothes;
     }
-    public void update()
+    private void update()
     {
         this.strengthClothes = sum();
     }
 
-    public int sum()
+    private int sum()
     {
         int sum = 0;
         for(Items item : thingsOnCharacter)

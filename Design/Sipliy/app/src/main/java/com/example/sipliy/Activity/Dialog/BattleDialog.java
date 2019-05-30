@@ -18,6 +18,7 @@ import com.example.sipliy.Cards.Items;
 import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Data.PlayerInstances;
 import com.example.sipliy.Interaction.GameInteraction;
+import com.example.sipliy.Player.Player;
 import com.example.sipliy.R;
 
 import java.util.Objects;
@@ -44,6 +45,7 @@ public class BattleDialog extends DialogFragment
         strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
         monsterImage.setImageResource(monster.getIMAGE_ID());
 
+        
         builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -24,6 +24,7 @@ import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
 import com.example.sipliy.Cards.Monster;
 import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
@@ -98,7 +99,8 @@ public class GameActivity extends AppCompatActivity
                         }
                         else
                         {
-                            PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
+                            TreasuresInterface treasure = Treasures.getItemCard();
+                            PlayerInstances.getPlayer().addTreasures(treasure);  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
                         }
                         break;
                     case R.id.imageViewDoors:
