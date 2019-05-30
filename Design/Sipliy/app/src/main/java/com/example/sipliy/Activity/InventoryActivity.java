@@ -156,7 +156,15 @@ public class InventoryActivity extends AppCompatActivity {
                 update();
                 break;
             case 4:
-                if(PlayerInstances.getPlayer().getLeftHand().getName() == null)
+                if(PlayerInstances.getPlayer().getRightHand().getName().equals(PlayerInstances.getPlayer().getLeftHand().getName()))
+                {
+                    PlayerInstances.getPlayer().deleteRightHand();
+                    im_r_hand.setImageResource(0);
+                    im_l_hand.setImageResource(IMAGE_ID);
+                    PlayerInstances.getPlayer().setLeftHand(item);
+                    update();
+                }
+                else if(PlayerInstances.getPlayer().getLeftHand().getName() == null)
                 {
                     im_l_hand.setImageResource(IMAGE_ID);
                     PlayerInstances.getPlayer().setLeftHand(item);
@@ -178,14 +186,6 @@ public class InventoryActivity extends AppCompatActivity {
                 {
                     im_r_hand.setImageResource(IMAGE_ID);
                     PlayerInstances.getPlayer().setRightHand(item);
-                    update();
-                }
-                else if(PlayerInstances.getPlayer().getRightHand().getName() == PlayerInstances.getPlayer().getLeftHand().getName())
-                {
-                    PlayerInstances.getPlayer().deleteRightHand();
-                    im_r_hand.setImageResource(0);
-                    im_l_hand.setImageResource(IMAGE_ID);
-                    PlayerInstances.getPlayer().setLeftHand(item);
                     update();
                 }
                 break;

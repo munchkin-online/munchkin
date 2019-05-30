@@ -83,8 +83,7 @@
         <ImageView
             android:id="@+id/im_boots"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -103,8 +102,7 @@
         <ImageView
             android:id="@+id/im_body"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -123,8 +121,7 @@
         <ImageView
             android:id="@+id/im_head"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -143,8 +140,7 @@
         <ImageView
             android:id="@+id/im_l_hand"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <LinearLayout
@@ -163,8 +159,7 @@
         <ImageView
             android:id="@+id/im_r_hand"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout

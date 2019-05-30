@@ -178,7 +178,7 @@ public class Player
 
     public void deleteArmor()
     {
-        this.thingsOnCharacter.set(2, null);
+        this.thingsOnCharacter.set(2, new Items(0));
         update();
     }
 
@@ -195,7 +195,7 @@ public class Player
 
     public void deleteHelmet()
     {
-        this.thingsOnCharacter.set(1, null);
+        this.thingsOnCharacter.set(1, new Items(0));
         update();
     }
 
@@ -212,7 +212,7 @@ public class Player
 
     public void deleteLeftHand()
     {
-        this.thingsOnCharacter.set(3, null);
+        this.thingsOnCharacter.set(3, new Items(0));
         update();
     }
 
@@ -229,7 +229,7 @@ public class Player
 
     public void deleteRightHand()
     {
-        this.thingsOnCharacter.set(4, null);
+        this.thingsOnCharacter.set(4, new Items(0));
         update();
     }
 
