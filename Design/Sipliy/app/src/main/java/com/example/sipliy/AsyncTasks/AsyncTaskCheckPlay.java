@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Data.MenuPlayers;
 import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.sipliy.Activity.MainMenuActivity.Players;
+import static com.example.sipliy.Activity.MainMenuActivity.timer;
 
 public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
     private String  answerHTTP;
@@ -56,13 +58,11 @@ public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
         if (answerHTTP.equals("1")){
             Toast.makeText(context, "Play", Toast.LENGTH_LONG).show();
-            //transfer();
-
-            /*for(int i = 0; i < MenuPlayers.getSize(); i++)    //добавление игроков в класс PlayerInstances
-            {
-                //PlayerInstances.addPlayer(new Player(Players[i]));
+            if(MenuPlayers.getSize() == 1 && !MenuPlayers.getName(0).equals("")){
+                PlayerInstances.addPlayer(new Player(MenuPlayers.getName(0)));
             }
-            */
+            //transfer();
+            timer.cancel();
             PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
             playerDialogActivity.show(fragmentManager, "NoticeData");
         }

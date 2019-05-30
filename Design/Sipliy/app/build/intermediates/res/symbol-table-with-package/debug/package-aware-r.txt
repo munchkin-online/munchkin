@@ -1095,7 +1095,6 @@ id txtResult
 id uniform
 id up
 id useLogo
-id username
 id withText
 id wrap
 id wrap_content
