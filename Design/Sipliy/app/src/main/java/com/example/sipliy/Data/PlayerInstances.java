@@ -44,5 +44,5 @@ public class PlayerInstances    //класс хранящий данные иг�
     {
         return opponents.get(index);
     }
-    
+
 }

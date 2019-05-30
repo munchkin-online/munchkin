@@ -126,6 +126,7 @@ public class GameActivity extends AppCompatActivity
                                     {
                                         Log.d(TAG, "onClick3: ");
                                         fightAmount++;
+                                        doorsAmount = 2;
                                         BattleDialog battleDialog = new BattleDialog();
                                         battleDialog.setItem(item);
                                         battleDialog.show(getSupportFragmentManager(), "Notice Data");
@@ -161,10 +162,7 @@ public class GameActivity extends AppCompatActivity
         doorsView.setOnClickListener(clickListener);
         treasuresView.setOnClickListener(clickListener);
         sale.setOnClickListener(clickListener);
-
-//        for (int i = 0; i < SizePlayers; i++) {
-//            playersAdapter.addItem(Players[i]);
-//        }
+        
     }
 
     @Override
