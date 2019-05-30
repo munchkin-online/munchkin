@@ -17,7 +17,7 @@ public class Items implements Cards, TreasuresInterface
     private int ICON_ID;
     private int IMAGE_ID;
 
-    public Items(int bonus)
+    public Items(int IMAGE_ID)
     {
         this.ID = 0;
         this.name = null;
@@ -25,12 +25,11 @@ public class Items implements Cards, TreasuresInterface
         this.carrierClass = 0;
         this.carrierRace = 0;
         this.carrierSex = 0;
-        this.bonus = bonus;
+        this.bonus = 0;
         this.cost = 0;
         this.IMAGE_ID = 0;
-        this.ICON_ID = 0;
+        this.ICON_ID = IMAGE_ID;
     }
-
     public Items(String name, int bonus)
     {
         this.ID = 0;

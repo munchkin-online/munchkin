@@ -24,6 +24,7 @@ public class RecyclerViewForBuffsInBattle extends RecyclerView.Adapter<RecyclerV
     private ArrayList<Buff> buffsList;
     private Context context;
     private LayoutInflater layoutInflater;
+    public static int sum = 0;
 
     public RecyclerViewForBuffsInBattle(Context context, ArrayList<Buff> list)
     {
@@ -56,17 +57,19 @@ public class RecyclerViewForBuffsInBattle extends RecyclerView.Adapter<RecyclerV
             {
                 if(isChecked)
                 {
-                    BattleDialog.buffValue.add(buffsList.get(i).getValue());
+                    //BattleDialog.buffValue.add(buffsList.get(i).getValue());
+                    sum += buffsList.get(i).getValue();
                 }
                 else
                 {
-                    for(int j = 0; j < BattleDialog.buffValue.size(); j++)
+                    sum -= buffsList.get(i).getValue();
+                    /*for(int j = 0; j < BattleDialog.buffValue.size(); j++)
                     {
                         if(BattleDialog.buffValue.get(j) == buffsList.get(i).getValue())
                         {
                             BattleDialog.buffValue.remove(j);
                         }
-                    }
+                    }*/
                 }
             }
         });
