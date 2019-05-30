@@ -156,9 +156,12 @@ public class InventoryActivity extends AppCompatActivity {
                 update();
                 break;
             case 4:
+<<<<<<< HEAD
                 im_l_hand.setImageResource(IMAGE_ID);
                 PlayerInstances.getPlayer().setLeftHand(item);
                 update();
+=======
+>>>>>>> Design
                 break;
             case 5:
                 im_r_hand.setImageResource(IMAGE_ID);
