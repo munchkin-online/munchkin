@@ -156,13 +156,16 @@ public class InventoryActivity extends AppCompatActivity {
                 update();
                 break;
             case 4:
-                if(PlayerInstances.getPlayer().getRightHand().getName().equals(PlayerInstances.getPlayer().getLeftHand().getName()))
+                if(PlayerInstances.getPlayer().getRightHand().getName() != null && PlayerInstances.getPlayer().getLeftHand().getName() != null)
                 {
-                    PlayerInstances.getPlayer().deleteRightHand();
-                    im_r_hand.setImageResource(0);
-                    im_l_hand.setImageResource(IMAGE_ID);
-                    PlayerInstances.getPlayer().setLeftHand(item);
-                    update();
+                    if(PlayerInstances.getPlayer().getRightHand().getName().equals(PlayerInstances.getPlayer().getLeftHand().getName()))
+                    {
+                        PlayerInstances.getPlayer().deleteRightHand();
+                        im_r_hand.setImageResource(0);
+                        im_l_hand.setImageResource(IMAGE_ID);
+                        PlayerInstances.getPlayer().setLeftHand(item);
+                        update();
+                    }
                 }
                 else if(PlayerInstances.getPlayer().getLeftHand().getName() == null)
                 {
