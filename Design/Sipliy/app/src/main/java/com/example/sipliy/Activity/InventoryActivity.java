@@ -161,6 +161,41 @@ public class InventoryActivity extends AppCompatActivity {
                 PlayerInstances.getPlayer().setLeftHand(item);
                 update();
 =======
+                if(PlayerInstances.getPlayer().getRightHand().getName() != null && PlayerInstances.getPlayer().getLeftHand().getName() != null)
+                {
+                    if(PlayerInstances.getPlayer().getRightHand().getName().equals(PlayerInstances.getPlayer().getLeftHand().getName()))
+                    {
+                        PlayerInstances.getPlayer().deleteRightHand();
+                        im_r_hand.setImageResource(0);
+                        im_l_hand.setImageResource(IMAGE_ID);
+                        PlayerInstances.getPlayer().setLeftHand(item);
+                        update();
+                    }
+                }
+                else if(PlayerInstances.getPlayer().getLeftHand().getName() == null)
+                {
+                    im_l_hand.setImageResource(IMAGE_ID);
+                    PlayerInstances.getPlayer().setLeftHand(item);
+                    update();
+                }
+                else if(PlayerInstances.getPlayer().getRightHand().getName() == null)
+                {
+                    im_r_hand.setImageResource(IMAGE_ID);
+                    PlayerInstances.getPlayer().setRightHand(item);
+                    update();
+                }
+                else if(PlayerInstances.getPlayer().getLeftHand().getBonus() < PlayerInstances.getPlayer().getRightHand().getBonus())
+                {
+                    im_l_hand.setImageResource(IMAGE_ID);
+                    PlayerInstances.getPlayer().setLeftHand(item);
+                    update();
+                }
+                else if(PlayerInstances.getPlayer().getLeftHand().getBonus() > PlayerInstances.getPlayer().getRightHand().getBonus())
+                {
+                    im_r_hand.setImageResource(IMAGE_ID);
+                    PlayerInstances.getPlayer().setRightHand(item);
+                    update();
+                }
 >>>>>>> Design
                 break;
             case 5:
