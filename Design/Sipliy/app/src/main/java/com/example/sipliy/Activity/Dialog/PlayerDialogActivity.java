@@ -47,9 +47,6 @@ public class PlayerDialogActivity extends DialogFragment
                             PlayerInstances.setPlayerSex(1);
                         else
                             PlayerInstances.setPlayerSex(2);
-                        PlayerInstances.addPlayer(new Player("Леха"));
-                        PlayerInstances.addPlayer(new Player("Лешенька"));
-                        PlayerInstances.addPlayer(new Player("Алеша"));
                         startActivity(new Intent(getActivity(), GameActivity.class));
                     }
                 })
