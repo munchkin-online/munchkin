@@ -3991,10 +3991,9 @@ public final class R {
     public static final int uniform=0x7f090104;
     public static final int up=0x7f090105;
     public static final int useLogo=0x7f090106;
-    public static final int username=0x7f090107;
-    public static final int withText=0x7f090108;
-    public static final int wrap=0x7f090109;
-    public static final int wrap_content=0x7f09010a;
+    public static final int withText=0x7f090107;
+    public static final int wrap=0x7f090108;
+    public static final int wrap_content=0x7f090109;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0a0000;

@@ -24,12 +24,12 @@
         "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-hdpi\\character_hat.png"
     },
     {
-        "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable_d20015.png.flat",
-        "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable\\d20015.png"
-    },
-    {
         "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\Ilya\\.gradle\\caches\\transforms-2\\files-2.1\\0ac818355ebf38c6bef718d3f5e7b5b7\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable_d20015.png.flat",
+        "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable\\d20015.png"
     },
     {
         "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_background.png.flat",
@@ -48,12 +48,12 @@
         "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-xhdpi\\list.png"
     },
     {
-        "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_character.png.flat",
-        "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-xxxhdpi\\character.png"
-    },
-    {
         "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_manchkin_icon.png.flat",
         "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-hdpi\\manchkin_icon.png"
+    },
+    {
+        "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_character.png.flat",
+        "source": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-xxxhdpi\\character.png"
     },
     {
         "merged": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_icon_central_button.png.flat",

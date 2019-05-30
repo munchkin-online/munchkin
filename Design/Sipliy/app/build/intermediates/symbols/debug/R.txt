@@ -1094,10 +1094,9 @@ int id txtResult 0x7f090103
 int id uniform 0x7f090104
 int id up 0x7f090105
 int id useLogo 0x7f090106
-int id username 0x7f090107
-int id withText 0x7f090108
-int id wrap 0x7f090109
-int id wrap_content 0x7f09010a
+int id withText 0x7f090107
+int id wrap 0x7f090108
+int id wrap_content 0x7f090109
 int integer abc_config_activityDefaultDur 0x7f0a0000
 int integer abc_config_activityShortDur 0x7f0a0001
 int integer cancel_button_image_alpha 0x7f0a0002

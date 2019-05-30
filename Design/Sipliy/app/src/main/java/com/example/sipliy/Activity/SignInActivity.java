@@ -77,8 +77,9 @@ public class SignInActivity extends AppCompatActivity {
             postDataParams.put("login",a);
             postDataParams.put("password",b);
             answerHTTP = performPostCall(server,postDataParams);
-            if (Integer.valueOf(answerHTTP)==-1){
-                Toast.makeText(getApplicationContext(), "Неправельный логин или пароль", Toast.LENGTH_LONG);
+            if (Integer.valueOf(answerHTTP)==-1)
+            {
+                //Toast.makeText(getApplicationContext(), "Неправельный логин или пароль", Toast.LENGTH_LONG).show();
             }
             else{
 
