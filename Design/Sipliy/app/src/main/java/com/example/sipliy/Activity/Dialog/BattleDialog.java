@@ -33,6 +33,7 @@ public class BattleDialog extends DialogFragment
     private final String TAG = "FUCK";
     private DoorsInterface item;
     private ArrayList<Buff> buffs;
+    public static ArrayList<Integer> buffValue = new ArrayList<>();
     public void setItem(DoorsInterface item)
     {
         this.item = item;
@@ -45,20 +46,20 @@ public class BattleDialog extends DialogFragment
         builder.setCancelable(false);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.battledialog, null);
         ImageView monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
-        TextView strengthInBattle = view.findViewById(R.id.textViewStrenght);
+        final TextView strengthInBattle = view.findViewById(R.id.textViewStrenght);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewForBuffs);
         buffs = PlayerInstances.getPlayer().getDecks().getBuffs();
         final RecyclerViewForBuffsInBattle adapter = new RecyclerViewForBuffsInBattle(getContext(), buffs);
 
-        /*adapter.setOnItemClickListener(new RecyclerViewForBuffsInBattle.ClickListener()
+        adapter.setOnItemClickListener(new RecyclerViewForBuffsInBattle.ClickListener()
         {
             @Override
             public void onItemClick(View view, int position)
             {
-
+                strengthInBattle.setText(Integer.toString(sum()));
             }
-        });*/
+        });
         recyclerView.setAdapter(adapter);
 
         final Monster monster = (Monster) item;
@@ -80,5 +81,14 @@ public class BattleDialog extends DialogFragment
                 });
         builder.setView(view);
         return builder.create();
+    }
+    private int sum()
+    {
+        int sum = 0;
+        for(Buff buff : buffs)
+        {
+            sum += buff.getValue();
+        }
+        return sum;
     }
 }

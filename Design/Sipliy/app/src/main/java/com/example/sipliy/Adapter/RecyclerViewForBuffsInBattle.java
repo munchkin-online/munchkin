@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.example.sipliy.Activity.Dialog.BattleDialog;
 import com.example.sipliy.Cards.Buff;
 import com.example.sipliy.R;
 
@@ -20,23 +22,16 @@ public class RecyclerViewForBuffsInBattle extends RecyclerView.Adapter<RecyclerV
 {
     private static RecyclerViewForBuffsInBattle.ClickListener clickListener;
     private ArrayList<Buff> buffsList;
-    private boolean[] isChecked;
     private Context context;
     private LayoutInflater layoutInflater;
-    private static String TAG = "RecyclerViewForBuffsInBattle";
 
     public RecyclerViewForBuffsInBattle(Context context, ArrayList<Buff> list)
     {
         this.buffsList = list;
-        isChecked = new boolean[list.size()];
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
-    public boolean[] getIsChecked()
-    {
-        return isChecked;
-    }
     public Buff getItem(int position)
     {
         return buffsList.get(position);
@@ -54,13 +49,25 @@ public class RecyclerViewForBuffsInBattle extends RecyclerView.Adapter<RecyclerV
     public void onBindViewHolder(@NonNull final RecyclerViewForBuffsInBattle.ViewHolder viewHolder, final int i)
     {
         viewHolder.checkBox.setText(buffsList.get(i).getName() + " - " + buffsList.get(i).getValue());
-        viewHolder.checkBox.setActivated(false);
-        viewHolder.checkBox.setOnClickListener(new View.OnClickListener()
+        viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
-            public void onClick(View v)
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
-                isChecked[i] = true;
+                if(isChecked)
+                {
+                    BattleDialog.buffValue.add(buffsList.get(i).getValue());
+                }
+                else
+                {
+                    for(int j = 0; j < BattleDialog.buffValue.size(); j++)
+                    {
+                        if(BattleDialog.buffValue.get(j) == buffsList.get(i).getValue())
+                        {
+                            BattleDialog.buffValue.remove(j);
+                        }
+                    }
+                }
             }
         });
     }
@@ -79,7 +86,7 @@ public class RecyclerViewForBuffsInBattle extends RecyclerView.Adapter<RecyclerV
         {
             super(itemView);
             checkBox = itemView.findViewById(R.id.checkBoxForBuffList);
-            //checkBox.setOnClickListener(this);
+            checkBox.setOnClickListener(this);
         }
 
         @Override
