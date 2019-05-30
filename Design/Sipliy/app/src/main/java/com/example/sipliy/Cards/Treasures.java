@@ -79,17 +79,17 @@ public class Treasures //класс карт сокровищ (общая кол
                 R.drawable.d31011,R.drawable.d11011));
         items.add(new Items(11012, "Вездешний Щит",4,  4, 1, 4, 1, 600,
                 R.drawable.d31012,R.drawable.d11012));
-        items.add(new Items(11013, "Колготки Великанской Силы",3,  6, 1, 1, 1, 600,
+        items.add(new Items(11013, "Колготки Великанской Силы",3,  2, 1, 1, 1, 600,
                 R.drawable.d31013,R.drawable.d11013));
         items.add(new Items(11014, "Пафосный Баклер",2,  4, 1, 1, 1, 400,
                 R.drawable.d31014,R.drawable.d11014));
         items.add(new Items(11015, "Небоись-Бандана",3,  1, 5, 1, 1, 400,
                 R.drawable.d31015,R.drawable.d11015));
-        items.add(new Items(11016, "Боевая стремянка",3,  6, 4, 1, 1, 400,
+        items.add(new Items(11016, "Боевая стремянка",3,  5, 4, 1, 1, 400,
                 R.drawable.d31016,R.drawable.d11016));
         items.add(new Items(11017, "Огромная Каменюга",3,  5, 1, 1, 1, 0,
                 R.drawable.d31017,R.drawable.d11017));
-        items.add(new Items(11018, "Плащ Замутнения",4,  6, 1, 5, 1, 600,
+        items.add(new Items(11018, "Плащ Замутнения",4,  2, 1, 5, 1, 600,
                 R.drawable.d31018,R.drawable.d11018));
         items.add(new Items(11019, "Склизкие Доспехи",1,  2, 1, 1, 1, 200,
                 R.drawable.d31019,R.drawable.d11019));
@@ -97,17 +97,17 @@ public class Treasures //класс карт сокровищ (общая кол
                 R.drawable.d31020,R.drawable.d11020));
         items.add(new Items(11021, "Меч Коварного Бастарда",2,  4, 1, 1, 1, 400,
                 R.drawable.d31021,R.drawable.d11021));
-        items.add(new Items(11022, "Острые коленки",1,  6, 1, 1, 1, 200,
+        items.add(new Items(11022, "Острые коленки",1,  3, 1, 1, 1, 200,
                 R.drawable.d31022,R.drawable.d11022));
         items.add(new Items(11023, "Меч Широты Взглядов",3,  4, 1, 1, 3, 400,
                 R.drawable.d31023,R.drawable.d11023));
         items.add(new Items(11024, "Дуб Джентельменов",3,  4, 1, 1, 2, 400,
                 R.drawable.d31024,R.drawable.d11024));
-        items.add(new Items(11025, "Меч Песни и Пляски",2,  6, 1, 1, 1, 400,
+        items.add(new Items(11025, "Меч Песни и Пляски",2,  4, 1, 1, 1, 400,
                 R.drawable.d31025,R.drawable.d11025));
         items.add(new Items(11026, "Коленеотбойный Молоточек",4,  4, 2, 1, 1, 600,
                 R.drawable.d31026,R.drawable.d11026));
-        items.add(new Items(11027, "Сэндвич Запоздалого Прозрения с сыром и селедкой",3,  6, 4, 1, 1, 400,
+        items.add(new Items(11027, "Сэндвич Запоздалого Прозрения с сыром и селедкой",3,  4, 4, 1, 1, 400,
                 R.drawable.d31027,R.drawable.d11027));
         items.add(new Items(11028, "Пойнтовая Шляпа",3,  1, 1, 3, 1, 400,
                 R.drawable.d31028,R.drawable.d11028));
@@ -117,8 +117,8 @@ public class Treasures //класс карт сокровищ (общая кол
                 R.drawable.d31030,R.drawable.d11030));
         items.add(new Items(11031, "Мифрильные Доспехи",3,  2, 1, 1, 1, 600,
                 R.drawable.d31031,R.drawable.d11031));
-        items.add(new Items(11032, "Реально Конкретный Титул",3,  6, 1, 1, 1, 0,
-                R.drawable.d31032,R.drawable.d11032));
+        //items.add(new Items(11032, "Реально Конкретный Титул",3,  6, 1, 1, 1, 0,
+               // R.drawable.d31032,R.drawable.d11032));
         items.add(new Items(11033, "Паленые Доспехи",2,  2, 1, 1, 1, 400,
                 R.drawable.d31033,R.drawable.d11033));
         items.add(new Buff(12001, "Мэджик Мисайл!", 5, 300, R.drawable.d12001));
