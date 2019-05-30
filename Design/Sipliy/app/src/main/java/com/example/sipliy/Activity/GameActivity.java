@@ -110,7 +110,7 @@ public class GameActivity extends AppCompatActivity
                         }
                         else if(doorsAmount == 0 || doorsAmount == 1)
                         {
-                            doorsAmount++;
+                            //doorsAmount++;
                             final DoorsInterface item = Doors.getItemCard();
                             assert item != null;
                             switch(item.getType())

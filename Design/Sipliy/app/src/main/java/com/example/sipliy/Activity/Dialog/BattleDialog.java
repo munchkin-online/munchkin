@@ -57,14 +57,14 @@ public class BattleDialog extends DialogFragment
             @Override
             public void onItemClick(View view, int position)
             {
-                strengthInBattle.setText(Integer.toString(sum()));
+                strengthInBattle.setText(Integer.toString(RecyclerViewForBuffsInBattle.sum + PlayerInstances.getPlayer().getStrength()));
             }
         });
         recyclerView.setAdapter(adapter);
 
         final Monster monster = (Monster) item;
 
-        strengthInBattle.setText(Integer.toString(PlayerInstances.getPlayer().getStrength()));
+        strengthInBattle.setText(Integer.toString(RecyclerViewForBuffsInBattle.sum + PlayerInstances.getPlayer().getStrength()));
         monsterImage.setImageResource(monster.getIMAGE_ID());
 
         builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
