@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inventory_background"
+    tools:context=".Activity.InventoryActivity">
+
+    <TextView
+        android:id="@+id/char_hat"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/character_hat"
+        android:fontFamily="@font/segoesc"
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:paddingRight="30dp"
+        android:text="@string/char_hat"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/character"
+        app:layout_constraintEnd_toEndOf="@+id/character"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/character"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/list_hat"
+        android:layout_width="210dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="510dp"
+        android:layout_marginTop="95dp"
+        android:background="@drawable/character_hat"
+        android:fontFamily="@font/segoesc"
+        android:paddingStart="25dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="10dp"
+        android:text="@string/list_hat"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cbw_list"
+        app:layout_constraintEnd_toEndOf="@+id/cbw_list"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cbw_list"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cbw_list"
+        android:layout_width="210dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="510dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/list"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toEndOf="@+id/character" />
+
+    <ImageView
+        android:id="@+id/exitFromInventory"
+        android:layout_width="77dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="650dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/exitFromInventory"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/list_hat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.981"
+        app:layout_constraintStart_toEndOf="@+id/char_hat"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666"
+        app:srcCompat="@drawable/back_2" />
+
+
+    <ImageView
+        android:id="@+id/character"
+        android:layout_width="200dp"
+        android:layout_height="315dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/character" />
+
+    <TextView
+        android:id="@+id/tv_strength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="130dp"
+        android:fontFamily="@font/segoesc"
+        android:text="Сила"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="180dp"
+        android:text="Уровень"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_race"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="230dp"
+        android:text="Раса"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="280dp"
+        android:text="Класс"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="330dp"
+        android:text="Пол"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_strengthValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="130dp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_levelValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="180dp"
+        android:text="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_raceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="230dp"
+        android:text="Человек"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_classType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="280dp"
+        android:text="N/A"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sexType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoesc"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="330dp"
+        android:text="Мужчина"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_boots"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="310dp"
+        android:background="@drawable/box_for_item"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_boots"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_body"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="205dp"
+        android:background="@drawable/box_for_item"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/box_for_item"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_head"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_r_hand"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="420dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/box_for_item"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_l_hand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_l_hand"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/box_for_item"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_r_hand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
+    </LinearLayout>
+
+</RelativeLayout>
