@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\MyProgram\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+            "outputFile": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ilya\\.gradle\\caches\\transforms-2\\files-2.1\\0ac818355ebf38c6bef718d3f5e7b5b7\\res\\values-v18\\values-v18.xml",
+                    "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
