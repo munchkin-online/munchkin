@@ -76,12 +76,12 @@
         "source": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\layout\\put_on_clothes.xml"
     },
     {
-        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
-    },
-    {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-mdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_character_hat.png.flat",
@@ -164,12 +164,12 @@
         "source": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable-mdpi\\background.png"
     },
     {
-        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
-        "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
-    },
-    {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-ldrtl-hdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
+        "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_light.xml.flat",
@@ -224,12 +224,12 @@
         "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_spinner.xml.flat",
         "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\64d8e7a5bd009289cdd29ac31e44e917\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -1590,6 +1590,10 @@
     {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\Максим\\.gradle\\caches\\transforms-2\\files-2.1\\040aed0af7c9cd77d6c0b13b67dc5bbc\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable_app_icon.png.flat",
+        "source": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\src\\main\\res\\drawable\\app_icon.png"
     },
     {
         "merged": "D:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
