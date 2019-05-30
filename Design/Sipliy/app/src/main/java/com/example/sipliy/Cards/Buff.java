@@ -6,10 +6,10 @@ import com.example.sipliy.Cards.Interface.TreasuresInterface;
 public class Buff implements Cards, TreasuresInterface
 {
     private final int ID; //id карты
-    private String name;    //имя карты
-    private int value;  //значение баффа
+    private final String name;    //имя карты
+    private final int value;  //значение баффа
     private final int IMAGE_ID;
-    private int cost;   //стоимость карты
+    private final int cost;   //стоимость карты
 
     public Buff(int id, String name, int value, int cost, int im)
     {
@@ -21,6 +21,10 @@ public class Buff implements Cards, TreasuresInterface
     }
 
 
+    public int getValue()
+    {
+        return value;
+    }
     @Override
     public int getType() { // 1 - класс, 2 - расы, 3 - монстры, 4 - проклятья, 5 - разовые шмотки, 6 - шмотки, 7 - LevelUp(хз что это)
         return 5;
@@ -47,7 +51,7 @@ public class Buff implements Cards, TreasuresInterface
     @Override
     public int getIMAGE_ID()
     {
-        return 0;
+        return IMAGE_ID;
     }
 
 

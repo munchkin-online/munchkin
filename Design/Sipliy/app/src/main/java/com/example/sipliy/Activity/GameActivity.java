@@ -127,11 +127,11 @@ public class GameActivity extends AppCompatActivity
                                     if(fightAmount == 0)
                                     {
                                         Log.d(TAG, "onClick3: ");
-                                        fightAmount++;
-                                        doorsAmount +=fightAmount;
+                                        //fightAmount++;
                                         BattleDialog battleDialog = new BattleDialog();
                                         battleDialog.setItem(item);
                                         battleDialog.show(getSupportFragmentManager(), "Notice Data");
+
                                     }
                                     else
                                     {

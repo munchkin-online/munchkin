@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/attackTextViewDialog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/battleDialogText" />
@@ -21,39 +20,47 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageViewMonsterDialog"
-            android:layout_width="184dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            tools:srcCompat="@tools:sample/avatars" />
-
         <LinearLayout
-            android:layout_width="96dp"
+            android:layout_width="166dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textYoureStrength"
+            <ImageView
+                android:id="@+id/imageViewMonsterDialog"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/strength" />
+                android:layout_height="159dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                tools:srcCompat="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/textViewStrenght"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="67dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textYoureStrength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/strength" />
+
+                <TextView
+                    android:id="@+id/textViewStrenght"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewForBuffs"
+            android:layout_width="263dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"/>
+    </LinearLayout>
 
 </LinearLayout>

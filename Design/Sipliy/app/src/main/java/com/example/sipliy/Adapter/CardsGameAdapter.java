@@ -34,7 +34,7 @@ public class CardsGameAdapter extends RecyclerView.Adapter<CardsGameAdapter.Play
     {
         void onItemClick(int position);
     }
-    public void setOnItemClickListner(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener){
         this.listener = listener;
     }
 
