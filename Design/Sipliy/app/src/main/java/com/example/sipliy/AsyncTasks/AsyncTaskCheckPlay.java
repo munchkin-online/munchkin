@@ -62,8 +62,9 @@ public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
             {
                 //PlayerInstances.addPlayer(new Player(Players[i]));
             }
+            */
             PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
-            playerDialogActivity.show(fragmentManager, "NoticeData");*/
+            playerDialogActivity.show(fragmentManager, "NoticeData");
         }
     }
 
