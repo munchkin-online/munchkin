@@ -89,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
                 PlayerInstances.addPlayer(new Player(a ,Integer.valueOf(answerHTTP)));
                 Intent intent = new Intent(SignUpActivity.this, MainMenuActivity.class);
                 startActivity(intent);
+                finish();
             }
             return null;
         }

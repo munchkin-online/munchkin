@@ -142,14 +142,13 @@ public class GameActivity extends AppCompatActivity
                         }
                         else
                         {
-                            Toast.makeText(GameActivity.this, "No more doors", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GameActivity.this, "", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.sale:
                         sale();
                         break;
                     case R.id.btn_endTurn:
-                        Log.d(TAG, "EndOfTurn: ");
                         doorsAmount = 0;
                         fightAmount = 0;
                         break;
@@ -162,7 +161,7 @@ public class GameActivity extends AppCompatActivity
         doorsView.setOnClickListener(clickListener);
         treasuresView.setOnClickListener(clickListener);
         sale.setOnClickListener(clickListener);
-        
+
     }
 
     @Override

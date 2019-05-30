@@ -89,6 +89,7 @@ public class SignInActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(SignInActivity.this, MainMenuActivity.class);
                 startActivity(intent);
+                finish();
             }
             textView.setText("id:"+answerHTTP);
             return null;

@@ -30,10 +30,8 @@ import java.util.Objects;
 
 public class BattleDialog extends DialogFragment
 {
-    private final String TAG = "FUCK";
     private DoorsInterface item;
     private ArrayList<Buff> buffs;
-    public static ArrayList<Integer> buffValue = new ArrayList<>();
     public void setItem(DoorsInterface item)
     {
         this.item = item;
@@ -43,7 +41,7 @@ public class BattleDialog extends DialogFragment
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
-        builder.setCancelable(false);
+
         View view = LayoutInflater.from(getContext()).inflate(R.layout.battledialog, null);
         ImageView monsterImage = view.findViewById(R.id.imageViewMonsterDialog);
         final TextView strengthInBattle = view.findViewById(R.id.textViewStrenght);
@@ -67,7 +65,8 @@ public class BattleDialog extends DialogFragment
         strengthInBattle.setText(Integer.toString(RecyclerViewForBuffsInBattle.sum + PlayerInstances.getPlayer().getStrength()));
         monsterImage.setImageResource(monster.getIMAGE_ID());
 
-        builder.setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
+        builder.setCancelable(false)
+                .setNegativeButton("Оступить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 GameInteraction.leave(PlayerInstances.getPlayer());
@@ -75,20 +74,16 @@ public class BattleDialog extends DialogFragment
         })
                 .setPositiveButton("Атаковать", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        GameInteraction.battle(PlayerInstances.getPlayer(), monster);
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        for(Buff buff : RecyclerViewForBuffsInBattle.buffs)
+                        {
+                            PlayerInstances.getPlayer().getDecks().deleteBuff(buff);
+                        }
+                        GameInteraction.battle(PlayerInstances.getPlayer(), monster, RecyclerViewForBuffsInBattle.sum);
                     }
                 });
         builder.setView(view);
         return builder.create();
-    }
-    private int sum()
-    {
-        int sum = 0;
-        for(Buff buff : buffs)
-        {
-            sum += buff.getValue();
-        }
-        return sum;
     }
 }
