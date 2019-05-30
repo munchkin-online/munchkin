@@ -8,6 +8,8 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="28" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
@@ -16,11 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="userLandscape"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.sipliy.GameActivity" />
         <activity
-            android:name="com.example.sipliy.SplashActivity"
+            android:name="com.example.sipliy.Activity.SplashActivity"
             android:screenOrientation="sensorLandscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,23 +29,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.sipliy.SettingsActivity"
+            android:name="com.example.sipliy.Activity.SettingsActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name="com.example.sipliy.MainMenuActivity"
+            android:name="com.example.sipliy.Activity.GameActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name="com.example.sipliy.InventoryActivity"
+            android:name="com.example.sipliy.Activity.MainMenuActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name="com.example.sipliy.Activity.InventoryActivity"
             android:screenOrientation="sensorLandscape" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.sipliy.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>
