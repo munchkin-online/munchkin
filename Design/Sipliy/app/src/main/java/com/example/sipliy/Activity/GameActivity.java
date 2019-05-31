@@ -43,7 +43,7 @@ public class GameActivity extends AppCompatActivity
 {
 
     private RecyclerView playersList;        //лист с игроками
-    private PlayersGameAdapter playersAdapter;   //адаптер для листа
+    public static PlayersGameAdapter playersAdapter;   //адаптер для листа
     private RecyclerView cardsList;
 
 
@@ -103,14 +103,15 @@ public class GameActivity extends AppCompatActivity
                         break;
                     case R.id.imageViewTreasures:
                         if (PlayerInstances.getPlayer().isCanPlay()){
-                            if(Treasures.getItem() == null)
-                            {
-                                Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
-                            }
-                            else
-                            {
-                                PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
-                            }
+//                            if(Treasures.getItem() == null)
+//                            {
+//                                Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
+//                            }
+//                            else
+//                            {
+//                                PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
+//                            }
+                            Toast.makeText(getApplicationContext(), "Вытяните дверь для получения сокровища", Toast.LENGTH_LONG).show();
                         }
                         break;
                     case R.id.imageViewDoors:
@@ -155,7 +156,7 @@ public class GameActivity extends AppCompatActivity
                             }
                             else
                             {
-                                Toast.makeText(GameActivity.this, "", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(GameActivity.this, "Вы исчерпали все попытки", Toast.LENGTH_SHORT).show();
                             }
                         }
                         break;
@@ -168,9 +169,10 @@ public class GameActivity extends AppCompatActivity
                         if (PlayerInstances.getPlayer().isCanPlay()){
                             doorsAmount = 0;
                             fightAmount = 0;
-                            gameTimer.schedule(new UpdateTimeTask(), 0, 10000);
                             AsyncTaskEndTurn asyncTaskEndTurn = new AsyncTaskEndTurn(getApplicationContext());
                             asyncTaskEndTurn.execute();
+                            gameTimer = new Timer();
+                            gameTimer.schedule(new UpdateTimeTask(), 0, 10000);
                         }
                         break;
                 }

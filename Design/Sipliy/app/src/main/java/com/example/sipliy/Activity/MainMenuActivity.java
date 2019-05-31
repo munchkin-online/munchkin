@@ -91,7 +91,7 @@ public class MainMenuActivity extends AppCompatActivity
         play = findViewById(R.id.button_play);
         settings = findViewById(R.id.button_settings);
         exit = findViewById(R.id.button_exit);
-        update = findViewById(R.id.imageView_update);
+        //update = findViewById(R.id.imageView_update);
         playerName = findViewById(R.id.playerName);
         playerId = findViewById(R.id.playerId);
         playerName.setText(PlayerInstances.getPlayer().getName());
@@ -135,10 +135,10 @@ public class MainMenuActivity extends AppCompatActivity
                         Log.d("asyncTask", "status");
                         search.setText(null);
                         break;
-                    case R.id.imageView_update:
+                    /*case R.id.imageView_update:
                         AsyncTaskUpdate asyncTaskUpdate = new AsyncTaskUpdate(getApplicationContext());
                         asyncTaskUpdate.execute();
-                        break;
+                        break;*/
                 }
                 MenuPlayers.getPlayersAdapter().update();
             }

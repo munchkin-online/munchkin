@@ -3,6 +3,7 @@ package com.example.sipliy.Adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -178,6 +179,8 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
             name.setText(String.valueOf(player.getName()));
             level.setText(Integer.toString(player.getLevel()));
             strength.setText(Integer.toString(player.getStrength()));
+            Log.d("player lvl", String.valueOf(player.getLevel()));
+            Log.d("player power", String.valueOf(player.getStrength()));
         }
     }
 }

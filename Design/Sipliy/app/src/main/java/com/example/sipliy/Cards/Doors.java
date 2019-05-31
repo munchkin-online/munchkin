@@ -39,6 +39,10 @@ public class Doors
         }
     }
 
+    public static void clear(){
+        spareDoorsDeck.clear();
+    }
+
     public static DoorsInterface getItem()
     {
         if(doors.size() == 0)
@@ -50,6 +54,15 @@ public class Doors
             return doors.get(doors.size() - 1);
         }
     }
+
+    public static ArrayList<DoorsInterface> getSpareDoorsDeck() {
+        return spareDoorsDeck;
+    }
+
+    public static void setSpareDoorsDeck(ArrayList<DoorsInterface> spareDoorsDeck) {
+        Doors.spareDoorsDeck = spareDoorsDeck;
+    }
+
     public void fill()
     {
         //not_beating_with: 1 - рассовый признак, 2 - классовый признак, 3 - половой признак, 4 - уровневый признак

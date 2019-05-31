@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.sipliy.Activity.GameActivity.gameTimer;
+import static com.example.sipliy.Activity.GameActivity.playersAdapter;
 import static com.example.sipliy.Activity.MainMenuActivity.mainMenuTimer;
 
 public class AsyncTaskCheckEndTurn extends AsyncTask<String, String, String> {
@@ -66,7 +67,9 @@ public class AsyncTaskCheckEndTurn extends AsyncTask<String, String, String> {
         String power = units[1];
 
         PlayerInstances.getOpponent(0).setLevel(Integer.valueOf(lvl));
-        PlayerInstances.getOpponent(0).setLevel(Integer.valueOf(power));
+        PlayerInstances.getOpponent(0).setStrengthClothes(Integer.valueOf(power));
+
+        playersAdapter.notifyDataSetChanged();
 
         ArrayList<String> drs = new ArrayList<>();
         ArrayList<String> trs = new ArrayList<>();
@@ -80,12 +83,15 @@ public class AsyncTaskCheckEndTurn extends AsyncTask<String, String, String> {
         for(int l=i; l<units.length; l++){
             trs.add(units[l]);
         }
-        PlayerInstances.getPlayer().getDecks().clear();
+        //PlayerInstances.getPlayer().getDecks().clear();
+        Doors.clear();
+        Treasures.clear();
         for (String temp : drs){
             for (DoorsInterface door : Doors.getDoors())
             {
                 if(Integer.valueOf(temp) == door.getID()){
-                    PlayerInstances.getOpponent(0).getDecks().addCard(door);
+                    //PlayerInstances.getOpponent(0).getDecks().addCard(door);
+                    Doors.getSpareDoorsDeck().add(door);
                 }
             }
         }
@@ -93,7 +99,8 @@ public class AsyncTaskCheckEndTurn extends AsyncTask<String, String, String> {
             for (TreasuresInterface trrs : Treasures.getItems())
             {
                 if(Integer.valueOf(temp) == trrs.getID()){
-                    PlayerInstances.getOpponent(0).getDecks().addCard(trrs);
+                    //PlayerInstances.getOpponent(0).getDecks().addCard(trrs);
+                    Treasures.getSpareItemsDeck().add(trrs);
                 }
             }
         }

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Fri May 31 01:40:22 MSK 2019
-base.0=D\:\\Android_Projects\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
-=======
-#Fri May 31 01:39:48 MSK 2019
+#Fri May 31 09:17:30 MSK 2019
 base.0=C\:\\Users\\Aver\\Documents\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
->>>>>>> origin/NewFuckingBranch
 path.0=classes.dex
 renamed.0=classes.dex

@@ -5,8 +5,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.Cards.Interface.TreasuresInterface;
+import com.example.sipliy.Cards.Treasures;
 import com.example.sipliy.Data.PlayerInstances;
 
 import java.io.BufferedReader;
@@ -46,14 +48,14 @@ public class AsyncTaskEndTurn extends AsyncTask<String, String, String> {
         int ndoor = PlayerInstances.getPlayer().getDecks().getDoors().size();
 
         String door = "";
-        for(DoorsInterface doorsInterface : PlayerInstances.getPlayer().getDecks().getDoors()){
+        for(DoorsInterface doorsInterface : Doors.getSpareDoorsDeck()){
             door += doorsInterface.getID() + " ";
         }
 
         int ntrs = PlayerInstances.getPlayer().getDecks().getTreasures().size();
 
         String trs = "";
-        for (TreasuresInterface treasuresInterface : PlayerInstances.getPlayer().getDecks().getTreasures()){
+        for (TreasuresInterface treasuresInterface : Treasures.getSpareItemsDeck()){
             trs += treasuresInterface.getID() + " ";
         }
 

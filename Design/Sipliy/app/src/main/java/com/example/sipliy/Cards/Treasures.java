@@ -13,6 +13,18 @@ public class Treasures //класс карт сокровищ (общая кол
     private static ArrayList<TreasuresInterface> items; //колода сокровищ
     private static ArrayList<TreasuresInterface> spareItemsDeck;   //запосная колода, для восстановления после закрытия активити
 
+    public static ArrayList<TreasuresInterface> getSpareItemsDeck() {
+        return spareItemsDeck;
+    }
+
+    public static void setSpareItemsDeck(ArrayList<TreasuresInterface> spareItemsDeck) {
+        Treasures.spareItemsDeck = spareItemsDeck;
+    }
+
+    public static void clear(){
+        spareItemsDeck.clear();
+    }
+
     public Treasures()
     {
         items = new ArrayList<>();

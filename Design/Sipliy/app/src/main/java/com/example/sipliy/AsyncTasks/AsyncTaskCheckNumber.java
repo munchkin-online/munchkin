@@ -64,6 +64,7 @@ public class AsyncTaskCheckNumber extends AsyncTask<String, String, String> {
         }
         else if (answerHTTP.equals("2")){
             PlayerInstances.getPlayer().setCanPlay(true);
+            Toast.makeText(context, "Начался ваш ход", Toast.LENGTH_LONG).show();
             AsyncTaskCheckEndTurn asyncTaskCheckEndTurn = new AsyncTaskCheckEndTurn(context);
             asyncTaskCheckEndTurn.execute();
 
