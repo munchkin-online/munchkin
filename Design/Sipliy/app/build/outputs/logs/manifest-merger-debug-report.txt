@@ -79,7 +79,11 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Aver\.grad
 	android:roundIcon
 		ADDED from C:\Users\Aver\Documents\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:13:9-54
 	android:icon
+<<<<<<< HEAD
+		ADDED from D:\Android_Projects\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:11:9-42
+=======
 		ADDED from C:\Users\Aver\Documents\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:11:9-43
+>>>>>>> origin/NewFuckingBranch
 	android:allowBackup
 		ADDED from C:\Users\Aver\Documents\GitHub\munchkin\Design\Sipliy\app\src\main\AndroidManifest.xml:9:9-35
 	android:theme
