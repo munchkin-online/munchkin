@@ -2,11 +2,14 @@ package com.example.sipliy.AsyncTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
 
+import com.example.sipliy.Activity.Dialog.PlayerDialogActivity;
 import com.example.sipliy.Data.MenuPlayers;
+import com.example.sipliy.Data.PlayerInstances;
+import com.example.sipliy.Player.Player;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,18 +23,19 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
+import static com.example.sipliy.Activity.GameActivity.gameTimer;
+import static com.example.sipliy.Activity.MainMenuActivity.mainMenuTimer;
+
+public class AsyncTaskCheckNumber extends AsyncTask<String, String, String> {
     private String  answerHTTP;
-    private String login;
     Context context;
 
-    public AsyncTaskStatus(String login, Context context) {
-        this.login = login;
+    public AsyncTaskCheckNumber(Context context) {
         this.context = context;
     }
 
-    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/status";
-///serverRegistration_war_exploded
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checknumber";
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -40,26 +44,63 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("login", String.valueOf(login));
+        postDataParams.put("login", PlayerInstances.getPlayer().getName());
+        postDataParams.put("whoplay", PlayerInstances.getOpponent(0).getName());
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("status",answerHTTP);
+        Log.d("CheckNumber",answerHTTP);
         return null;
     }
 
+//0 - number=1 //pervyi hod, pervogo igroka
+//1 - number=2 //pervyi hod, vtorogo igroka
+//-1 - endturn =0 //ne tvoi hod
+//2 - number=-1 //ostalnie hodi
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP.equals("0")){
-            Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT).show();
+        if (answerHTTP.equals("-1")){
+
+        }
+        else if (answerHTTP.equals("2")){
+            PlayerInstances.getPlayer().setCanPlay(true);
+            AsyncTaskCheckEndTurn asyncTaskCheckEndTurn = new AsyncTaskCheckEndTurn(context);
+            asyncTaskCheckEndTurn.execute();
+
+
+            gameTimer.cancel();
+        }
+        else if (answerHTTP.equals("0")){
+            PlayerInstances.getPlayer().setCanPlay(true);
+            PlayerInstances.getPlayer().addTreasures(4);
+            PlayerInstances.getPlayer().addDoors(4);
+
+
+            gameTimer.cancel();
         }
         else if (answerHTTP.equals("1")){
-            Log.d("newStatus","true");
-            MenuPlayers.addItem(String.valueOf(login));
+            PlayerInstances.getPlayer().setCanPlay(true);
+            AsyncTaskCheckEndTurn asyncTaskCheckEndTurn = new AsyncTaskCheckEndTurn(context);
+            asyncTaskCheckEndTurn.execute();
+
+            PlayerInstances.getPlayer().addTreasures(4);
+            PlayerInstances.getPlayer().addDoors(4);
+
+
+            gameTimer.cancel();
         }
-        else {
-            Toast.makeText(context, "Sttus ERROR", Toast.LENGTH_SHORT).show();
-        }
+    }
+
+    public void transfer()
+    {
+//        SizePlayers = MenuPlayers.getSize();
+//        for (int i = 0; i < SizePlayers; i++)
+//        {
+//            if (MenuPlayers.getName(i) != "")
+//            {
+//                Players[i] = MenuPlayers.getName(i);
+//            }
+//        }
     }
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){

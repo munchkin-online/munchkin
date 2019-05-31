@@ -3,10 +3,11 @@ package com.example.sipliy.AsyncTasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
 
-import com.example.sipliy.Data.MenuPlayers;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
+import com.example.sipliy.Data.PlayerInstances;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,18 +21,19 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
+import static com.example.sipliy.Activity.GameActivity.gameTimer;
+import static com.example.sipliy.Activity.MainMenuActivity.mainMenuTimer;
+
+public class AsyncTaskEndTurn extends AsyncTask<String, String, String> {
     private String  answerHTTP;
-    private String login;
     Context context;
 
-    public AsyncTaskStatus(String login, Context context) {
-        this.login = login;
+    public AsyncTaskEndTurn(Context context) {
         this.context = context;
     }
 
-    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/status";
-///serverRegistration_war_exploded
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/endturn";
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -40,27 +42,45 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("login", String.valueOf(login));
+
+        int ndoor = PlayerInstances.getPlayer().getDecks().getDoors().size();
+
+        String door = "";
+        for(DoorsInterface doorsInterface : PlayerInstances.getPlayer().getDecks().getDoors()){
+            door += doorsInterface.getID() + " ";
+        }
+
+        int ntrs = PlayerInstances.getPlayer().getDecks().getTreasures().size();
+
+        String trs = "";
+        for (TreasuresInterface treasuresInterface : PlayerInstances.getPlayer().getDecks().getTreasures()){
+            trs += treasuresInterface.getID() + " ";
+        }
+
+        postDataParams.put("login", PlayerInstances.getPlayer().getName());
+        postDataParams.put("whoplay", PlayerInstances.getOpponent(0).getName());
+        postDataParams.put("lvl", String.valueOf(PlayerInstances.getPlayer().getLevel()));
+        postDataParams.put("power", String.valueOf(PlayerInstances.getPlayer().getStrength()));
+        /*postDataParams.put("ndoors", String.valueOf(ndoor));
+        postDataParams.put("ntrs", String.valueOf(ntrs));*/
+        postDataParams.put("doors", door);
+        postDataParams.put("trs", trs);
+
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("status",answerHTTP);
+        Log.d("EndTurn",String.valueOf(PlayerInstances.getPlayer().getLevel()) + " " + String.valueOf(PlayerInstances.getPlayer().getStrength()));
         return null;
     }
 
+//0 - number=1 //pervyi hod, pervogo igroka
+//1 - number=2 //pervyi hod, vtorogo igroka
+//-1 - endturn =0 //ne tvoi hod
+//2 - number=-1 //ostalnie hodi
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP.equals("0")){
-            Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT).show();
-        }
-        else if (answerHTTP.equals("1")){
-            Log.d("newStatus","true");
-            MenuPlayers.addItem(String.valueOf(login));
-        }
-        else {
-            Toast.makeText(context, "Sttus ERROR", Toast.LENGTH_SHORT).show();
-        }
+        PlayerInstances.getPlayer().setCanPlay(false);
     }
+
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
         URL url;

@@ -21,6 +21,10 @@ public class Treasures //класс карт сокровищ (общая кол
         random = new Random(0);
     }
 
+    public static ArrayList<TreasuresInterface> getItems() {
+        return items;
+    }
+
     public static TreasuresInterface getItem()
     {
         if(items.size() == 0)

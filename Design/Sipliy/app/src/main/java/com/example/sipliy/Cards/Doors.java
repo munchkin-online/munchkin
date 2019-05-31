@@ -19,6 +19,10 @@ public class Doors
         random = new Random();
     }
 
+    public static ArrayList<DoorsInterface> getDoors() {
+        return doors;
+    }
+
     public static DoorsInterface getItemCard()
     {
         if(doors.size() == 0)

@@ -55,7 +55,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     public static String[] Players = new String[3];
     public static int SizePlayers;
-    public static Timer timer;
+    public static Timer mainMenuTimer;
     public static boolean checkDialogInvite = false;
 
     private EditText search;      // строка поиска
@@ -172,8 +172,8 @@ public class MainMenuActivity extends AppCompatActivity
 
 
         bildRecyclerView(); //cборка листа
-        timer = new Timer();
-        timer.schedule(new UpdateTimeTask(), 0, 10000);
+        mainMenuTimer = new Timer();
+        mainMenuTimer.schedule(new UpdateTimeTask(), 0, 10000);
     }
     class UpdateTimeTask extends TimerTask {
 
@@ -183,9 +183,9 @@ public class MainMenuActivity extends AppCompatActivity
                 @Override
                 public void run() {
                     //Log.d("check", String.valueOf(PlayerInstances.getPlayer().isInvite()));
+                    AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
+                    asyncTaskCheckIvite.execute();
                     if (checkDialogInvite == false){
-                        AsyncTaskCheckIvite asyncTaskCheckIvite = new AsyncTaskCheckIvite(MainMenuActivity.this);
-                        asyncTaskCheckIvite.execute();
                     }
                     if (PlayerInstances.getPlayer().isInvite() == true){
                         AsyncTaskCheckInviteResult asyncTaskCheckInviteResult = new AsyncTaskCheckInviteResult(MainMenuActivity.this);
@@ -210,7 +210,7 @@ public class MainMenuActivity extends AppCompatActivity
     {
         AsyncTaskExit asyncTaskExit = new AsyncTaskExit(getApplicationContext());
         asyncTaskExit.execute();
-        timer.cancel();
+        mainMenuTimer.cancel();
         super.onDestroy();
     }
 }

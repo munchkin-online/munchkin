@@ -1,7 +1,5 @@
 package com.example.sipliy.Player;
 
-import android.util.Log;
-
 import com.example.sipliy.Cards.DiscardDecks;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
@@ -28,6 +26,7 @@ public class Player
     private PlayerDecks decks;  //колода карт игрока
     private int id;
     boolean isInvite;
+    boolean canPlay;
 
     public Player(String name,
                   int level,
@@ -54,6 +53,7 @@ public class Player
         this.thingsOnCharacter = things;
         this.decks = new PlayerDecks();
         this.isInvite = false;
+        this.canPlay = false;
     }
 
     public Player(String name)
@@ -75,6 +75,7 @@ public class Player
         }
         this.decks = new PlayerDecks();
         this.isInvite = false;
+        this.canPlay = false;
     }
 
     public int getId() {
@@ -91,6 +92,14 @@ public class Player
 
     public void setInvite(boolean invite) {
         isInvite = invite;
+    }
+
+    public boolean isCanPlay() {
+        return canPlay;
+    }
+
+    public void setCanPlay(boolean canPlay) {
+        this.canPlay = canPlay;
     }
 
     public Player(String name, int id)
@@ -113,6 +122,7 @@ public class Player
         }
         this.decks = new PlayerDecks();
         this.isInvite = false;
+        this.canPlay = false;
     }
 
     public String getName()

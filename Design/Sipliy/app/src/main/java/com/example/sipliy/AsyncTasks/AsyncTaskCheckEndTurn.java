@@ -3,10 +3,13 @@ package com.example.sipliy.AsyncTasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.Gravity;
 import android.widget.Toast;
 
-import com.example.sipliy.Data.MenuPlayers;
+import com.example.sipliy.Cards.Doors;
+import com.example.sipliy.Cards.Interface.DoorsInterface;
+import com.example.sipliy.Cards.Interface.TreasuresInterface;
+import com.example.sipliy.Cards.Treasures;
+import com.example.sipliy.Data.PlayerInstances;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,21 +20,23 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
+import static com.example.sipliy.Activity.GameActivity.gameTimer;
+import static com.example.sipliy.Activity.MainMenuActivity.mainMenuTimer;
+
+public class AsyncTaskCheckEndTurn extends AsyncTask<String, String, String> {
     private String  answerHTTP;
-    private String login;
     Context context;
 
-    public AsyncTaskStatus(String login, Context context) {
-        this.login = login;
+    public AsyncTaskCheckEndTurn(Context context) {
         this.context = context;
     }
 
-    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/status";
-///serverRegistration_war_exploded
+    String server = "http://jws-app-munchkin.1d35.starter-us-east-1.openshiftapps.com/api/checkendturn";
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -40,27 +45,61 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         HashMap<String,String> postDataParams = new HashMap<>();
-        postDataParams.put("login", String.valueOf(login));
+        postDataParams.put("login", PlayerInstances.getPlayer().getName());
+        postDataParams.put("whoplay", PlayerInstances.getOpponent(0).getName());
         answerHTTP = performPostCall(server,postDataParams);
-        Log.d("status",answerHTTP);
+
         return null;
     }
+
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
-        if (answerHTTP.equals("0")){
-            Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT).show();
+
+        Log.d("checkendturn", answerHTTP);
+
+        String[] units = answerHTTP.split(" ");
+
+
+        String lvl = units[0];
+        String power = units[1];
+
+        PlayerInstances.getOpponent(0).setLevel(Integer.valueOf(lvl));
+        PlayerInstances.getOpponent(0).setLevel(Integer.valueOf(power));
+
+        ArrayList<String> drs = new ArrayList<>();
+        ArrayList<String> trs = new ArrayList<>();
+
+        int i = 2;
+        while ((i < units.length)&&(!units[i].equals("|"))){
+            drs.add(units[i]);
+            i++;
         }
-        else if (answerHTTP.equals("1")){
-            Log.d("newStatus","true");
-            MenuPlayers.addItem(String.valueOf(login));
+        i++;
+        for(int l=i; l<units.length; l++){
+            trs.add(units[l]);
         }
-        else {
-            Toast.makeText(context, "Sttus ERROR", Toast.LENGTH_SHORT).show();
+        PlayerInstances.getPlayer().getDecks().clear();
+        for (String temp : drs){
+            for (DoorsInterface door : Doors.getDoors())
+            {
+                if(Integer.valueOf(temp) == door.getID()){
+                    PlayerInstances.getOpponent(0).getDecks().addCard(door);
+                }
+            }
         }
+        for (String temp : trs){
+            for (TreasuresInterface trrs : Treasures.getItems())
+            {
+                if(Integer.valueOf(temp) == trrs.getID()){
+                    PlayerInstances.getOpponent(0).getDecks().addCard(trrs);
+                }
+            }
+        }
+        Log.d("CheckEndTurn", lvl + " " + power);
     }
+
 
     public String performPostCall(String requestUrl, HashMap<String, String> postDataParams){
         URL url;

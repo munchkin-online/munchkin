@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.example.sipliy.Activity.MainMenuActivity.Players;
-import static com.example.sipliy.Activity.MainMenuActivity.timer;
+import static com.example.sipliy.Activity.MainMenuActivity.mainMenuTimer;
 
 public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
     private String  answerHTTP;
@@ -62,7 +62,7 @@ public class AsyncTaskCheckPlay extends AsyncTask<String, String, String> {
                 PlayerInstances.addPlayer(new Player(MenuPlayers.getName(0)));
             }
             //transfer();
-            timer.cancel();
+            mainMenuTimer.cancel();
             PlayerDialogActivity playerDialogActivity = new PlayerDialogActivity(); //открытие диалового окна с просьбой ввести пол и имя
             playerDialogActivity.show(fragmentManager, "NoticeData");
         }

@@ -22,6 +22,11 @@ import com.example.sipliy.Activity.Dialog.MenuDialogActivity;
 import com.example.sipliy.Activity.Dialog.RemoveCardsDialogActivity;
 import com.example.sipliy.Activity.Dialog.SaleDialogActivity;
 import com.example.sipliy.Adapter.PlayersGameAdapter;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckInviteResult;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckIvite;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckNumber;
+import com.example.sipliy.AsyncTasks.AsyncTaskCheckPlay;
+import com.example.sipliy.AsyncTasks.AsyncTaskEndTurn;
 import com.example.sipliy.Cards.Doors;
 import com.example.sipliy.Cards.Interface.DoorsInterface;
 import com.example.sipliy.Cards.Monster;
@@ -31,6 +36,8 @@ import com.example.sipliy.Interaction.GameInteraction;
 import com.example.sipliy.R;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity
 {
@@ -49,6 +56,7 @@ public class GameActivity extends AppCompatActivity
     private TextView strengthInBattle;
 
     private Button endTurn; //кнопка конца хода
+    public static Timer gameTimer;
 
     private ImageView monsterImage;
     private ImageView sale;
@@ -75,9 +83,10 @@ public class GameActivity extends AppCompatActivity
         gameInteraction = new GameInteraction();    //создание управление игрой
         findViewById();
         update();
-        PlayerInstances.getPlayer().addTreasures(4);
-        PlayerInstances.getPlayer().addDoors(4);
+//        PlayerInstances.getPlayer().addTreasures(4);
+//        PlayerInstances.getPlayer().addDoors(4);
         buildRecyclerView();
+
 
 
         View.OnClickListener clickListener = new View.OnClickListener()
@@ -88,80 +97,110 @@ public class GameActivity extends AppCompatActivity
                 switch (v.getId())
                 {
                     case R.id.player_icon:
-                        //search.setText("play");
-                        startActivity(new Intent(GameActivity.this, InventoryActivity.class));
+                        if (PlayerInstances.getPlayer().isCanPlay()){
+                            startActivity(new Intent(GameActivity.this, InventoryActivity.class));
+                        }
                         break;
                     case R.id.imageViewTreasures:
-                        if(Treasures.getItem() == null)
-                        {
-                            Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
+                        if (PlayerInstances.getPlayer().isCanPlay()){
+                            if(Treasures.getItem() == null)
+                            {
+                                Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                PlayerInstances.getPlayer().addTreasures(Treasures.getItemCard());  //при нажатии на иконку сокровищ, в руку игрока добавляется сокровище
+                            }
                         }
                         break;
                     case R.id.imageViewDoors:
-                        if(Doors.getItem() == null)
-                        {
-                            Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
-                        }
-                        else if(doorsAmount == 0 || doorsAmount == 1)
-                        {
-                            doorsAmount++;
-                            final DoorsInterface item = Doors.getItemCard();
-                            assert item != null;
-                            switch(item.getType())
+                        if (PlayerInstances.getPlayer().isCanPlay()){
+                            if(Doors.getItem() == null)
                             {
-                                case 1:
-                                    Log.d(TAG, "onClick1: ");
-                                    PlayerInstances.getPlayer().addDoors(item);
-                                    break;
-                                case 2:
-                                    Log.d(TAG, "onClick2: ");
-                                    PlayerInstances.getPlayer().addDoors(item);
-                                    break;
-                                case 3:
-                                    if(fightAmount == 0)
-                                    {
-                                        Log.d(TAG, "onClick3: ");
-                                        fightAmount++;
-                                        doorsAmount = 2;
-                                        BattleDialog battleDialog = new BattleDialog();
-                                        battleDialog.setItem(item);
-                                        battleDialog.show(getSupportFragmentManager(), "Notice Data");
-                                    }
-                                    else
-                                    {
-                                        PlayerInstances.getPlayer().addDoors(item);
-                                    }
-                                    break;
-                                case 4:
-                                    break;
+                                Toast.makeText(GameActivity.this, "Deck is empty", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else
-                        {
-                            Toast.makeText(GameActivity.this, "", Toast.LENGTH_SHORT).show();
+                            else if(doorsAmount == 0 || doorsAmount == 1)
+                            {
+                                doorsAmount++;
+                                final DoorsInterface item = Doors.getItemCard();
+                                assert item != null;
+                                switch(item.getType())
+                                {
+                                    case 1:
+                                        Log.d(TAG, "onClick1: ");
+                                        PlayerInstances.getPlayer().addDoors(item);
+                                        break;
+                                    case 2:
+                                        Log.d(TAG, "onClick2: ");
+                                        PlayerInstances.getPlayer().addDoors(item);
+                                        break;
+                                    case 3:
+                                        if(fightAmount == 0)
+                                        {
+                                            Log.d(TAG, "onClick3: ");
+                                            fightAmount++;
+                                            doorsAmount = 2;
+                                            BattleDialog battleDialog = new BattleDialog();
+                                            battleDialog.setItem(item);
+                                            battleDialog.show(getSupportFragmentManager(), "Notice Data");
+                                        }
+                                        else
+                                        {
+                                            PlayerInstances.getPlayer().addDoors(item);
+                                        }
+                                        break;
+                                    case 4:
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Toast.makeText(GameActivity.this, "", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         break;
                     case R.id.sale:
-                        sale();
+                        if (PlayerInstances.getPlayer().isCanPlay()){
+                            sale();
+                        }
                         break;
                     case R.id.btn_endTurn:
-                        doorsAmount = 0;
-                        fightAmount = 0;
+                        if (PlayerInstances.getPlayer().isCanPlay()){
+                            doorsAmount = 0;
+                            fightAmount = 0;
+                            gameTimer.schedule(new UpdateTimeTask(), 0, 10000);
+                            AsyncTaskEndTurn asyncTaskEndTurn = new AsyncTaskEndTurn(getApplicationContext());
+                            asyncTaskEndTurn.execute();
+                        }
                         break;
                 }
             }
         };
-
         endTurn.setOnClickListener(clickListener);
         player_icon.setOnClickListener(clickListener);
         doorsView.setOnClickListener(clickListener);
         treasuresView.setOnClickListener(clickListener);
         sale.setOnClickListener(clickListener);
+        if (!PlayerInstances.getPlayer().isCanPlay()){
+            gameTimer = new Timer();
+            gameTimer.schedule(new UpdateTimeTask(), 0, 10000);
+            playersAdapter.notifyDataSetChanged();
+        }
+    }
 
+    class UpdateTimeTask extends TimerTask {
+
+        @Override
+        public void run() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    AsyncTaskCheckNumber asyncTaskCheckNumber = new AsyncTaskCheckNumber(getApplicationContext());
+                    asyncTaskCheckNumber.execute();
+                }
+            });
+
+        }
     }
 
     @Override
@@ -184,8 +223,6 @@ public class GameActivity extends AppCompatActivity
 
         PlayerInstances.getPlayer().getDecks().buildRecyclerView(this, cardsList);
         playersAdapter.addPlayer(PlayerInstances.getOpponent(0));
-        playersAdapter.addPlayer(PlayerInstances.getOpponent(1));
-        playersAdapter.addPlayer(PlayerInstances.getOpponent(2));
     }
     private void findViewById()
     {

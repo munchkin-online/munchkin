@@ -53,7 +53,7 @@ public class AsyncTaskCheckInviteResult extends AsyncTask<String, String, String
             Toast.makeText(context, "Игрок отклонил приглашение", Toast.LENGTH_LONG).show();
             PlayerInstances.getPlayer().setInvite(false);
         }
-        else if (answerHTTP.equals("-2")){
+        else if (answerHTTP.equals("")){
             Toast.makeText(context, "AsyncTaskCheckInviteResult ошибка", Toast.LENGTH_LONG).show();
         }
         else if (answerHTTP.equals("-1")){

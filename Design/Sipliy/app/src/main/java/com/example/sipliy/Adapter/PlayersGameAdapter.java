@@ -31,6 +31,10 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         this.listener = listener;
     }
 
+    public void update(){
+        notifyDataSetChanged();
+}
+
 
 
 //    public void setItems(Collection<MenuPlayer> plaers){

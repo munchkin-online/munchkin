@@ -1,4 +1,4 @@
-#Fri May 31 01:39:48 MSK 2019
+#Fri May 31 08:14:33 MSK 2019
 base.0=C\:\\Users\\Aver\\Documents\\GitHub\\munchkin\\Design\\Sipliy\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
 path.0=classes.dex
 renamed.0=classes.dex
