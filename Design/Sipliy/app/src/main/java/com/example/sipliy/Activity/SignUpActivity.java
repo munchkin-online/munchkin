@@ -45,7 +45,6 @@ public class SignUpActivity extends AppCompatActivity {
         edtLogin = findViewById(R.id.edtLogin);
         edtPassword1 = findViewById(R.id.edtPassword1);
         edtPassword2 = findViewById(R.id.edtPassword2);
-        txtResult = findViewById(R.id.txtResult);
     }
 
     public void clickBtnRegistr(View view) {
@@ -78,19 +77,6 @@ public class SignUpActivity extends AppCompatActivity {
             postDataParams.put("password",b);
 
             answerHTTP = performPostCall(server,postDataParams);
-            if (-1 == Integer.valueOf(answerHTTP)) {
-                txtResult.setText("Player with this username already exists. Try again.");
-            }
-            else{
-                txtResult.setText("id:"+answerHTTP);
-                /*SharedPreferences.Editor editor = mSettings.edit();
-                editor.putString(APP_PREFERENCES_ID, answerHTTP);
-                editor.apply();*/
-                PlayerInstances.addPlayer(new Player(a ,Integer.valueOf(answerHTTP)));
-                Intent intent = new Intent(SignUpActivity.this, MainMenuActivity.class);
-                startActivity(intent);
-                finish();
-            }
             return null;
         }
 
@@ -98,6 +84,14 @@ public class SignUpActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Toast toast = Toast.makeText(getApplicationContext(),answerHTTP,Toast.LENGTH_SHORT);
+            if (-1 == Integer.valueOf(answerHTTP)) {
+                Toast.makeText(getApplicationContext(), "Пользователь с таким именем уже существует", Toast.LENGTH_LONG).show();
+            }
+            else{
+                PlayerInstances.addPlayer(new Player(a ,Integer.valueOf(answerHTTP)));
+                Intent intent = new Intent(SignUpActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
         }
     }
 

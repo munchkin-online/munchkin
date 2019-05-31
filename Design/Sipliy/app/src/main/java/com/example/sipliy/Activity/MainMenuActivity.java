@@ -2,6 +2,7 @@ package com.example.sipliy.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -54,7 +55,7 @@ public class MainMenuActivity extends AppCompatActivity
 
     public static String[] Players = new String[3];
     public static int SizePlayers;
-    Timer timer;
+    public static Timer timer;
     public static boolean checkDialogInvite = false;
 
     private EditText search;      // строка поиска
@@ -107,6 +108,7 @@ public class MainMenuActivity extends AppCompatActivity
                     case R.id.button_play:
                         AsyncTaskPlay asyncTaskPlay = new AsyncTaskPlay(getApplicationContext());
                         asyncTaskPlay.execute();
+                        play.setTextColor(Color.GREEN);
                         break;
                     case R.id.button_exit:
                         search.setText("exit");
@@ -117,14 +119,18 @@ public class MainMenuActivity extends AppCompatActivity
                         break;
                     case R.id.imageView_search_plus:
                         status = false;
-                        if (String.valueOf(search.getText()) != PlayerInstances.getPlayer().getName())
+                        if (String.valueOf(search.getText()).equals(PlayerInstances.getPlayer().getName()))
                         {
-                            AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus(String.valueOf(search.getText()), getApplicationContext());
-                            asyncTaskStatus.execute();
+                            Toast.makeText(getApplicationContext(), "Вы приглашете самого себя", Toast.LENGTH_LONG).show();
+                        }
+                        else if (String.valueOf(search.getText()).equals(""))
+                        {
+                            Toast.makeText(getApplicationContext(), "Введите логин игрока", Toast.LENGTH_LONG).show();
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(), "Вы приглашете самого себя", Toast.LENGTH_LONG).show();
+                            AsyncTaskStatus asyncTaskStatus = new AsyncTaskStatus(String.valueOf(search.getText()), getApplicationContext());
+                            asyncTaskStatus.execute();
                         }
                         Log.d("asyncTask", "status");
                         search.setText(null);
@@ -204,6 +210,7 @@ public class MainMenuActivity extends AppCompatActivity
     {
         AsyncTaskExit asyncTaskExit = new AsyncTaskExit(getApplicationContext());
         asyncTaskExit.execute();
+        timer.cancel();
         super.onDestroy();
     }
 }

@@ -51,9 +51,7 @@ public class AsyncTaskStatus  extends AsyncTask<String, String, String> {
         super.onPostExecute(result);
         Toast toast = Toast.makeText(context,answerHTTP,Toast.LENGTH_SHORT);
         if (Integer.valueOf(answerHTTP)==0){
-            Toast toast2 = Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT);
-            toast2.setGravity(Gravity.BOTTOM, 0, 0);
-            toast2.show();
+            Toast.makeText(context, "Игрок не в сети", Toast.LENGTH_SHORT).show();
         }
         else if (Integer.valueOf(answerHTTP)==1){
             Log.d("newStatus","true");

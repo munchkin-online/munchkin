@@ -42,7 +42,6 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        textView = (TextView) findViewById(R.id.textView);
         edtLogin = (EditText) findViewById(R.id.edtLogin);
         edtPassword = (EditText) findViewById(R.id.edtPassword);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
@@ -77,22 +76,6 @@ public class SignInActivity extends AppCompatActivity {
             postDataParams.put("login",a);
             postDataParams.put("password",b);
             answerHTTP = performPostCall(server,postDataParams);
-            if (Integer.valueOf(answerHTTP)==-1)
-            {
-                //Toast.makeText(getApplicationContext(), "Неправельный логин или пароль", Toast.LENGTH_LONG).show();
-            }
-            else{
-
-                /*SharedPreferences.Editor editor = mSettings.edit();
-                editor.putString(APP_PREFERENCES_ID, answerHTTP);
-                editor.apply();*/
-                PlayerInstances.addPlayer(new Player(a ,Integer.valueOf(answerHTTP)));
-
-                Intent intent = new Intent(SignInActivity.this, MainMenuActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            textView.setText("id:"+answerHTTP);
             return null;
         }
 
@@ -100,6 +83,21 @@ public class SignInActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Toast toast = Toast.makeText(getApplicationContext(),answerHTTP,Toast.LENGTH_SHORT);
+            if (Integer.valueOf(answerHTTP)==-1){
+                Toast.makeText(getApplicationContext(), "Неправельный логин или пароль", Toast.LENGTH_LONG).show();
+            }
+            else if(Integer.valueOf(answerHTTP)==0){
+                Toast.makeText(getApplicationContext(), "Этот пользователь уже в сети", Toast.LENGTH_LONG).show();
+            }
+            else{
+                PlayerInstances.addPlayer(new Player(a ,Integer.valueOf(answerHTTP)));
+                edtLogin.setText(null);
+                edtPassword.setText(null);
+
+                Intent intent = new Intent(SignInActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+
         }
     }
 
